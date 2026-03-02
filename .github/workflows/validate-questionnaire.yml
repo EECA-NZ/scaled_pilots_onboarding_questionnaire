@@ -1,0 +1,32 @@
+name: Validate Questionnaire
+
+on:
+  pull_request:
+    paths:
+      - "questionnaire/**"
+      - "scripts/**"
+      - ".github/workflows/validate-questionnaire.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pyyaml
+
+      - name: Validate questionnaire
+        run: python scripts/validate_questionnaire.py
+
+      - name: Build review outputs
+        run: python scripts/build_questionnaire_outputs.py

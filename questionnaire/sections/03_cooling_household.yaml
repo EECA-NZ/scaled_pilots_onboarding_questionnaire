@@ -1,0 +1,97 @@
+section_id: COOLING_HOUSEHOLD
+section_title: Cooling and household
+source: HEEP2 Light Survey Dec 2023
+questions:
+  - id: COOL_18
+    section: Cooling
+    question_text: Do you ever use a heat pump or air conditioner for cooling in summer? Please select one option.
+    response_type: single_choice
+    options:
+      - code: YES_OFTEN
+        label: Yes - often
+      - code: YES_SOMETIMES
+        label: Yes - sometimes
+      - code: YES_RARELY
+        label: Yes - rarely
+      - code: NO_NEVER
+        label: No never
+      - code: NOT_APPLICABLE
+        label: Not applicable - no heat pump/air conditioner
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: TODO - Confirm whether source wording "No never" should be normalized to "No - never" in future revision.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 6
+
+  - id: HH_19
+    section: About the household
+    question_text: How many people are usually resident in your house or flat? Please enter a number for adults and children usually resident.
+    response_type: numeric
+    options:
+      - code: ADULTS_18_PLUS
+        label: Adults (aged 18 or over)
+      - code: CHILDREN_UNDER_18
+        label: Children (aged under 18)
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: Numeric entries are expected for both adults and children.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 6
+
+  - id: HH_20
+    section: About the household
+    question_text: Do you own or rent the house or flat where you live? Please select one option.
+    response_type: single_choice
+    options:
+      - code: OWN
+        label: Own
+      - code: RENT
+        label: Rent
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Question 21 applies to renters (inferred from wording "If you rent your home").
+      rules:
+        - if_option_code: RENT
+          goto_question_id: HH_21
+    notes: TODO - Source does not explicitly show skip behavior for non-renters; logic above is inferred.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 6
+
+  - id: HH_21
+    section: About the household
+    question_text: "If you rent your home: Who owns this dwelling? Please select one option."
+    response_type: single_choice
+    options:
+      - code: PRIVATE_PERSON
+        label: Private person
+      - code: PRIVATE_TRUST
+        label: Private trust
+      - code: LOCAL_AUTHORITY_COUNCIL
+        label: Local authority or council
+      - code: KAINGA_ORA
+        label: Kāinga Ora (Housing New Zealand)
+      - code: OTHER_STATE_OWNED_ENTITY
+        label: Other state-owned corporation, state-owned enterprise or government department
+      - code: BUSINESS_OR_ORGANISATION
+        label: Business or other organisation
+      - code: OTHER
+        label: Other
+    allow_other: true
+    required: false
+    skip_logic:
+      human: Asked when Question 20 response is RENT.
+      rules: []
+    notes: Skip condition inferred from question lead-in.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 6

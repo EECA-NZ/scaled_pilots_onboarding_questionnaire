@@ -1,0 +1,260 @@
+section_id: HOT_WATER_HEATING
+section_title: Hot water and heating
+source: HEEP2 Light Survey Dec 2023
+questions:
+  - id: HW_11
+    section: About your house or flat
+    question_text: What type of hot water system(s) do you have? Please select as many as apply.
+    response_type: multi_choice
+    options:
+      - code: CYLINDER_ELECTRIC
+        label: Cylinder - electric
+      - code: CYLINDER_HEAT_PUMP
+        label: Cylinder - heat pump
+      - code: CYLINDER_NATURAL_GAS
+        label: Cylinder - natural gas
+      - code: CYLINDER_LPG
+        label: Cylinder - LPG
+      - code: INSTANT_ELECTRIC
+        label: Instantaneous - electric
+      - code: INSTANT_NATURAL_GAS
+        label: Instantaneous - natural gas
+      - code: INSTANT_LPG
+        label: Instantaneous - LPG
+      - code: WETBACK
+        label: Wetback
+      - code: SOLAR_WATER_HEATING
+        label: Solar water heating
+      - code: OTHER
+        label: Other
+      - code: NO_SYSTEM
+        label: No hot water supply/system
+      - code: UNSURE
+        label: Unsure
+    allow_other: true
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: TODO - Confirm handling of potentially contradictory selections (e.g., "No system" with system selections).
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 4
+
+  - id: HEAT_12
+    section: Heating
+    question_text: How often do you usually heat your main living area in winter? Please select one option.
+    response_type: single_choice
+    options:
+      - code: EVERY_DAY
+        label: Every day
+      - code: MOST_DAYS
+        label: Most days
+      - code: SOME_DAYS
+        label: Some days
+      - code: HARDLY_EVER
+        label: Hardly ever
+      - code: NEVER
+        label: Never
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If NEVER, go to Question 14.
+      rules:
+        - if_option_code: NEVER
+          goto_question_id: HEAT_14
+    notes: Source clarifies "main living area" as the largest if multiple living areas exist.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 4
+
+  - id: HEAT_13
+    section: Heating
+    question_text: What appliance(s) do you use to heat your main living area? Please select all that apply.
+    response_type: multi_choice
+    options:
+      - code: HEAT_PUMP
+        label: Heat pump
+      - code: ENCLOSED_WOOD_BURNER
+        label: Enclosed wood burner
+      - code: PELLET_BURNER
+        label: Pellet burner
+      - code: OPEN_FIRE
+        label: Open fire
+      - code: FIXED_ELECTRIC_HEATER
+        label: Fixed electric heater
+      - code: FIXED_GAS_HEATER
+        label: Fixed gas heater
+      - code: PORTABLE_ELECTRIC_HEATER
+        label: Portable electric heater
+      - code: PORTABLE_GAS_HEATER
+        label: Portable gas heater
+      - code: CENTRAL_HEATING
+        label: Central heating
+      - code: DUCTED_HEAT_PUMP
+        label: Ducted heat pump
+      - code: UNDERFLOOR_HEATING
+        label: Underfloor heating
+      - code: OTHER
+        label: Other
+      - code: UNSURE
+        label: Unsure
+    allow_other: true
+    required: false
+    skip_logic:
+      human: Asked when Question 12 is not NEVER.
+      rules: []
+    notes: Skip condition inferred from Question 12 instruction.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 4
+
+  - id: HEAT_14
+    section: Heating
+    question_text: How often do you usually heat your bedroom in winter? Please select one option.
+    response_type: single_choice
+    options:
+      - code: EVERY_DAY
+        label: Every day
+      - code: MOST_DAYS
+        label: Most days
+      - code: SOME_DAYS
+        label: Some days
+      - code: HARDLY_EVER
+        label: Hardly ever
+      - code: NEVER
+        label: Never
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If NEVER, go to Question 16.
+      rules:
+        - if_option_code: NEVER
+          goto_question_id: HEAT_16
+    notes: None.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 4
+
+  - id: HEAT_15
+    section: Heating
+    question_text: What appliance(s) do you use to heat your bedroom? Please select all that apply.
+    response_type: multi_choice
+    options:
+      - code: HEAT_PUMP
+        label: Heat pump
+      - code: ENCLOSED_WOOD_BURNER
+        label: Enclosed wood burner
+      - code: PELLET_BURNER
+        label: Pellet burner
+      - code: OPEN_FIRE
+        label: Open fire
+      - code: FIXED_ELECTRIC_HEATER
+        label: Fixed electric heater
+      - code: FIXED_GAS_HEATER
+        label: Fixed gas heater
+      - code: PORTABLE_ELECTRIC_HEATER
+        label: Portable electric heater
+      - code: PORTABLE_GAS_HEATER
+        label: Portable gas heater
+      - code: CENTRAL_HEATING
+        label: Central heating
+      - code: DUCTED_HEAT_PUMP
+        label: Ducted heat pump
+      - code: UNDERFLOOR_HEATING
+        label: Underfloor heating
+      - code: OTHER
+        label: Other
+      - code: UNSURE
+        label: Unsure
+    allow_other: true
+    required: false
+    skip_logic:
+      human: Asked when Question 14 is not NEVER.
+      rules: []
+    notes: Skip condition inferred from Question 14 instruction.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 5
+
+  - id: HEAT_16
+    section: Heating
+    question_text: Are any other appliances used to heat any other rooms or areas of the home in winter? Please select as many as apply.
+    response_type: multi_choice
+    options:
+      - code: HEAT_PUMP
+        label: Heat pump
+      - code: ENCLOSED_WOOD_BURNER
+        label: Enclosed wood burner
+      - code: PELLET_BURNER
+        label: Pellet burner
+      - code: OPEN_FIRE
+        label: Open fire
+      - code: FIXED_ELECTRIC_HEATER
+        label: Fixed electric heater
+      - code: FIXED_GAS_HEATER
+        label: Fixed gas heater
+      - code: PORTABLE_ELECTRIC_HEATER
+        label: Portable electric heater
+      - code: PORTABLE_GAS_HEATER
+        label: Portable gas heater
+      - code: CENTRAL_HEATING
+        label: Central heating
+      - code: DUCTED_HEAT_PUMP
+        label: Ducted heat pump
+      - code: UNDERFLOOR_HEATING
+        label: Underfloor heating
+      - code: OTHER
+        label: Other
+      - code: UNSURE
+        label: Unsure
+    allow_other: true
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: None.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 5
+
+  - id: HEAT_17
+    section: Heating
+    question_text: Do you use or do any of these things to help keep warm in your home in Winter? Please select all that apply.
+    response_type: multi_choice
+    options:
+      - code: ELECTRIC_HEATED_BLANKETS
+        label: Electric/heated blanket(s)
+      - code: HOT_WATER_BOTTLES
+        label: Hot water bottle(s)
+      - code: EXTRA_BLANKETS_DUVET
+        label: Extra blanket(s)/ winter duvet
+      - code: EXTRA_LAYERS
+        label: Extra layers (clothes/slippers)
+      - code: CLOSE_CURTAINS
+        label: Close curtains
+      - code: DRAFT_STOPPERS
+        label: Use draft stoppers
+      - code: BUBBLE_WRAP_WINDOW_INSULATION
+        label: Bubble wrap/ insulation on windows
+      - code: HOT_SHOWER_BATH
+        label: Have a hot shower/ bath
+      - code: GO_TO_BED_EARLIER
+        label: Go to bed earlier
+      - code: SLEEP_IN_ONE_ROOM
+        label: Sleep in one room
+      - code: CLOSE_OFF_ROOMS
+        label: Close off/ don't use some rooms
+      - code: OTHER
+        label: Other
+      - code: NONE
+        label: None of these things
+    allow_other: true
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: TODO - Source does not state whether "None of these things" is mutually exclusive; treat as exclusive in data collection UI.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 5

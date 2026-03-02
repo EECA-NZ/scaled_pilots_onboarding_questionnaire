@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>HEEP2 Light Survey Instrument Review</title>
+<style>
+:root { color-scheme: light; }
+body { font-family: Georgia, 'Times New Roman', Times, serif; background: #fff; color: #111; margin: 0; }
+.page { max-width: 820px; margin: 0 auto; padding: 28px 34px 48px; }
+h1 { font-size: 1.55rem; margin: 0 0 0.35rem 0; font-weight: 700; letter-spacing: 0.01em; }
+.subtitle { margin: 0 0 1.1rem 0; color: #444; font-size: 0.95rem; }
+.code-toggle { font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; margin: 0.6rem 0 1.2rem; }
+.contents { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 0.8rem 0 0.9rem; margin: 0 0 1.2rem 0; }
+.contents h2 { margin: 0 0 0.45rem 0; font: 700 1rem Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: 0.04em; }
+.contents ol { margin: 0; padding-left: 1.15rem; }
+.contents li { margin: 0.2rem 0; }
+.contents a { color: #111; text-decoration: none; border-bottom: 1px dotted #666; }
+.section { margin: 1.65rem 0 0; }
+.section h2 { font: 700 1.25rem Arial, Helvetica, sans-serif; margin: 0 0 0.5rem; }
+.section-intro { margin: 0 0 0.8rem; color: #444; font: italic 0.95rem Georgia, 'Times New Roman', Times, serif; }
+.question { margin: 0.95rem 0 1.25rem; break-inside: avoid; page-break-inside: avoid; }
+.q-label { font: 700 0.95rem Arial, Helvetica, sans-serif; margin: 0 0 0.3rem; }
+.q-text { margin: 0 0 0.35rem; font-size: 1rem; }
+.instruction { margin: 0 0 0.45rem; font-size: 0.9rem; font-style: italic; color: #444; }
+.options { margin: 0.25rem 0 0.25rem 0; padding: 0; list-style: none; }
+.options li { margin: 0.22rem 0; }
+.option-row { display: flex; align-items: baseline; gap: 0.5rem; cursor: pointer; }
+.option-row input[type='radio'], .option-row input[type='checkbox'] { transform: translateY(1px); }
+.option-label { flex: 1; }
+.option-code { font: 0.75rem 'Courier New', Courier, monospace; color: #888; margin-left: 0.45rem; display: none; }
+body.show-codes .option-code { display: inline; }
+.numeric-grid { width: 100%; border-collapse: collapse; margin-top: 0.3rem; }
+.numeric-grid th { text-align: left; font: 700 0.86rem Arial, Helvetica, sans-serif; border-bottom: 1px solid #888; padding: 0.22rem 0.25rem; }
+.numeric-grid td { padding: 0.32rem 0.25rem 0.28rem; border-bottom: 1px solid #ddd; vertical-align: middle; }
+.numeric-input { width: 120px; height: 1.4rem; border: 1px solid #666; padding: 0.05rem 0.25rem; font: inherit; }
+.single-numeric { margin-top: 0.3rem; }
+.free-text-area { width: 100%; min-height: 4.1rem; border: 1px solid #666; margin-top: 0.3rem; padding: 0.3rem; font: inherit; resize: vertical; box-sizing: border-box; }
+.skip-note { margin-top: 0.4rem; font-size: 0.84rem; color: #555; font-style: italic; }
+@media print {
+  .page { max-width: none; padding: 0.35in 0.45in; }
+  .contents a { border-bottom: none; text-decoration: none; }
+  .question { margin-bottom: 0.9rem; }
+  .code-toggle { display: none; }
+  .free-text-area { resize: none; }
+}
+</style>
+</head>
+<body>
+<main class='page'>
+<h1>National Study of Household Energy Use</h1>
+<p class='subtitle'>Householder survey instrument (ported from HEEP2 Light Survey Dec 2023)</p>
+<label class='code-toggle'><input id='show-codes-toggle' type='checkbox'> Show analysis codes</label>
+<nav class='contents' aria-label='Contents'><h2>Contents</h2><ol>
+<li><a href='#1-about-your-house-or-flat'>About your house or flat</a></li>
+<li><a href='#2-hot-water-and-heating'>Hot water and heating</a></li>
+<li><a href='#3-cooling-and-household'>Cooling and household</a></li>
+</ol></nav>
+<section class='section' id='1-about-your-house-or-flat'>
+<h2>About your house or flat</h2>
+<article class='question'>
+<p class='q-label'>Q1.</p>
+<p class='q-text'>Which of these best describes your home?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='DWELL_01_1' class='option-row'><input id='DWELL_01_1' name='DWELL_01_choice' type='radio'><span class='option-label'>Stand-alone house - single storey</span><span class='option-code' data-code>[STANDALONE_1]</span></label></li><li><label for='DWELL_01_2' class='option-row'><input id='DWELL_01_2' name='DWELL_01_choice' type='radio'><span class='option-label'>Stand-alone house - two or more storeys</span><span class='option-code' data-code>[STANDALONE_2P]</span></label></li><li><label for='DWELL_01_3' class='option-row'><input id='DWELL_01_3' name='DWELL_01_choice' type='radio'><span class='option-label'>Terraced house / joined unit</span><span class='option-code' data-code>[TERRACED_JOINED]</span></label></li><li><label for='DWELL_01_4' class='option-row'><input id='DWELL_01_4' name='DWELL_01_choice' type='radio'><span class='option-label'>Flat in converted house</span><span class='option-code' data-code>[FLAT_CONVERTED]</span></label></li><li><label for='DWELL_01_5' class='option-row'><input id='DWELL_01_5' name='DWELL_01_choice' type='radio'><span class='option-label'>Apartment / flat in purpose-built block</span><span class='option-code' data-code>[APARTMENT_PURPOSE_BUILT]</span></label></li><li><label for='DWELL_01_6' class='option-row'><input id='DWELL_01_6' name='DWELL_01_choice' type='radio'><span class='option-label'>Apartment / flat in commercial building (e.g. building shared with offices or a shop)</span><span class='option-code' data-code>[APARTMENT_COMMERCIAL_BUILDING]</span></label></li><li><label for='DWELL_01_7' class='option-row'><input id='DWELL_01_7' name='DWELL_01_choice' type='radio'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q2.</p>
+<p class='q-text'>How many rooms are there in your house or flat?</p>
+<p class='instruction'>Please enter the number of each type of room present.</p>
+<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody><tr><td>Bedrooms <span class='option-code' data-code>[BEDROOMS]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 1'></td></tr><tr><td>Open plan kitchen/dining - living <span class='option-code' data-code>[OPEN_PLAN_KITCHEN_DINING_LIVING]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 2'></td></tr><tr><td>Separate Living room/ lounge/ family room <span class='option-code' data-code>[SEPARATE_LIVING_ROOM]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 3'></td></tr><tr><td>Separate Kitchen <span class='option-code' data-code>[SEPARATE_KITCHEN]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 4'></td></tr><tr><td>Separate Dining room <span class='option-code' data-code>[SEPARATE_DINING_ROOM]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 5'></td></tr><tr><td>Bathrooms (with bath/shower) <span class='option-code' data-code>[BATHROOMS]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 6'></td></tr><tr><td>Separate laundry room <span class='option-code' data-code>[SEPARATE_LAUNDRY]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 7'></td></tr><tr><td>Office/ study/ hobby/other rooms <span class='option-code' data-code>[OFFICE_STUDY_HOBBY_OTHER]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 8'></td></tr><tr><td>Attached garage <span class='option-code' data-code>[ATTACHED_GARAGE]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 9'></td></tr><tr><td>Detached garage <span class='option-code' data-code>[DETACHED_GARAGE]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 10'></td></tr><tr><td>Sleepout (used for living/sleeping) <span class='option-code' data-code>[SLEEPOUT]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 11'></td></tr></tbody></table>
+</article>
+<article class='question'>
+<p class='q-label'>Q3.</p>
+<p class='q-text'>When was your house or flat built?</p>
+<p class='instruction'>Please enter an approximate year/decade if you are unsure.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q4.</p>
+<p class='q-text'>What is the approximate floor area of your house or flat?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='DWELL_04_1' class='option-row'><input id='DWELL_04_1' name='DWELL_04_choice' type='radio'><span class='option-label'>Less than 100m2 (typical 1-2 bed)</span><span class='option-code' data-code>[LT_100]</span></label></li><li><label for='DWELL_04_2' class='option-row'><input id='DWELL_04_2' name='DWELL_04_choice' type='radio'><span class='option-label'>100 - 149m2</span><span class='option-code' data-code>[AREA_100_149]</span></label></li><li><label for='DWELL_04_3' class='option-row'><input id='DWELL_04_3' name='DWELL_04_choice' type='radio'><span class='option-label'>150 - 199m2 (typical 3-4 bed)</span><span class='option-code' data-code>[AREA_150_199]</span></label></li><li><label for='DWELL_04_4' class='option-row'><input id='DWELL_04_4' name='DWELL_04_choice' type='radio'><span class='option-label'>200 - 249m2</span><span class='option-code' data-code>[AREA_200_249]</span></label></li><li><label for='DWELL_04_5' class='option-row'><input id='DWELL_04_5' name='DWELL_04_choice' type='radio'><span class='option-label'>250 - 299m2 (typical 5-6 bed)</span><span class='option-code' data-code>[AREA_250_299]</span></label></li><li><label for='DWELL_04_6' class='option-row'><input id='DWELL_04_6' name='DWELL_04_choice' type='radio'><span class='option-label'>300m2 or larger</span><span class='option-code' data-code>[GTE_300]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q5.</p>
+<p class='q-text'>Does your house or flat have insulation in the roof space?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='DWELL_05_1' class='option-row'><input id='DWELL_05_1' name='DWELL_05_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='DWELL_05_2' class='option-row'><input id='DWELL_05_2' name='DWELL_05_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li><li><label for='DWELL_05_3' class='option-row'><input id='DWELL_05_3' name='DWELL_05_choice' type='radio'><span class='option-label'>Not applicable (e.g. another dwelling above)</span><span class='option-code' data-code>[NOT_APPLICABLE]</span></label></li><li><label for='DWELL_05_4' class='option-row'><input id='DWELL_05_4' name='DWELL_05_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q6.</p>
+<p class='q-text'>Does your house or flat have insulation in the subfloor?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='DWELL_06_1' class='option-row'><input id='DWELL_06_1' name='DWELL_06_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='DWELL_06_2' class='option-row'><input id='DWELL_06_2' name='DWELL_06_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li><li><label for='DWELL_06_3' class='option-row'><input id='DWELL_06_3' name='DWELL_06_choice' type='radio'><span class='option-label'>No subfloor (concrete slab on ground)</span><span class='option-code' data-code>[NO_SUBFLOOR]</span></label></li><li><label for='DWELL_06_4' class='option-row'><input id='DWELL_06_4' name='DWELL_06_choice' type='radio'><span class='option-label'>Not applicable (e.g. another dwelling below)</span><span class='option-code' data-code>[NOT_APPLICABLE]</span></label></li><li><label for='DWELL_06_5' class='option-row'><input id='DWELL_06_5' name='DWELL_06_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q7.</p>
+<p class='q-text'>Are the walls of your house or flat insulated?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='DWELL_07_1' class='option-row'><input id='DWELL_07_1' name='DWELL_07_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='DWELL_07_2' class='option-row'><input id='DWELL_07_2' name='DWELL_07_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li><li><label for='DWELL_07_3' class='option-row'><input id='DWELL_07_3' name='DWELL_07_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q8.</p>
+<p class='q-text'>Are the windows single- or double-glazed?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='DWELL_08_1' class='option-row'><input id='DWELL_08_1' name='DWELL_08_choice' type='radio'><span class='option-label'>All double-glazed (or better)</span><span class='option-code' data-code>[ALL_DOUBLE]</span></label></li><li><label for='DWELL_08_2' class='option-row'><input id='DWELL_08_2' name='DWELL_08_choice' type='radio'><span class='option-label'>Some double-glazed, some single-glazed</span><span class='option-code' data-code>[MIXED]</span></label></li><li><label for='DWELL_08_3' class='option-row'><input id='DWELL_08_3' name='DWELL_08_choice' type='radio'><span class='option-label'>All single-glazed</span><span class='option-code' data-code>[ALL_SINGLE]</span></label></li><li><label for='DWELL_08_4' class='option-row'><input id='DWELL_08_4' name='DWELL_08_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q9.</p>
+<p class='q-text'>Do you have any of the following?</p>
+<p class='instruction'>Please select as many as apply.</p>
+<ul class='options'><li><label for='DWELL_09_1' class='option-row'><input id='DWELL_09_1' name='DWELL_09_choice' type='checkbox'><span class='option-label'>A heated pool</span><span class='option-code' data-code>[HEATED_POOL]</span></label></li><li><label for='DWELL_09_2' class='option-row'><input id='DWELL_09_2' name='DWELL_09_choice' type='checkbox'><span class='option-label'>A spa pool/hot tub</span><span class='option-code' data-code>[SPA_POOL]</span></label></li><li><label for='DWELL_09_3' class='option-row'><input id='DWELL_09_3' name='DWELL_09_choice' type='checkbox'><span class='option-label'>A sauna</span><span class='option-code' data-code>[SAUNA]</span></label></li><li><label for='DWELL_09_4' class='option-row'><input id='DWELL_09_4' name='DWELL_09_choice' type='checkbox'><span class='option-label'>An electric vehicle (which is charged at the home at some time)</span><span class='option-code' data-code>[ELECTRIC_VEHICLE_CHARGED_AT_HOME]</span></label></li><li><label for='DWELL_09_5' class='option-row'><input id='DWELL_09_5' name='DWELL_09_choice' type='checkbox'><span class='option-label'>Solar panels (PV)</span><span class='option-code' data-code>[SOLAR_PV]</span></label></li><li><label for='DWELL_09_6' class='option-row'><input id='DWELL_09_6' name='DWELL_09_choice' type='checkbox'><span class='option-label'>None of these</span><span class='option-code' data-code>[NONE]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q10.</p>
+<p class='q-text'>Which types of energy are used in your home?</p>
+<p class='instruction'>Please select as many as apply.</p>
+<ul class='options'><li><label for='DWELL_10_1' class='option-row'><input id='DWELL_10_1' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Electricity</span><span class='option-code' data-code>[ELECTRICITY]</span></label></li><li><label for='DWELL_10_2' class='option-row'><input id='DWELL_10_2' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Natural gas (mains gas piped to the house)</span><span class='option-code' data-code>[NATURAL_GAS]</span></label></li><li><label for='DWELL_10_3' class='option-row'><input id='DWELL_10_3' name='DWELL_10_choice' type='checkbox'><span class='option-label'>LPG (bottled gas)</span><span class='option-code' data-code>[LPG]</span></label></li><li><label for='DWELL_10_4' class='option-row'><input id='DWELL_10_4' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Wood / solid fuel</span><span class='option-code' data-code>[WOOD_SOLID_FUEL]</span></label></li><li><label for='DWELL_10_5' class='option-row'><input id='DWELL_10_5' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Self-generated (e.g. solar panels)</span><span class='option-code' data-code>[SELF_GENERATED]</span></label></li><li><label for='DWELL_10_6' class='option-row'><input id='DWELL_10_6' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='DWELL_10_7' class='option-row'><input id='DWELL_10_7' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+</article>
+</section>
+<section class='section' id='2-hot-water-and-heating'>
+<h2>Hot water and heating</h2>
+<article class='question'>
+<p class='q-label'>Q11.</p>
+<p class='q-text'>What type of hot water system(s) do you have?</p>
+<p class='instruction'>Please select as many as apply.</p>
+<ul class='options'><li><label for='HW_11_1' class='option-row'><input id='HW_11_1' name='HW_11_choice' type='checkbox'><span class='option-label'>Cylinder - electric</span><span class='option-code' data-code>[CYLINDER_ELECTRIC]</span></label></li><li><label for='HW_11_2' class='option-row'><input id='HW_11_2' name='HW_11_choice' type='checkbox'><span class='option-label'>Cylinder - heat pump</span><span class='option-code' data-code>[CYLINDER_HEAT_PUMP]</span></label></li><li><label for='HW_11_3' class='option-row'><input id='HW_11_3' name='HW_11_choice' type='checkbox'><span class='option-label'>Cylinder - natural gas</span><span class='option-code' data-code>[CYLINDER_NATURAL_GAS]</span></label></li><li><label for='HW_11_4' class='option-row'><input id='HW_11_4' name='HW_11_choice' type='checkbox'><span class='option-label'>Cylinder - LPG</span><span class='option-code' data-code>[CYLINDER_LPG]</span></label></li><li><label for='HW_11_5' class='option-row'><input id='HW_11_5' name='HW_11_choice' type='checkbox'><span class='option-label'>Instantaneous - electric</span><span class='option-code' data-code>[INSTANT_ELECTRIC]</span></label></li><li><label for='HW_11_6' class='option-row'><input id='HW_11_6' name='HW_11_choice' type='checkbox'><span class='option-label'>Instantaneous - natural gas</span><span class='option-code' data-code>[INSTANT_NATURAL_GAS]</span></label></li><li><label for='HW_11_7' class='option-row'><input id='HW_11_7' name='HW_11_choice' type='checkbox'><span class='option-label'>Instantaneous - LPG</span><span class='option-code' data-code>[INSTANT_LPG]</span></label></li><li><label for='HW_11_8' class='option-row'><input id='HW_11_8' name='HW_11_choice' type='checkbox'><span class='option-label'>Wetback</span><span class='option-code' data-code>[WETBACK]</span></label></li><li><label for='HW_11_9' class='option-row'><input id='HW_11_9' name='HW_11_choice' type='checkbox'><span class='option-label'>Solar water heating</span><span class='option-code' data-code>[SOLAR_WATER_HEATING]</span></label></li><li><label for='HW_11_10' class='option-row'><input id='HW_11_10' name='HW_11_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='HW_11_11' class='option-row'><input id='HW_11_11' name='HW_11_choice' type='checkbox'><span class='option-label'>No hot water supply/system</span><span class='option-code' data-code>[NO_SYSTEM]</span></label></li><li><label for='HW_11_12' class='option-row'><input id='HW_11_12' name='HW_11_choice' type='checkbox'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q12.</p>
+<p class='q-text'>How often do you usually heat your main living area in winter?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='HEAT_12_1' class='option-row'><input id='HEAT_12_1' name='HEAT_12_choice' type='radio'><span class='option-label'>Every day</span><span class='option-code' data-code>[EVERY_DAY]</span></label></li><li><label for='HEAT_12_2' class='option-row'><input id='HEAT_12_2' name='HEAT_12_choice' type='radio'><span class='option-label'>Most days</span><span class='option-code' data-code>[MOST_DAYS]</span></label></li><li><label for='HEAT_12_3' class='option-row'><input id='HEAT_12_3' name='HEAT_12_choice' type='radio'><span class='option-label'>Some days</span><span class='option-code' data-code>[SOME_DAYS]</span></label></li><li><label for='HEAT_12_4' class='option-row'><input id='HEAT_12_4' name='HEAT_12_choice' type='radio'><span class='option-label'>Hardly ever</span><span class='option-code' data-code>[HARDLY_EVER]</span></label></li><li><label for='HEAT_12_5' class='option-row'><input id='HEAT_12_5' name='HEAT_12_choice' type='radio'><span class='option-label'>Never</span><span class='option-code' data-code>[NEVER]</span></label></li></ul>
+<p class='skip-note'>If NEVER, go to Question 14.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q13.</p>
+<p class='q-text'>What appliance(s) do you use to heat your main living area?</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='HEAT_13_1' class='option-row'><input id='HEAT_13_1' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Heat pump</span><span class='option-code' data-code>[HEAT_PUMP]</span></label></li><li><label for='HEAT_13_2' class='option-row'><input id='HEAT_13_2' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Enclosed wood burner</span><span class='option-code' data-code>[ENCLOSED_WOOD_BURNER]</span></label></li><li><label for='HEAT_13_3' class='option-row'><input id='HEAT_13_3' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Pellet burner</span><span class='option-code' data-code>[PELLET_BURNER]</span></label></li><li><label for='HEAT_13_4' class='option-row'><input id='HEAT_13_4' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Open fire</span><span class='option-code' data-code>[OPEN_FIRE]</span></label></li><li><label for='HEAT_13_5' class='option-row'><input id='HEAT_13_5' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Fixed electric heater</span><span class='option-code' data-code>[FIXED_ELECTRIC_HEATER]</span></label></li><li><label for='HEAT_13_6' class='option-row'><input id='HEAT_13_6' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Fixed gas heater</span><span class='option-code' data-code>[FIXED_GAS_HEATER]</span></label></li><li><label for='HEAT_13_7' class='option-row'><input id='HEAT_13_7' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Portable electric heater</span><span class='option-code' data-code>[PORTABLE_ELECTRIC_HEATER]</span></label></li><li><label for='HEAT_13_8' class='option-row'><input id='HEAT_13_8' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Portable gas heater</span><span class='option-code' data-code>[PORTABLE_GAS_HEATER]</span></label></li><li><label for='HEAT_13_9' class='option-row'><input id='HEAT_13_9' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Central heating</span><span class='option-code' data-code>[CENTRAL_HEATING]</span></label></li><li><label for='HEAT_13_10' class='option-row'><input id='HEAT_13_10' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Ducted heat pump</span><span class='option-code' data-code>[DUCTED_HEAT_PUMP]</span></label></li><li><label for='HEAT_13_11' class='option-row'><input id='HEAT_13_11' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Underfloor heating</span><span class='option-code' data-code>[UNDERFLOOR_HEATING]</span></label></li><li><label for='HEAT_13_12' class='option-row'><input id='HEAT_13_12' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='HEAT_13_13' class='option-row'><input id='HEAT_13_13' name='HEAT_13_choice' type='checkbox'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Asked when Question 12 is not NEVER.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q14.</p>
+<p class='q-text'>How often do you usually heat your bedroom in winter?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='HEAT_14_1' class='option-row'><input id='HEAT_14_1' name='HEAT_14_choice' type='radio'><span class='option-label'>Every day</span><span class='option-code' data-code>[EVERY_DAY]</span></label></li><li><label for='HEAT_14_2' class='option-row'><input id='HEAT_14_2' name='HEAT_14_choice' type='radio'><span class='option-label'>Most days</span><span class='option-code' data-code>[MOST_DAYS]</span></label></li><li><label for='HEAT_14_3' class='option-row'><input id='HEAT_14_3' name='HEAT_14_choice' type='radio'><span class='option-label'>Some days</span><span class='option-code' data-code>[SOME_DAYS]</span></label></li><li><label for='HEAT_14_4' class='option-row'><input id='HEAT_14_4' name='HEAT_14_choice' type='radio'><span class='option-label'>Hardly ever</span><span class='option-code' data-code>[HARDLY_EVER]</span></label></li><li><label for='HEAT_14_5' class='option-row'><input id='HEAT_14_5' name='HEAT_14_choice' type='radio'><span class='option-label'>Never</span><span class='option-code' data-code>[NEVER]</span></label></li></ul>
+<p class='skip-note'>If NEVER, go to Question 16.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q15.</p>
+<p class='q-text'>What appliance(s) do you use to heat your bedroom?</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='HEAT_15_1' class='option-row'><input id='HEAT_15_1' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Heat pump</span><span class='option-code' data-code>[HEAT_PUMP]</span></label></li><li><label for='HEAT_15_2' class='option-row'><input id='HEAT_15_2' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Enclosed wood burner</span><span class='option-code' data-code>[ENCLOSED_WOOD_BURNER]</span></label></li><li><label for='HEAT_15_3' class='option-row'><input id='HEAT_15_3' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Pellet burner</span><span class='option-code' data-code>[PELLET_BURNER]</span></label></li><li><label for='HEAT_15_4' class='option-row'><input id='HEAT_15_4' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Open fire</span><span class='option-code' data-code>[OPEN_FIRE]</span></label></li><li><label for='HEAT_15_5' class='option-row'><input id='HEAT_15_5' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Fixed electric heater</span><span class='option-code' data-code>[FIXED_ELECTRIC_HEATER]</span></label></li><li><label for='HEAT_15_6' class='option-row'><input id='HEAT_15_6' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Fixed gas heater</span><span class='option-code' data-code>[FIXED_GAS_HEATER]</span></label></li><li><label for='HEAT_15_7' class='option-row'><input id='HEAT_15_7' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Portable electric heater</span><span class='option-code' data-code>[PORTABLE_ELECTRIC_HEATER]</span></label></li><li><label for='HEAT_15_8' class='option-row'><input id='HEAT_15_8' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Portable gas heater</span><span class='option-code' data-code>[PORTABLE_GAS_HEATER]</span></label></li><li><label for='HEAT_15_9' class='option-row'><input id='HEAT_15_9' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Central heating</span><span class='option-code' data-code>[CENTRAL_HEATING]</span></label></li><li><label for='HEAT_15_10' class='option-row'><input id='HEAT_15_10' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Ducted heat pump</span><span class='option-code' data-code>[DUCTED_HEAT_PUMP]</span></label></li><li><label for='HEAT_15_11' class='option-row'><input id='HEAT_15_11' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Underfloor heating</span><span class='option-code' data-code>[UNDERFLOOR_HEATING]</span></label></li><li><label for='HEAT_15_12' class='option-row'><input id='HEAT_15_12' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='HEAT_15_13' class='option-row'><input id='HEAT_15_13' name='HEAT_15_choice' type='checkbox'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Asked when Question 14 is not NEVER.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q16.</p>
+<p class='q-text'>Are any other appliances used to heat any other rooms or areas of the home in winter?</p>
+<p class='instruction'>Please select as many as apply.</p>
+<ul class='options'><li><label for='HEAT_16_1' class='option-row'><input id='HEAT_16_1' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Heat pump</span><span class='option-code' data-code>[HEAT_PUMP]</span></label></li><li><label for='HEAT_16_2' class='option-row'><input id='HEAT_16_2' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Enclosed wood burner</span><span class='option-code' data-code>[ENCLOSED_WOOD_BURNER]</span></label></li><li><label for='HEAT_16_3' class='option-row'><input id='HEAT_16_3' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Pellet burner</span><span class='option-code' data-code>[PELLET_BURNER]</span></label></li><li><label for='HEAT_16_4' class='option-row'><input id='HEAT_16_4' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Open fire</span><span class='option-code' data-code>[OPEN_FIRE]</span></label></li><li><label for='HEAT_16_5' class='option-row'><input id='HEAT_16_5' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Fixed electric heater</span><span class='option-code' data-code>[FIXED_ELECTRIC_HEATER]</span></label></li><li><label for='HEAT_16_6' class='option-row'><input id='HEAT_16_6' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Fixed gas heater</span><span class='option-code' data-code>[FIXED_GAS_HEATER]</span></label></li><li><label for='HEAT_16_7' class='option-row'><input id='HEAT_16_7' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Portable electric heater</span><span class='option-code' data-code>[PORTABLE_ELECTRIC_HEATER]</span></label></li><li><label for='HEAT_16_8' class='option-row'><input id='HEAT_16_8' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Portable gas heater</span><span class='option-code' data-code>[PORTABLE_GAS_HEATER]</span></label></li><li><label for='HEAT_16_9' class='option-row'><input id='HEAT_16_9' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Central heating</span><span class='option-code' data-code>[CENTRAL_HEATING]</span></label></li><li><label for='HEAT_16_10' class='option-row'><input id='HEAT_16_10' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Ducted heat pump</span><span class='option-code' data-code>[DUCTED_HEAT_PUMP]</span></label></li><li><label for='HEAT_16_11' class='option-row'><input id='HEAT_16_11' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Underfloor heating</span><span class='option-code' data-code>[UNDERFLOOR_HEATING]</span></label></li><li><label for='HEAT_16_12' class='option-row'><input id='HEAT_16_12' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='HEAT_16_13' class='option-row'><input id='HEAT_16_13' name='HEAT_16_choice' type='checkbox'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q17.</p>
+<p class='q-text'>Do you use or do any of these things to help keep warm in your home in Winter?</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='HEAT_17_1' class='option-row'><input id='HEAT_17_1' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Electric/heated blanket(s)</span><span class='option-code' data-code>[ELECTRIC_HEATED_BLANKETS]</span></label></li><li><label for='HEAT_17_2' class='option-row'><input id='HEAT_17_2' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Hot water bottle(s)</span><span class='option-code' data-code>[HOT_WATER_BOTTLES]</span></label></li><li><label for='HEAT_17_3' class='option-row'><input id='HEAT_17_3' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Extra blanket(s)/ winter duvet</span><span class='option-code' data-code>[EXTRA_BLANKETS_DUVET]</span></label></li><li><label for='HEAT_17_4' class='option-row'><input id='HEAT_17_4' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Extra layers (clothes/slippers)</span><span class='option-code' data-code>[EXTRA_LAYERS]</span></label></li><li><label for='HEAT_17_5' class='option-row'><input id='HEAT_17_5' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Close curtains</span><span class='option-code' data-code>[CLOSE_CURTAINS]</span></label></li><li><label for='HEAT_17_6' class='option-row'><input id='HEAT_17_6' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Use draft stoppers</span><span class='option-code' data-code>[DRAFT_STOPPERS]</span></label></li><li><label for='HEAT_17_7' class='option-row'><input id='HEAT_17_7' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Bubble wrap/ insulation on windows</span><span class='option-code' data-code>[BUBBLE_WRAP_WINDOW_INSULATION]</span></label></li><li><label for='HEAT_17_8' class='option-row'><input id='HEAT_17_8' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Have a hot shower/ bath</span><span class='option-code' data-code>[HOT_SHOWER_BATH]</span></label></li><li><label for='HEAT_17_9' class='option-row'><input id='HEAT_17_9' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Go to bed earlier</span><span class='option-code' data-code>[GO_TO_BED_EARLIER]</span></label></li><li><label for='HEAT_17_10' class='option-row'><input id='HEAT_17_10' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Sleep in one room</span><span class='option-code' data-code>[SLEEP_IN_ONE_ROOM]</span></label></li><li><label for='HEAT_17_11' class='option-row'><input id='HEAT_17_11' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Close off/ don&#x27;t use some rooms</span><span class='option-code' data-code>[CLOSE_OFF_ROOMS]</span></label></li><li><label for='HEAT_17_12' class='option-row'><input id='HEAT_17_12' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='HEAT_17_13' class='option-row'><input id='HEAT_17_13' name='HEAT_17_choice' type='checkbox'><span class='option-label'>None of these things</span><span class='option-code' data-code>[NONE]</span></label></li></ul>
+</article>
+</section>
+<section class='section' id='3-cooling-and-household'>
+<h2>Cooling and household</h2>
+<article class='question'>
+<p class='q-label'>Q18.</p>
+<p class='q-text'>Do you ever use a heat pump or air conditioner for cooling in summer?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='COOL_18_1' class='option-row'><input id='COOL_18_1' name='COOL_18_choice' type='radio'><span class='option-label'>Yes - often</span><span class='option-code' data-code>[YES_OFTEN]</span></label></li><li><label for='COOL_18_2' class='option-row'><input id='COOL_18_2' name='COOL_18_choice' type='radio'><span class='option-label'>Yes - sometimes</span><span class='option-code' data-code>[YES_SOMETIMES]</span></label></li><li><label for='COOL_18_3' class='option-row'><input id='COOL_18_3' name='COOL_18_choice' type='radio'><span class='option-label'>Yes - rarely</span><span class='option-code' data-code>[YES_RARELY]</span></label></li><li><label for='COOL_18_4' class='option-row'><input id='COOL_18_4' name='COOL_18_choice' type='radio'><span class='option-label'>No never</span><span class='option-code' data-code>[NO_NEVER]</span></label></li><li><label for='COOL_18_5' class='option-row'><input id='COOL_18_5' name='COOL_18_choice' type='radio'><span class='option-label'>Not applicable - no heat pump/air conditioner</span><span class='option-code' data-code>[NOT_APPLICABLE]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q19.</p>
+<p class='q-text'>How many people are usually resident in your house or flat?</p>
+<p class='instruction'>Please enter a number for adults and children usually resident.</p>
+<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody><tr><td>Adults (aged 18 or over) <span class='option-code' data-code>[ADULTS_18_PLUS]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 1'></td></tr><tr><td>Children (aged under 18) <span class='option-code' data-code>[CHILDREN_UNDER_18]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 2'></td></tr></tbody></table>
+</article>
+<article class='question'>
+<p class='q-label'>Q20.</p>
+<p class='q-text'>Do you own or rent the house or flat where you live?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='HH_20_1' class='option-row'><input id='HH_20_1' name='HH_20_choice' type='radio'><span class='option-label'>Own</span><span class='option-code' data-code>[OWN]</span></label></li><li><label for='HH_20_2' class='option-row'><input id='HH_20_2' name='HH_20_choice' type='radio'><span class='option-label'>Rent</span><span class='option-code' data-code>[RENT]</span></label></li></ul>
+<p class='skip-note'>Question 21 applies to renters (inferred from wording &quot;If you rent your home&quot;).</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q21.</p>
+<p class='q-text'>If you rent your home: Who owns this dwelling?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='HH_21_1' class='option-row'><input id='HH_21_1' name='HH_21_choice' type='radio'><span class='option-label'>Private person</span><span class='option-code' data-code>[PRIVATE_PERSON]</span></label></li><li><label for='HH_21_2' class='option-row'><input id='HH_21_2' name='HH_21_choice' type='radio'><span class='option-label'>Private trust</span><span class='option-code' data-code>[PRIVATE_TRUST]</span></label></li><li><label for='HH_21_3' class='option-row'><input id='HH_21_3' name='HH_21_choice' type='radio'><span class='option-label'>Local authority or council</span><span class='option-code' data-code>[LOCAL_AUTHORITY_COUNCIL]</span></label></li><li><label for='HH_21_4' class='option-row'><input id='HH_21_4' name='HH_21_choice' type='radio'><span class='option-label'>Kāinga Ora (Housing New Zealand)</span><span class='option-code' data-code>[KAINGA_ORA]</span></label></li><li><label for='HH_21_5' class='option-row'><input id='HH_21_5' name='HH_21_choice' type='radio'><span class='option-label'>Other state-owned corporation, state-owned enterprise or government department</span><span class='option-code' data-code>[OTHER_STATE_OWNED_ENTITY]</span></label></li><li><label for='HH_21_6' class='option-row'><input id='HH_21_6' name='HH_21_choice' type='radio'><span class='option-label'>Business or other organisation</span><span class='option-code' data-code>[BUSINESS_OR_ORGANISATION]</span></label></li><li><label for='HH_21_7' class='option-row'><input id='HH_21_7' name='HH_21_choice' type='radio'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li></ul>
+<p class='skip-note'>Asked when Question 20 response is RENT.</p>
+</article>
+</section>
+</main>
+<script>
+(function(){
+  const toggle = document.getElementById('show-codes-toggle');
+  if (!toggle) return;
+  toggle.addEventListener('change', function(){
+    document.body.classList.toggle('show-codes', toggle.checked);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: Questionnaire Question
+additionalProperties: false
+required:
+  - id
+  - section
+  - question_text
+  - response_type
+  - options
+  - allow_other
+  - required
+  - skip_logic
+  - notes
+  - purpose
+  - source
+  - provenance_page
+properties:
+  id:
+    type: string
+    pattern: "^[A-Z0-9_]+$"
+  section:
+    type: string
+  question_text:
+    type: string
+  response_type:
+    type: string
+    enum: [single_choice, multi_choice, numeric, free_text]
+  options:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [code, label]
+      properties:
+        code:
+          anyOf:
+            - type: string
+            - type: integer
+        label:
+          type: string
+  allow_other:
+    type: boolean
+  required:
+    type: boolean
+  skip_logic:
+    type: object
+    additionalProperties: false
+    required: [human, rules]
+    properties:
+      human:
+        type: string
+      rules:
+        type: array
+        items:
+          type: object
+          additionalProperties: false
+          required: [if_option_code, goto_question_id]
+          properties:
+            if_option_code:
+              type: string
+            goto_question_id:
+              type: string
+  notes:
+    type: string
+  purpose:
+    type: string
+  source:
+    type: string
+  provenance_page:
+    type: integer
+    minimum: 1

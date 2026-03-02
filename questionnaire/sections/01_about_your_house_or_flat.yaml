@@ -1,0 +1,259 @@
+section_id: ABOUT_HOME
+section_title: About your house or flat
+source: HEEP2 Light Survey Dec 2023
+questions:
+  - id: DWELL_01
+    section: About your house or flat
+    question_text: Which of these best describes your home? Please select one option.
+    response_type: single_choice
+    options:
+      - code: STANDALONE_1
+        label: Stand-alone house - single storey
+      - code: STANDALONE_2P
+        label: Stand-alone house - two or more storeys
+      - code: TERRACED_JOINED
+        label: Terraced house / joined unit
+      - code: FLAT_CONVERTED
+        label: Flat in converted house
+      - code: APARTMENT_PURPOSE_BUILT
+        label: Apartment / flat in purpose-built block
+      - code: APARTMENT_COMMERCIAL_BUILDING
+        label: Apartment / flat in commercial building (e.g. building shared with offices or a shop)
+      - code: OTHER
+        label: Other
+    allow_other: true
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: TODO - Source survey does not provide numeric/coded values; codes were assigned for analysis consistency.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 2
+
+  - id: DWELL_02
+    section: About your house or flat
+    question_text: How many rooms are there in your house or flat? Please enter the number of each type of room present.
+    response_type: numeric
+    options:
+      - code: BEDROOMS
+        label: Bedrooms
+      - code: OPEN_PLAN_KITCHEN_DINING_LIVING
+        label: Open plan kitchen/dining - living
+      - code: SEPARATE_LIVING_ROOM
+        label: Separate Living room/ lounge/ family room
+      - code: SEPARATE_KITCHEN
+        label: Separate Kitchen
+      - code: SEPARATE_DINING_ROOM
+        label: Separate Dining room
+      - code: BATHROOMS
+        label: Bathrooms (with bath/shower)
+      - code: SEPARATE_LAUNDRY
+        label: Separate laundry room
+      - code: OFFICE_STUDY_HOBBY_OTHER
+        label: Office/ study/ hobby/other rooms
+      - code: ATTACHED_GARAGE
+        label: Attached garage
+      - code: DETACHED_GARAGE
+        label: Detached garage
+      - code: SLEEPOUT
+        label: Sleepout (used for living/sleeping)
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: Numeric entries are expected for each room type listed.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 2
+
+  - id: DWELL_03
+    section: About your house or flat
+    question_text: When was your house or flat built? Please enter an approximate year/decade if you are unsure.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: TODO - Could be modeled as numeric year + uncertainty flag in later versions.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 2
+
+  - id: DWELL_04
+    section: About your house or flat
+    question_text: What is the approximate floor area of your house or flat? Please select one option.
+    response_type: single_choice
+    options:
+      - code: LT_100
+        label: Less than 100m2 (typical 1-2 bed)
+      - code: AREA_100_149
+        label: 100 - 149m2
+      - code: AREA_150_199
+        label: 150 - 199m2 (typical 3-4 bed)
+      - code: AREA_200_249
+        label: 200 - 249m2
+      - code: AREA_250_299
+        label: 250 - 299m2 (typical 5-6 bed)
+      - code: GTE_300
+        label: 300m2 or larger
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: Floor area units are represented as written in the source (m2).
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 2
+
+  - id: DWELL_05
+    section: About your house or flat
+    question_text: Does your house or flat have insulation in the roof space? Please select one option.
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+      - code: NOT_APPLICABLE
+        label: Not applicable (e.g. another dwelling above)
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: '"Not applicable" condition retained exactly from source wording.'
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 3
+
+  - id: DWELL_06
+    section: About your house or flat
+    question_text: Does your house or flat have insulation in the subfloor? Please select one option.
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+      - code: NO_SUBFLOOR
+        label: No subfloor (concrete slab on ground)
+      - code: NOT_APPLICABLE
+        label: Not applicable (e.g. another dwelling below)
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: None.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 3
+
+  - id: DWELL_07
+    section: About your house or flat
+    question_text: Are the walls of your house or flat insulated? Please select one option.
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: None.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 3
+
+  - id: DWELL_08
+    section: About your house or flat
+    question_text: Are the windows single- or double-glazed? Please select one option.
+    response_type: single_choice
+    options:
+      - code: ALL_DOUBLE
+        label: All double-glazed (or better)
+      - code: MIXED
+        label: Some double-glazed, some single-glazed
+      - code: ALL_SINGLE
+        label: All single-glazed
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: None.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 3
+
+  - id: DWELL_09
+    section: About your house or flat
+    question_text: Do you have any of the following? Please select as many as apply.
+    response_type: multi_choice
+    options:
+      - code: HEATED_POOL
+        label: A heated pool
+      - code: SPA_POOL
+        label: A spa pool/hot tub
+      - code: SAUNA
+        label: A sauna
+      - code: ELECTRIC_VEHICLE_CHARGED_AT_HOME
+        label: An electric vehicle (which is charged at the home at some time)
+      - code: SOLAR_PV
+        label: Solar panels (PV)
+      - code: NONE
+        label: None of these
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: TODO - Source does not state whether "None of these" is mutually exclusive; treat as exclusive in data collection UI.
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 3
+
+  - id: DWELL_10
+    section: About your house or flat
+    question_text: Which types of energy are used in your home? Please select as many as apply.
+    response_type: multi_choice
+    options:
+      - code: ELECTRICITY
+        label: Electricity
+      - code: NATURAL_GAS
+        label: Natural gas (mains gas piped to the house)
+      - code: LPG
+        label: LPG (bottled gas)
+      - code: WOOD_SOLID_FUEL
+        label: Wood / solid fuel
+      - code: SELF_GENERATED
+        label: Self-generated (e.g. solar panels)
+      - code: OTHER
+        label: Other
+      - code: UNSURE
+        label: Unsure
+    allow_other: true
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: "Includes source instruction context: consider heating, cooking, and hot water sources; BBQ bottle gas not required."
+    purpose: TODO - define analytic purpose.
+    source: HEEP2 Light Survey Dec 2023
+    provenance_page: 3
