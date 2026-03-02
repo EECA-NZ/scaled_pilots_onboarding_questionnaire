@@ -1,5 +1,7 @@
 # scaled_pilots_onboarding_questionnaire
 
+[View the live survey page](https://eeca-nz.github.io/scaled_pilots_onboarding_questionnaire/)
+
 Collaboratively editable survey instrument ported from **HEEP2 Light Survey (Dec 2023)** for scaled DF pilots.
 
 ## Repository structure
