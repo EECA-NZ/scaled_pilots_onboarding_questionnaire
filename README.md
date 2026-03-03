@@ -1,6 +1,8 @@
 # scaled_pilots_onboarding_questionnaire
 
-[View the live survey page](https://eeca-nz.github.io/scaled_pilots_onboarding_questionnaire/)
+[Current survey (main)](https://eeca-nz.github.io/scaled_pilots_onboarding_questionnaire/)
+
+[Current survey (dev)](https://eeca-nz.github.io/scaled_pilots_onboarding_questionnaire/dev/)
 
 Collaboratively editable survey instrument ported from **HEEP2 Light Survey (Dec 2023)** for scaled DF pilots.
 
@@ -28,7 +30,7 @@ Features:
 ## GitHub Actions
 
 - `validate-questionnaire.yml`: runs validation/build checks on pull requests
-- `deploy-pages.yml`: on push to `main` or `master`, rebuilds and deploys review output to GitHub Pages
+- `deploy-pages.yml`: on push to any branch, deploys a combined Pages site with `/` built from `main` and `/dev/` built from `dev` or the pushed non-`main` branch
 
 ## Source
 
