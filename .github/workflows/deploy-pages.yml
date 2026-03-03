@@ -3,8 +3,7 @@ name: Deploy Review Page
 on:
   push:
     branches:
-      - main
-      - dev
+      - "**"
   workflow_dispatch:
 
 permissions:
@@ -24,8 +23,25 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout
+      - name: Resolve dev ref
+        run: |
+          if [ "${GITHUB_REF_NAME}" = "main" ]; then
+            echo "DEV_REF=dev" >> "$GITHUB_ENV"
+          else
+            echo "DEV_REF=${GITHUB_REF_NAME}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Checkout main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main_src
+
+      - name: Checkout dev source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.DEV_REF }}
+          path: dev_src
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -37,16 +53,62 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pyyaml
 
-      - name: Validate and build
+      - name: Validate and build main
         run: |
+          cd main_src
+          python scripts/validate_questionnaire.py
+          python scripts/build_questionnaire_outputs.py
+
+      - name: Validate and build dev
+        run: |
+          cd dev_src
           python scripts/validate_questionnaire.py
           python scripts/build_questionnaire_outputs.py
 
       - name: Prepare Pages artifact
         run: |
-          mkdir -p _site
-          cp questionnaire/review.html _site/index.html
-          cp questionnaire/codebook.csv _site/codebook.csv
+          mkdir -p _site/dev
+          cp main_src/questionnaire/review.html _site/index.html
+          cp main_src/questionnaire/codebook.csv _site/codebook.csv
+          cp dev_src/questionnaire/review.html _site/dev/index.html
+          cp dev_src/questionnaire/codebook.csv _site/dev/codebook.csv
+
+      - name: Add dev banner
+        run: |
+          DEV_SHA="$(git -C dev_src rev-parse --short HEAD)"
+          echo "DEV_SHA=${DEV_SHA}" >> "$GITHUB_ENV"
+          python - <<'PY'
+          from pathlib import Path
+          import html
+          import os
+
+          path = Path("_site/dev/index.html")
+          content = path.read_text(encoding="utf-8")
+
+          banner = (
+              "<div style=\""
+              "position:sticky;top:0;z-index:9999;"
+              "background:#fff3cd;color:#4f3d00;"
+              "border-bottom:1px solid #e0c77a;"
+              "padding:10px 14px;"
+              "font:600 0.92rem Arial, Helvetica, sans-serif;\">"
+              "Dev preview: branch "
+              f"{html.escape(os.environ['DEV_REF'])}"
+              " @ "
+              f"{html.escape(os.environ['DEV_SHA'])}"
+              "</div>"
+          )
+
+          if "<body>" in content:
+              content = content.replace("<body>", "<body>\n" + banner, 1)
+          else:
+              content = banner + "\n" + content
+
+          path.write_text(content, encoding="utf-8")
+          PY
+        env:
+          DEV_REF: ${{ env.DEV_REF }}
+          DEV_SHA: ${{ env.DEV_SHA }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
