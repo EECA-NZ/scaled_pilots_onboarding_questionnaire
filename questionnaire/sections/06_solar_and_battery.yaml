@@ -1,0 +1,130 @@
+section_id: SOLAR_BATTERY
+section_title: Solar and battery
+source: Scaled Demand Flexibility Pilots
+questions:
+  - id: SOLAR_34
+    section: Solar and battery
+    question_text: Is solar installed? Please select one option.
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If YES, ask SOLAR_35 to SOLAR_37.
+      rules: []
+    notes: Includes rooftop and other onsite PV configurations.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_35
+    section: Solar and battery
+    question_text: Solar inverter make/model.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when SOLAR_34 is YES.
+      rules: []
+    notes: Record manufacturer and model number where available.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_36
+    section: Solar and battery
+    question_text: Inverter size.
+    response_type: numeric
+    options:
+      - code: INVERTER_SIZE_KW
+        label: Inverter size (kW)
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when SOLAR_34 is YES.
+      rules: []
+    notes: Enter nominal inverter size in kW.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_37
+    section: Solar and battery
+    question_text: Max amount energy panels can generate.
+    response_type: numeric
+    options:
+      - code: MAX_PANEL_GENERATION_KW
+        label: Maximum panel generation (kW)
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when SOLAR_34 is YES.
+      rules: []
+    notes: Enter maximum generation capacity in kW.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: BATT_38
+    section: Solar and battery
+    question_text: Is a battery installed? Please select one option.
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If YES, ask BATT_39.
+      rules: []
+    notes: Include stationary residential battery systems.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: BATT_39
+    section: Solar and battery
+    question_text: Battery operating mode. Please select one option.
+    response_type: single_choice
+    options:
+      - code: SELF_CONSUMPTION
+        label: Self-consumption
+      - code: ARBITRAGE
+        label: Arbitrage
+      - code: OTHER
+        label: Other
+    allow_other: true
+    required: false
+    skip_logic:
+      human: Ask when BATT_38 is YES.
+      rules: []
+    notes: Other can capture backup-only or hybrid control strategies.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_40
+    section: Solar and battery
+    question_text: Is controlled load attached to PV (for example, a hot water diverter)? Please select one option.
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Capture whether PV generation is directly linked to controllable household loads.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9

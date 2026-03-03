@@ -1,0 +1,120 @@
+section_id: OTHER_APPLIANCES
+section_title: Other appliances
+source: Scaled Demand Flexibility Pilots
+questions:
+  - id: OA_26
+    section: Other appliances
+    question_text: Air conditioner make/model.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Include brand and model identifier where available.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: OA_27
+    section: Other appliances
+    question_text: Dishwasher make/model.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Include brand and model identifier where available.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: OA_28
+    section: Other appliances
+    question_text: Second fridge/freezer make/model.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Record additional refrigeration unit if present.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: OA_29
+    section: Other appliances
+    question_text: How often is a dehumidifier used? Please select one option.
+    response_type: single_choice
+    options:
+      - code: DAILY
+        label: Daily
+      - code: WEEKLY
+        label: Weekly
+      - code: MONTHLY
+        label: Monthly
+      - code: RARELY
+        label: Rarely
+      - code: NEVER
+        label: Never
+      - code: SEASONAL
+        label: Seasonal
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Frequency can reflect typical use across the last 12 months.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: OA_30
+    section: Other appliances
+    question_text: Added appliances.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: List any large electrical appliances added since onboarding.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: OA_31
+    section: Other appliances
+    question_text: Removed appliances.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: List any large electrical appliances removed since onboarding.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: OA_32
+    section: Other appliances
+    question_text: Dates of appliance additions/removals.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Prefer YYYY-MM-DD where known; include which date corresponds to each appliance event.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7

@@ -1,6 +1,6 @@
 section_id: HOT_WATER_HEATING
 section_title: Hot water and heating
-source: HEEP2 Light Survey Dec 2023
+source: Scaled Demand Flexibility Pilots
 questions:
   - id: HW_11
     section: About your house or flat
@@ -38,7 +38,7 @@ questions:
       rules: []
     notes: TODO - Confirm handling of potentially contradictory selections (e.g., "No system" with system selections).
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 4
 
   - id: HEAT_12
@@ -65,7 +65,7 @@ questions:
           goto_question_id: HEAT_14
     notes: Source clarifies "main living area" as the largest if multiple living areas exist.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 4
 
   - id: HEAT_13
@@ -106,7 +106,7 @@ questions:
       rules: []
     notes: Skip condition inferred from Question 12 instruction.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 4
 
   - id: HEAT_14
@@ -133,7 +133,7 @@ questions:
           goto_question_id: HEAT_16
     notes: None.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 4
 
   - id: HEAT_15
@@ -174,7 +174,7 @@ questions:
       rules: []
     notes: Skip condition inferred from Question 14 instruction.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 5
 
   - id: HEAT_16
@@ -215,7 +215,7 @@ questions:
       rules: []
     notes: None.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 5
 
   - id: HEAT_17
@@ -256,5 +256,5 @@ questions:
       rules: []
     notes: TODO - Source does not state whether "None of these things" is mutually exclusive; treat as exclusive in data collection UI.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 5

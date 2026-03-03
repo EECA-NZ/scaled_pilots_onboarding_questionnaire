@@ -1,0 +1,19 @@
+section_id: CONNECTION_DETAILS
+section_title: Connection details
+source: Scaled Demand Flexibility Pilots
+instruction_text: TODO - This section is intentionally incomplete and requires detailed definition for pilot-specific network and metering fields.
+questions:
+  - id: CONN_33
+    section: Connection details
+    question_text: Connection details (to be defined).
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: TODO - define skip logic once connection-detail fields are finalized.
+      rules: []
+    notes: TODO - Placeholder question. Replace with structured connection attributes (e.g., meter type, phase, network constraints) after design workshop.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 8

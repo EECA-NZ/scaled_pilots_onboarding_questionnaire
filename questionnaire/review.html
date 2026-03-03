@@ -3,7 +3,7 @@
 <head>
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>HEEP2 Light Survey Instrument Review</title>
+<title>Scaled Demand Flexibility Pilots Questionnaire Review</title>
 <style>
 :root { color-scheme: light; }
 body { font-family: Georgia, 'Times New Roman', Times, serif; background: #fff; color: #111; margin: 0; }
@@ -48,15 +48,106 @@ body.show-codes .option-code { display: inline; }
 </head>
 <body>
 <main class='page'>
-<h1>National Study of Household Energy Use</h1>
-<p class='subtitle'>Householder survey instrument (ported from HEEP2 Light Survey Dec 2023)</p>
+<h1>Scaled Demand Flexibility Pilots</h1>
+<p class='subtitle'>Householder questionnaire review</p>
 <label class='code-toggle'><input id='show-codes-toggle' type='checkbox'> Show analysis codes</label>
 <nav class='contents' aria-label='Contents'><h2>Contents</h2><ol>
-<li><a href='#1-about-your-house-or-flat'>About your house or flat</a></li>
-<li><a href='#2-hot-water-and-heating'>Hot water and heating</a></li>
-<li><a href='#3-cooling-and-household'>Cooling and household</a></li>
+<li><a href='#1-administrative-details'>Administrative details</a></li>
+<li><a href='#2-about-your-house-or-flat'>About your house or flat</a></li>
+<li><a href='#3-hot-water-and-heating'>Hot water and heating</a></li>
+<li><a href='#4-cooling-and-household'>Cooling and household</a></li>
+<li><a href='#5-other-appliances'>Other appliances</a></li>
+<li><a href='#6-connection-details'>Connection details</a></li>
+<li><a href='#7-solar-and-battery'>Solar and battery</a></li>
 </ol></nav>
-<section class='section' id='1-about-your-house-or-flat'>
+<section class='section' id='1-administrative-details'>
+<h2>Administrative details</h2>
+<article class='question'>
+<p class='q-label'>Q1.</p>
+<p class='q-text'>ICP</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q2.</p>
+<p class='q-text'>Cohort number</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q3.</p>
+<p class='q-text'>Name</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q4.</p>
+<p class='q-text'>Email address</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q5.</p>
+<p class='q-text'>Contact number</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q6.</p>
+<p class='q-text'>Address</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q7.</p>
+<p class='q-text'>Retailer account number</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q8.</p>
+<p class='q-text'>Retailer</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q9.</p>
+<p class='q-text'>Supplied powerbill (Y/N)</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='ADMIN_09_1' class='option-row'><input id='ADMIN_09_1' name='ADMIN_09_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='ADMIN_09_2' class='option-row'><input id='ADMIN_09_2' name='ADMIN_09_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q10.</p>
+<p class='q-text'>Customer consent signed (Y/N)</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='ADMIN_10_1' class='option-row'><input id='ADMIN_10_1' name='ADMIN_10_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='ADMIN_10_2' class='option-row'><input id='ADMIN_10_2' name='ADMIN_10_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q11.</p>
+<p class='q-text'>Products assigned</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='ADMIN_11_1' class='option-row'><input id='ADMIN_11_1' name='ADMIN_11_choice' type='checkbox'><span class='option-label'>Hot water control</span><span class='option-code' data-code>[HOT_WATER_CONTROL]</span></label></li><li><label for='ADMIN_11_2' class='option-row'><input id='ADMIN_11_2' name='ADMIN_11_choice' type='checkbox'><span class='option-label'>Smart thermostat</span><span class='option-code' data-code>[SMART_THERMOSTAT]</span></label></li><li><label for='ADMIN_11_3' class='option-row'><input id='ADMIN_11_3' name='ADMIN_11_choice' type='checkbox'><span class='option-label'>EV charger control</span><span class='option-code' data-code>[EV_CHARGER_CONTROL]</span></label></li><li><label for='ADMIN_11_4' class='option-row'><input id='ADMIN_11_4' name='ADMIN_11_choice' type='checkbox'><span class='option-label'>In-home display</span><span class='option-code' data-code>[IN_HOME_DISPLAY]</span></label></li><li><label for='ADMIN_11_5' class='option-row'><input id='ADMIN_11_5' name='ADMIN_11_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q12.</p>
+<p class='q-text'>Products shipped</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='ADMIN_12_1' class='option-row'><input id='ADMIN_12_1' name='ADMIN_12_choice' type='checkbox'><span class='option-label'>Hot water control</span><span class='option-code' data-code>[HOT_WATER_CONTROL]</span></label></li><li><label for='ADMIN_12_2' class='option-row'><input id='ADMIN_12_2' name='ADMIN_12_choice' type='checkbox'><span class='option-label'>Smart thermostat</span><span class='option-code' data-code>[SMART_THERMOSTAT]</span></label></li><li><label for='ADMIN_12_3' class='option-row'><input id='ADMIN_12_3' name='ADMIN_12_choice' type='checkbox'><span class='option-label'>EV charger control</span><span class='option-code' data-code>[EV_CHARGER_CONTROL]</span></label></li><li><label for='ADMIN_12_4' class='option-row'><input id='ADMIN_12_4' name='ADMIN_12_choice' type='checkbox'><span class='option-label'>In-home display</span><span class='option-code' data-code>[IN_HOME_DISPLAY]</span></label></li><li><label for='ADMIN_12_5' class='option-row'><input id='ADMIN_12_5' name='ADMIN_12_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q13.</p>
+<p class='q-text'>Products installed</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='ADMIN_13_1' class='option-row'><input id='ADMIN_13_1' name='ADMIN_13_choice' type='checkbox'><span class='option-label'>Hot water control</span><span class='option-code' data-code>[HOT_WATER_CONTROL]</span></label></li><li><label for='ADMIN_13_2' class='option-row'><input id='ADMIN_13_2' name='ADMIN_13_choice' type='checkbox'><span class='option-label'>Smart thermostat</span><span class='option-code' data-code>[SMART_THERMOSTAT]</span></label></li><li><label for='ADMIN_13_3' class='option-row'><input id='ADMIN_13_3' name='ADMIN_13_choice' type='checkbox'><span class='option-label'>EV charger control</span><span class='option-code' data-code>[EV_CHARGER_CONTROL]</span></label></li><li><label for='ADMIN_13_4' class='option-row'><input id='ADMIN_13_4' name='ADMIN_13_choice' type='checkbox'><span class='option-label'>In-home display</span><span class='option-code' data-code>[IN_HOME_DISPLAY]</span></label></li><li><label for='ADMIN_13_5' class='option-row'><input id='ADMIN_13_5' name='ADMIN_13_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q14.</p>
+<p class='q-text'>CoC issued</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='ADMIN_14_1' class='option-row'><input id='ADMIN_14_1' name='ADMIN_14_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='ADMIN_14_2' class='option-row'><input id='ADMIN_14_2' name='ADMIN_14_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li></ul>
+</article>
+</section>
+<section class='section' id='2-about-your-house-or-flat'>
 <h2>About your house or flat</h2>
 <article class='question'>
 <p class='q-label'>Q1.</p>
@@ -118,8 +209,56 @@ body.show-codes .option-code { display: inline; }
 <p class='instruction'>Please select as many as apply.</p>
 <ul class='options'><li><label for='DWELL_10_1' class='option-row'><input id='DWELL_10_1' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Electricity</span><span class='option-code' data-code>[ELECTRICITY]</span></label></li><li><label for='DWELL_10_2' class='option-row'><input id='DWELL_10_2' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Natural gas (mains gas piped to the house)</span><span class='option-code' data-code>[NATURAL_GAS]</span></label></li><li><label for='DWELL_10_3' class='option-row'><input id='DWELL_10_3' name='DWELL_10_choice' type='checkbox'><span class='option-label'>LPG (bottled gas)</span><span class='option-code' data-code>[LPG]</span></label></li><li><label for='DWELL_10_4' class='option-row'><input id='DWELL_10_4' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Wood / solid fuel</span><span class='option-code' data-code>[WOOD_SOLID_FUEL]</span></label></li><li><label for='DWELL_10_5' class='option-row'><input id='DWELL_10_5' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Self-generated (e.g. solar panels)</span><span class='option-code' data-code>[SELF_GENERATED]</span></label></li><li><label for='DWELL_10_6' class='option-row'><input id='DWELL_10_6' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='DWELL_10_7' class='option-row'><input id='DWELL_10_7' name='DWELL_10_choice' type='checkbox'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
 </article>
+<article class='question'>
+<p class='q-label'>Q19.</p>
+<p class='q-text'>How many people are usually resident in your house or flat?</p>
+<p class='instruction'>Please enter a number for adults and children usually resident.</p>
+<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody><tr><td>Adults (aged 18 or over) <span class='option-code' data-code>[ADULTS_18_PLUS]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 1'></td></tr><tr><td>Children (aged under 18) <span class='option-code' data-code>[CHILDREN_UNDER_18]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 2'></td></tr></tbody></table>
+</article>
+<article class='question'>
+<p class='q-label'>Q20.</p>
+<p class='q-text'>Do you own or rent the house or flat where you live?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='HH_20_1' class='option-row'><input id='HH_20_1' name='HH_20_choice' type='radio'><span class='option-label'>Own</span><span class='option-code' data-code>[OWN]</span></label></li><li><label for='HH_20_2' class='option-row'><input id='HH_20_2' name='HH_20_choice' type='radio'><span class='option-label'>Rent</span><span class='option-code' data-code>[RENT]</span></label></li></ul>
+<p class='skip-note'>Question HH_21 applies only to renters.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q21.</p>
+<p class='q-text'>If you rent your home: Who owns this dwelling?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='HH_21_1' class='option-row'><input id='HH_21_1' name='HH_21_choice' type='radio'><span class='option-label'>Private person</span><span class='option-code' data-code>[PRIVATE_PERSON]</span></label></li><li><label for='HH_21_2' class='option-row'><input id='HH_21_2' name='HH_21_choice' type='radio'><span class='option-label'>Private trust</span><span class='option-code' data-code>[PRIVATE_TRUST]</span></label></li><li><label for='HH_21_3' class='option-row'><input id='HH_21_3' name='HH_21_choice' type='radio'><span class='option-label'>Local authority or council</span><span class='option-code' data-code>[LOCAL_AUTHORITY_COUNCIL]</span></label></li><li><label for='HH_21_4' class='option-row'><input id='HH_21_4' name='HH_21_choice' type='radio'><span class='option-label'>Kāinga Ora (Housing New Zealand)</span><span class='option-code' data-code>[KAINGA_ORA]</span></label></li><li><label for='HH_21_5' class='option-row'><input id='HH_21_5' name='HH_21_choice' type='radio'><span class='option-label'>Other state-owned corporation, state-owned enterprise or government department</span><span class='option-code' data-code>[OTHER_STATE_OWNED_ENTITY]</span></label></li><li><label for='HH_21_6' class='option-row'><input id='HH_21_6' name='HH_21_choice' type='radio'><span class='option-label'>Business or other organisation</span><span class='option-code' data-code>[BUSINESS_OR_ORGANISATION]</span></label></li><li><label for='HH_21_7' class='option-row'><input id='HH_21_7' name='HH_21_choice' type='radio'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li></ul>
+<p class='skip-note'>Asked when HH_20 is RENT.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q22.</p>
+<p class='q-text'>Has the household composition changed since onboarding?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='HH_COMP_22_1' class='option-row'><input id='HH_COMP_22_1' name='HH_COMP_22_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='HH_COMP_22_2' class='option-row'><input id='HH_COMP_22_2' name='HH_COMP_22_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li></ul>
+<p class='skip-note'>If YES, collect before/after composition and date in HH_COMP_23 to HH_COMP_25.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q23.</p>
+<p class='q-text'>Describe the household composition before the change.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+<p class='skip-note'>Ask when HH_COMP_22 is YES.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q24.</p>
+<p class='q-text'>Describe the household composition after the change.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+<p class='skip-note'>Ask when HH_COMP_22 is YES.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q25.</p>
+<p class='q-text'>Date of household composition change.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+<p class='skip-note'>Ask when HH_COMP_22 is YES.</p>
+</article>
 </section>
-<section class='section' id='2-hot-water-and-heating'>
+<section class='section' id='3-hot-water-and-heating'>
 <h2>Hot water and heating</h2>
 <article class='question'>
 <p class='q-label'>Q11.</p>
@@ -168,7 +307,7 @@ body.show-codes .option-code { display: inline; }
 <ul class='options'><li><label for='HEAT_17_1' class='option-row'><input id='HEAT_17_1' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Electric/heated blanket(s)</span><span class='option-code' data-code>[ELECTRIC_HEATED_BLANKETS]</span></label></li><li><label for='HEAT_17_2' class='option-row'><input id='HEAT_17_2' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Hot water bottle(s)</span><span class='option-code' data-code>[HOT_WATER_BOTTLES]</span></label></li><li><label for='HEAT_17_3' class='option-row'><input id='HEAT_17_3' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Extra blanket(s)/ winter duvet</span><span class='option-code' data-code>[EXTRA_BLANKETS_DUVET]</span></label></li><li><label for='HEAT_17_4' class='option-row'><input id='HEAT_17_4' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Extra layers (clothes/slippers)</span><span class='option-code' data-code>[EXTRA_LAYERS]</span></label></li><li><label for='HEAT_17_5' class='option-row'><input id='HEAT_17_5' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Close curtains</span><span class='option-code' data-code>[CLOSE_CURTAINS]</span></label></li><li><label for='HEAT_17_6' class='option-row'><input id='HEAT_17_6' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Use draft stoppers</span><span class='option-code' data-code>[DRAFT_STOPPERS]</span></label></li><li><label for='HEAT_17_7' class='option-row'><input id='HEAT_17_7' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Bubble wrap/ insulation on windows</span><span class='option-code' data-code>[BUBBLE_WRAP_WINDOW_INSULATION]</span></label></li><li><label for='HEAT_17_8' class='option-row'><input id='HEAT_17_8' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Have a hot shower/ bath</span><span class='option-code' data-code>[HOT_SHOWER_BATH]</span></label></li><li><label for='HEAT_17_9' class='option-row'><input id='HEAT_17_9' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Go to bed earlier</span><span class='option-code' data-code>[GO_TO_BED_EARLIER]</span></label></li><li><label for='HEAT_17_10' class='option-row'><input id='HEAT_17_10' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Sleep in one room</span><span class='option-code' data-code>[SLEEP_IN_ONE_ROOM]</span></label></li><li><label for='HEAT_17_11' class='option-row'><input id='HEAT_17_11' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Close off/ don&#x27;t use some rooms</span><span class='option-code' data-code>[CLOSE_OFF_ROOMS]</span></label></li><li><label for='HEAT_17_12' class='option-row'><input id='HEAT_17_12' name='HEAT_17_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='HEAT_17_13' class='option-row'><input id='HEAT_17_13' name='HEAT_17_choice' type='checkbox'><span class='option-label'>None of these things</span><span class='option-code' data-code>[NONE]</span></label></li></ul>
 </article>
 </section>
-<section class='section' id='3-cooling-and-household'>
+<section class='section' id='4-cooling-and-household'>
 <h2>Cooling and household</h2>
 <article class='question'>
 <p class='q-label'>Q18.</p>
@@ -176,25 +315,112 @@ body.show-codes .option-code { display: inline; }
 <p class='instruction'>Please select one option.</p>
 <ul class='options'><li><label for='COOL_18_1' class='option-row'><input id='COOL_18_1' name='COOL_18_choice' type='radio'><span class='option-label'>Yes - often</span><span class='option-code' data-code>[YES_OFTEN]</span></label></li><li><label for='COOL_18_2' class='option-row'><input id='COOL_18_2' name='COOL_18_choice' type='radio'><span class='option-label'>Yes - sometimes</span><span class='option-code' data-code>[YES_SOMETIMES]</span></label></li><li><label for='COOL_18_3' class='option-row'><input id='COOL_18_3' name='COOL_18_choice' type='radio'><span class='option-label'>Yes - rarely</span><span class='option-code' data-code>[YES_RARELY]</span></label></li><li><label for='COOL_18_4' class='option-row'><input id='COOL_18_4' name='COOL_18_choice' type='radio'><span class='option-label'>No never</span><span class='option-code' data-code>[NO_NEVER]</span></label></li><li><label for='COOL_18_5' class='option-row'><input id='COOL_18_5' name='COOL_18_choice' type='radio'><span class='option-label'>Not applicable - no heat pump/air conditioner</span><span class='option-code' data-code>[NOT_APPLICABLE]</span></label></li></ul>
 </article>
+</section>
+<section class='section' id='5-other-appliances'>
+<h2>Other appliances</h2>
 <article class='question'>
-<p class='q-label'>Q19.</p>
-<p class='q-text'>How many people are usually resident in your house or flat?</p>
-<p class='instruction'>Please enter a number for adults and children usually resident.</p>
-<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody><tr><td>Adults (aged 18 or over) <span class='option-code' data-code>[ADULTS_18_PLUS]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 1'></td></tr><tr><td>Children (aged under 18) <span class='option-code' data-code>[CHILDREN_UNDER_18]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 2'></td></tr></tbody></table>
+<p class='q-label'>Q26.</p>
+<p class='q-text'>Air conditioner make/model.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
 </article>
 <article class='question'>
-<p class='q-label'>Q20.</p>
-<p class='q-text'>Do you own or rent the house or flat where you live?</p>
-<p class='instruction'>Please select one option.</p>
-<ul class='options'><li><label for='HH_20_1' class='option-row'><input id='HH_20_1' name='HH_20_choice' type='radio'><span class='option-label'>Own</span><span class='option-code' data-code>[OWN]</span></label></li><li><label for='HH_20_2' class='option-row'><input id='HH_20_2' name='HH_20_choice' type='radio'><span class='option-label'>Rent</span><span class='option-code' data-code>[RENT]</span></label></li></ul>
-<p class='skip-note'>Question 21 applies to renters (inferred from wording &quot;If you rent your home&quot;).</p>
+<p class='q-label'>Q27.</p>
+<p class='q-text'>Dishwasher make/model.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
 </article>
 <article class='question'>
-<p class='q-label'>Q21.</p>
-<p class='q-text'>If you rent your home: Who owns this dwelling?</p>
+<p class='q-label'>Q28.</p>
+<p class='q-text'>Second fridge/freezer make/model.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q29.</p>
+<p class='q-text'>How often is a dehumidifier used?</p>
 <p class='instruction'>Please select one option.</p>
-<ul class='options'><li><label for='HH_21_1' class='option-row'><input id='HH_21_1' name='HH_21_choice' type='radio'><span class='option-label'>Private person</span><span class='option-code' data-code>[PRIVATE_PERSON]</span></label></li><li><label for='HH_21_2' class='option-row'><input id='HH_21_2' name='HH_21_choice' type='radio'><span class='option-label'>Private trust</span><span class='option-code' data-code>[PRIVATE_TRUST]</span></label></li><li><label for='HH_21_3' class='option-row'><input id='HH_21_3' name='HH_21_choice' type='radio'><span class='option-label'>Local authority or council</span><span class='option-code' data-code>[LOCAL_AUTHORITY_COUNCIL]</span></label></li><li><label for='HH_21_4' class='option-row'><input id='HH_21_4' name='HH_21_choice' type='radio'><span class='option-label'>Kāinga Ora (Housing New Zealand)</span><span class='option-code' data-code>[KAINGA_ORA]</span></label></li><li><label for='HH_21_5' class='option-row'><input id='HH_21_5' name='HH_21_choice' type='radio'><span class='option-label'>Other state-owned corporation, state-owned enterprise or government department</span><span class='option-code' data-code>[OTHER_STATE_OWNED_ENTITY]</span></label></li><li><label for='HH_21_6' class='option-row'><input id='HH_21_6' name='HH_21_choice' type='radio'><span class='option-label'>Business or other organisation</span><span class='option-code' data-code>[BUSINESS_OR_ORGANISATION]</span></label></li><li><label for='HH_21_7' class='option-row'><input id='HH_21_7' name='HH_21_choice' type='radio'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li></ul>
-<p class='skip-note'>Asked when Question 20 response is RENT.</p>
+<ul class='options'><li><label for='OA_29_1' class='option-row'><input id='OA_29_1' name='OA_29_choice' type='radio'><span class='option-label'>Daily</span><span class='option-code' data-code>[DAILY]</span></label></li><li><label for='OA_29_2' class='option-row'><input id='OA_29_2' name='OA_29_choice' type='radio'><span class='option-label'>Weekly</span><span class='option-code' data-code>[WEEKLY]</span></label></li><li><label for='OA_29_3' class='option-row'><input id='OA_29_3' name='OA_29_choice' type='radio'><span class='option-label'>Monthly</span><span class='option-code' data-code>[MONTHLY]</span></label></li><li><label for='OA_29_4' class='option-row'><input id='OA_29_4' name='OA_29_choice' type='radio'><span class='option-label'>Rarely</span><span class='option-code' data-code>[RARELY]</span></label></li><li><label for='OA_29_5' class='option-row'><input id='OA_29_5' name='OA_29_choice' type='radio'><span class='option-label'>Never</span><span class='option-code' data-code>[NEVER]</span></label></li><li><label for='OA_29_6' class='option-row'><input id='OA_29_6' name='OA_29_choice' type='radio'><span class='option-label'>Seasonal</span><span class='option-code' data-code>[SEASONAL]</span></label></li></ul>
+</article>
+<article class='question'>
+<p class='q-label'>Q30.</p>
+<p class='q-text'>Added appliances.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q31.</p>
+<p class='q-text'>Removed appliances.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+<article class='question'>
+<p class='q-label'>Q32.</p>
+<p class='q-text'>Dates of appliance additions/removals.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+</article>
+</section>
+<section class='section' id='6-connection-details'>
+<h2>Connection details</h2>
+<p class='section-intro'>TODO - This section is intentionally incomplete and requires detailed definition for pilot-specific network and metering fields.</p>
+<article class='question'>
+<p class='q-label'>Q33.</p>
+<p class='q-text'>Connection details (to be defined).</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+<p class='skip-note'>TODO - define skip logic once connection-detail fields are finalized.</p>
+</article>
+</section>
+<section class='section' id='7-solar-and-battery'>
+<h2>Solar and battery</h2>
+<article class='question'>
+<p class='q-label'>Q34.</p>
+<p class='q-text'>Is solar installed?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='SOLAR_34_1' class='option-row'><input id='SOLAR_34_1' name='SOLAR_34_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='SOLAR_34_2' class='option-row'><input id='SOLAR_34_2' name='SOLAR_34_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li></ul>
+<p class='skip-note'>If YES, ask SOLAR_35 to SOLAR_37.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q35.</p>
+<p class='q-text'>Solar inverter make/model.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+<p class='skip-note'>Ask when SOLAR_34 is YES.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q36.</p>
+<p class='q-text'>Inverter size.</p>
+<p class='instruction'>Enter a numeric response.</p>
+<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody><tr><td>Inverter size (kW) <span class='option-code' data-code>[INVERTER_SIZE_KW]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 1'></td></tr></tbody></table>
+<p class='skip-note'>Ask when SOLAR_34 is YES.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q37.</p>
+<p class='q-text'>Max amount energy panels can generate.</p>
+<p class='instruction'>Enter a numeric response.</p>
+<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody><tr><td>Maximum panel generation (kW) <span class='option-code' data-code>[MAX_PANEL_GENERATION_KW]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 1'></td></tr></tbody></table>
+<p class='skip-note'>Ask when SOLAR_34 is YES.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q38.</p>
+<p class='q-text'>Is a battery installed?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='BATT_38_1' class='option-row'><input id='BATT_38_1' name='BATT_38_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='BATT_38_2' class='option-row'><input id='BATT_38_2' name='BATT_38_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li></ul>
+<p class='skip-note'>If YES, ask BATT_39.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q39.</p>
+<p class='q-text'>Battery operating mode.</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='BATT_39_1' class='option-row'><input id='BATT_39_1' name='BATT_39_choice' type='radio'><span class='option-label'>Self-consumption</span><span class='option-code' data-code>[SELF_CONSUMPTION]</span></label></li><li><label for='BATT_39_2' class='option-row'><input id='BATT_39_2' name='BATT_39_choice' type='radio'><span class='option-label'>Arbitrage</span><span class='option-code' data-code>[ARBITRAGE]</span></label></li><li><label for='BATT_39_3' class='option-row'><input id='BATT_39_3' name='BATT_39_choice' type='radio'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li></ul>
+<p class='skip-note'>Ask when BATT_38 is YES.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q40.</p>
+<p class='q-text'>Is controlled load attached to PV (for example, a hot water diverter)?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='SOLAR_40_1' class='option-row'><input id='SOLAR_40_1' name='SOLAR_40_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='SOLAR_40_2' class='option-row'><input id='SOLAR_40_2' name='SOLAR_40_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li></ul>
 </article>
 </section>
 </main>

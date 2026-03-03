@@ -4,7 +4,7 @@
 
 [Current survey (dev)](https://eeca-nz.github.io/scaled_pilots_onboarding_questionnaire/dev/)
 
-Collaboratively editable survey instrument ported from **HEEP2 Light Survey (Dec 2023)** for scaled DF pilots.
+Collaboratively editable questionnaire for **Scaled Demand Flexibility Pilots**.
 
 ## Repository structure
 
@@ -32,6 +32,3 @@ Features:
 - `validate-questionnaire.yml`: runs validation/build checks on pull requests
 - `deploy-pages.yml`: on push to any branch, deploys a combined Pages site with `/` built from `main` and `/dev/` built from `dev` or the pushed non-`main` branch
 
-## Source
-
-Source PDF used for porting: `heep2_light_survey_dec_2023.pdf`

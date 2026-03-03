@@ -1,6 +1,6 @@
 section_id: ABOUT_HOME
 section_title: About your house or flat
-source: HEEP2 Light Survey Dec 2023
+source: Scaled Demand Flexibility Pilots
 questions:
   - id: DWELL_01
     section: About your house or flat
@@ -24,11 +24,11 @@ questions:
     allow_other: true
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: TODO - Source survey does not provide numeric/coded values; codes were assigned for analysis consistency.
+    notes: Source-neutral coding retained for analysis consistency.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 2
 
   - id: DWELL_02
@@ -61,11 +61,11 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
     notes: Numeric entries are expected for each room type listed.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 2
 
   - id: DWELL_03
@@ -76,11 +76,11 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: TODO - Could be modeled as numeric year + uncertainty flag in later versions.
+    notes: Could be modeled as numeric year plus uncertainty flag in later versions.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 2
 
   - id: DWELL_04
@@ -103,11 +103,11 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: Floor area units are represented as written in the source (m2).
+    notes: Floor area units are represented as square meters (m2).
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 2
 
   - id: DWELL_05
@@ -126,11 +126,11 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: '"Not applicable" condition retained exactly from source wording.'
+    notes: Includes a not-applicable option for homes without direct roof access.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
   - id: DWELL_06
@@ -151,11 +151,11 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
     notes: None.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
   - id: DWELL_07
@@ -172,11 +172,11 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
     notes: None.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
   - id: DWELL_08
@@ -195,11 +195,11 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
     notes: None.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
   - id: DWELL_09
@@ -222,11 +222,11 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: TODO - Source does not state whether "None of these" is mutually exclusive; treat as exclusive in data collection UI.
+    notes: Treat NONE as mutually exclusive in collection UI.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
   - id: DWELL_10
@@ -251,9 +251,142 @@ questions:
     allow_other: true
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: "Includes source instruction context: consider heating, cooking, and hot water sources; BBQ bottle gas not required."
+    notes: Consider all major household energy sources.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
+
+  - id: HH_19
+    section: About your house or flat
+    question_text: How many people are usually resident in your house or flat? Please enter a number for adults and children usually resident.
+    response_type: numeric
+    options:
+      - code: ADULTS_18_PLUS
+        label: Adults (aged 18 or over)
+      - code: CHILDREN_UNDER_18
+        label: Children (aged under 18)
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Numeric entries are expected for both adults and children.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HH_20
+    section: About your house or flat
+    question_text: Do you own or rent the house or flat where you live? Please select one option.
+    response_type: single_choice
+    options:
+      - code: OWN
+        label: Own
+      - code: RENT
+        label: Rent
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Question HH_21 applies only to renters.
+      rules:
+        - if_option_code: RENT
+          goto_question_id: HH_21
+    notes: Skip logic retained for renters.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HH_21
+    section: About your house or flat
+    question_text: "If you rent your home: Who owns this dwelling? Please select one option."
+    response_type: single_choice
+    options:
+      - code: PRIVATE_PERSON
+        label: Private person
+      - code: PRIVATE_TRUST
+        label: Private trust
+      - code: LOCAL_AUTHORITY_COUNCIL
+        label: Local authority or council
+      - code: KAINGA_ORA
+        label: Kāinga Ora (Housing New Zealand)
+      - code: OTHER_STATE_OWNED_ENTITY
+        label: Other state-owned corporation, state-owned enterprise or government department
+      - code: BUSINESS_OR_ORGANISATION
+        label: Business or other organisation
+      - code: OTHER
+        label: Other
+    allow_other: true
+    required: false
+    skip_logic:
+      human: Asked when HH_20 is RENT.
+      rules: []
+    notes: Skip condition inferred from question lead-in.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HH_COMP_22
+    section: About your house or flat
+    question_text: Has the household composition changed since onboarding? Please select one option.
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If YES, collect before/after composition and date in HH_COMP_23 to HH_COMP_25.
+      rules: []
+    notes: Composition means the people usually living in the household (e.g., adults, children, regular occupants).
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HH_COMP_23
+    section: About your house or flat
+    question_text: Describe the household composition before the change.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when HH_COMP_22 is YES.
+      rules: []
+    notes: Capture adults/children counts and any other relevant household member details.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HH_COMP_24
+    section: About your house or flat
+    question_text: Describe the household composition after the change.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when HH_COMP_22 is YES.
+      rules: []
+    notes: Capture adults/children counts and any other relevant household member details.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HH_COMP_25
+    section: About your house or flat
+    question_text: Date of household composition change.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when HH_COMP_22 is YES.
+      rules: []
+    notes: Prefer YYYY-MM-DD where known.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6

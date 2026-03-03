@@ -1,4 +1,18 @@
 question_id,question_text,response_type,options
+ADMIN_01,ICP,free_text,
+ADMIN_02,Cohort number,free_text,
+ADMIN_03,Name,free_text,
+ADMIN_04,Email address,free_text,
+ADMIN_05,Contact number,free_text,
+ADMIN_06,Address,free_text,
+ADMIN_07,Retailer account number,free_text,
+ADMIN_08,Retailer,free_text,
+ADMIN_09,Supplied powerbill (Y/N),single_choice,YES: Yes | NO: No
+ADMIN_10,Customer consent signed (Y/N),single_choice,YES: Yes | NO: No
+ADMIN_11,Products assigned,multi_choice,HOT_WATER_CONTROL: Hot water control | SMART_THERMOSTAT: Smart thermostat | EV_CHARGER_CONTROL: EV charger control | IN_HOME_DISPLAY: In-home display | OTHER: Other
+ADMIN_12,Products shipped,multi_choice,HOT_WATER_CONTROL: Hot water control | SMART_THERMOSTAT: Smart thermostat | EV_CHARGER_CONTROL: EV charger control | IN_HOME_DISPLAY: In-home display | OTHER: Other
+ADMIN_13,Products installed,multi_choice,HOT_WATER_CONTROL: Hot water control | SMART_THERMOSTAT: Smart thermostat | EV_CHARGER_CONTROL: EV charger control | IN_HOME_DISPLAY: In-home display | OTHER: Other
+ADMIN_14,CoC issued,single_choice,YES: Yes | NO: No
 DWELL_01,Which of these best describes your home? Please select one option.,single_choice,STANDALONE_1: Stand-alone house - single storey | STANDALONE_2P: Stand-alone house - two or more storeys | TERRACED_JOINED: Terraced house / joined unit | FLAT_CONVERTED: Flat in converted house | APARTMENT_PURPOSE_BUILT: Apartment / flat in purpose-built block | APARTMENT_COMMERCIAL_BUILDING: Apartment / flat in commercial building (e.g. building shared with offices or a shop) | OTHER: Other
 DWELL_02,How many rooms are there in your house or flat? Please enter the number of each type of room present.,numeric,BEDROOMS: Bedrooms | OPEN_PLAN_KITCHEN_DINING_LIVING: Open plan kitchen/dining - living | SEPARATE_LIVING_ROOM: Separate Living room/ lounge/ family room | SEPARATE_KITCHEN: Separate Kitchen | SEPARATE_DINING_ROOM: Separate Dining room | BATHROOMS: Bathrooms (with bath/shower) | SEPARATE_LAUNDRY: Separate laundry room | OFFICE_STUDY_HOBBY_OTHER: Office/ study/ hobby/other rooms | ATTACHED_GARAGE: Attached garage | DETACHED_GARAGE: Detached garage | SLEEPOUT: Sleepout (used for living/sleeping)
 DWELL_03,When was your house or flat built? Please enter an approximate year/decade if you are unsure.,free_text,
@@ -9,6 +23,13 @@ DWELL_07,Are the walls of your house or flat insulated? Please select one option
 DWELL_08,Are the windows single- or double-glazed? Please select one option.,single_choice,"ALL_DOUBLE: All double-glazed (or better) | MIXED: Some double-glazed, some single-glazed | ALL_SINGLE: All single-glazed | UNSURE: Unsure"
 DWELL_09,Do you have any of the following? Please select as many as apply.,multi_choice,HEATED_POOL: A heated pool | SPA_POOL: A spa pool/hot tub | SAUNA: A sauna | ELECTRIC_VEHICLE_CHARGED_AT_HOME: An electric vehicle (which is charged at the home at some time) | SOLAR_PV: Solar panels (PV) | NONE: None of these
 DWELL_10,Which types of energy are used in your home? Please select as many as apply.,multi_choice,ELECTRICITY: Electricity | NATURAL_GAS: Natural gas (mains gas piped to the house) | LPG: LPG (bottled gas) | WOOD_SOLID_FUEL: Wood / solid fuel | SELF_GENERATED: Self-generated (e.g. solar panels) | OTHER: Other | UNSURE: Unsure
+HH_19,How many people are usually resident in your house or flat? Please enter a number for adults and children usually resident.,numeric,ADULTS_18_PLUS: Adults (aged 18 or over) | CHILDREN_UNDER_18: Children (aged under 18)
+HH_20,Do you own or rent the house or flat where you live? Please select one option.,single_choice,OWN: Own | RENT: Rent
+HH_21,If you rent your home: Who owns this dwelling? Please select one option.,single_choice,"PRIVATE_PERSON: Private person | PRIVATE_TRUST: Private trust | LOCAL_AUTHORITY_COUNCIL: Local authority or council | KAINGA_ORA: Kāinga Ora (Housing New Zealand) | OTHER_STATE_OWNED_ENTITY: Other state-owned corporation, state-owned enterprise or government department | BUSINESS_OR_ORGANISATION: Business or other organisation | OTHER: Other"
+HH_COMP_22,Has the household composition changed since onboarding? Please select one option.,single_choice,YES: Yes | NO: No
+HH_COMP_23,Describe the household composition before the change.,free_text,
+HH_COMP_24,Describe the household composition after the change.,free_text,
+HH_COMP_25,Date of household composition change.,free_text,
 HW_11,What type of hot water system(s) do you have? Please select as many as apply.,multi_choice,CYLINDER_ELECTRIC: Cylinder - electric | CYLINDER_HEAT_PUMP: Cylinder - heat pump | CYLINDER_NATURAL_GAS: Cylinder - natural gas | CYLINDER_LPG: Cylinder - LPG | INSTANT_ELECTRIC: Instantaneous - electric | INSTANT_NATURAL_GAS: Instantaneous - natural gas | INSTANT_LPG: Instantaneous - LPG | WETBACK: Wetback | SOLAR_WATER_HEATING: Solar water heating | OTHER: Other | NO_SYSTEM: No hot water supply/system | UNSURE: Unsure
 HEAT_12,How often do you usually heat your main living area in winter? Please select one option.,single_choice,EVERY_DAY: Every day | MOST_DAYS: Most days | SOME_DAYS: Some days | HARDLY_EVER: Hardly ever | NEVER: Never
 HEAT_13,What appliance(s) do you use to heat your main living area? Please select all that apply.,multi_choice,HEAT_PUMP: Heat pump | ENCLOSED_WOOD_BURNER: Enclosed wood burner | PELLET_BURNER: Pellet burner | OPEN_FIRE: Open fire | FIXED_ELECTRIC_HEATER: Fixed electric heater | FIXED_GAS_HEATER: Fixed gas heater | PORTABLE_ELECTRIC_HEATER: Portable electric heater | PORTABLE_GAS_HEATER: Portable gas heater | CENTRAL_HEATING: Central heating | DUCTED_HEAT_PUMP: Ducted heat pump | UNDERFLOOR_HEATING: Underfloor heating | OTHER: Other | UNSURE: Unsure
@@ -17,6 +38,18 @@ HEAT_15,What appliance(s) do you use to heat your bedroom? Please select all tha
 HEAT_16,Are any other appliances used to heat any other rooms or areas of the home in winter? Please select as many as apply.,multi_choice,HEAT_PUMP: Heat pump | ENCLOSED_WOOD_BURNER: Enclosed wood burner | PELLET_BURNER: Pellet burner | OPEN_FIRE: Open fire | FIXED_ELECTRIC_HEATER: Fixed electric heater | FIXED_GAS_HEATER: Fixed gas heater | PORTABLE_ELECTRIC_HEATER: Portable electric heater | PORTABLE_GAS_HEATER: Portable gas heater | CENTRAL_HEATING: Central heating | DUCTED_HEAT_PUMP: Ducted heat pump | UNDERFLOOR_HEATING: Underfloor heating | OTHER: Other | UNSURE: Unsure
 HEAT_17,Do you use or do any of these things to help keep warm in your home in Winter? Please select all that apply.,multi_choice,ELECTRIC_HEATED_BLANKETS: Electric/heated blanket(s) | HOT_WATER_BOTTLES: Hot water bottle(s) | EXTRA_BLANKETS_DUVET: Extra blanket(s)/ winter duvet | EXTRA_LAYERS: Extra layers (clothes/slippers) | CLOSE_CURTAINS: Close curtains | DRAFT_STOPPERS: Use draft stoppers | BUBBLE_WRAP_WINDOW_INSULATION: Bubble wrap/ insulation on windows | HOT_SHOWER_BATH: Have a hot shower/ bath | GO_TO_BED_EARLIER: Go to bed earlier | SLEEP_IN_ONE_ROOM: Sleep in one room | CLOSE_OFF_ROOMS: Close off/ don't use some rooms | OTHER: Other | NONE: None of these things
 COOL_18,Do you ever use a heat pump or air conditioner for cooling in summer? Please select one option.,single_choice,YES_OFTEN: Yes - often | YES_SOMETIMES: Yes - sometimes | YES_RARELY: Yes - rarely | NO_NEVER: No never | NOT_APPLICABLE: Not applicable - no heat pump/air conditioner
-HH_19,How many people are usually resident in your house or flat? Please enter a number for adults and children usually resident.,numeric,ADULTS_18_PLUS: Adults (aged 18 or over) | CHILDREN_UNDER_18: Children (aged under 18)
-HH_20,Do you own or rent the house or flat where you live? Please select one option.,single_choice,OWN: Own | RENT: Rent
-HH_21,If you rent your home: Who owns this dwelling? Please select one option.,single_choice,"PRIVATE_PERSON: Private person | PRIVATE_TRUST: Private trust | LOCAL_AUTHORITY_COUNCIL: Local authority or council | KAINGA_ORA: Kāinga Ora (Housing New Zealand) | OTHER_STATE_OWNED_ENTITY: Other state-owned corporation, state-owned enterprise or government department | BUSINESS_OR_ORGANISATION: Business or other organisation | OTHER: Other"
+OA_26,Air conditioner make/model.,free_text,
+OA_27,Dishwasher make/model.,free_text,
+OA_28,Second fridge/freezer make/model.,free_text,
+OA_29,How often is a dehumidifier used? Please select one option.,single_choice,DAILY: Daily | WEEKLY: Weekly | MONTHLY: Monthly | RARELY: Rarely | NEVER: Never | SEASONAL: Seasonal
+OA_30,Added appliances.,free_text,
+OA_31,Removed appliances.,free_text,
+OA_32,Dates of appliance additions/removals.,free_text,
+CONN_33,Connection details (to be defined).,free_text,
+SOLAR_34,Is solar installed? Please select one option.,single_choice,YES: Yes | NO: No
+SOLAR_35,Solar inverter make/model.,free_text,
+SOLAR_36,Inverter size.,numeric,INVERTER_SIZE_KW: Inverter size (kW)
+SOLAR_37,Max amount energy panels can generate.,numeric,MAX_PANEL_GENERATION_KW: Maximum panel generation (kW)
+BATT_38,Is a battery installed? Please select one option.,single_choice,YES: Yes | NO: No
+BATT_39,Battery operating mode. Please select one option.,single_choice,SELF_CONSUMPTION: Self-consumption | ARBITRAGE: Arbitrage | OTHER: Other
+SOLAR_40,"Is controlled load attached to PV (for example, a hot water diverter)? Please select one option.",single_choice,YES: Yes | NO: No
