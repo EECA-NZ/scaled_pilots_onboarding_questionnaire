@@ -254,26 +254,7 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
-  - id: HH_19
-    section: About your house or flat
-    question_text: How many people are usually resident in your house or flat? Please enter a number for adults and children usually resident.
-    response_type: numeric
-    options:
-      - code: ADULTS_18_PLUS
-        label: Adults (aged 18 or over)
-      - code: CHILDREN_UNDER_18
-        label: Children (aged under 18)
-    allow_other: false
-    required: false
-    skip_logic:
-      human: None specified.
-      rules: []
-    notes: Numeric entries are expected for both adults and children.
-    purpose: TODO - define analytic purpose.
-    source: Scaled Demand Flexibility Pilots
-    provenance_page: 6
-
-  - id: HH_20
+  - id: HH_11
     section: About your house or flat
     question_text: Do you own or rent the house or flat where you live? Please select one option.
     response_type: single_choice
@@ -285,16 +266,16 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: Question HH_21 applies only to renters.
+      human: Question HH_12 applies only to renters.
       rules:
         - if_option_code: RENT
-          goto_question_id: HH_21
+          goto_question_id: HH_12
     notes: Skip logic retained for renters.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 6
 
-  - id: HH_21
+  - id: HH_12
     section: About your house or flat
     question_text: "If you rent your home: Who owns this dwelling? Please select one option."
     response_type: single_choice
@@ -316,16 +297,35 @@ questions:
     allow_other: true
     required: false
     skip_logic:
-      human: Asked when HH_20 is RENT.
+      human: Asked when HH_11 is RENT.
       rules: []
     notes: Skip condition inferred from question lead-in.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 6
 
-  - id: HH_COMP_22
+  - id: HH_13
     section: About your house or flat
-    question_text: Has the household composition changed since onboarding? Please select one option.
+    question_text: How many people are usually resident in your house or flat? Please enter a number for adults and children usually resident.
+    response_type: numeric
+    options:
+      - code: ADULTS_18_PLUS
+        label: Adults (aged 18 or over)
+      - code: CHILDREN_UNDER_18
+        label: Children (aged under 18)
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Numeric entries are expected for both adults and children.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HH_COMP_14
+    section: About your house or flat
+    question_text: Has the number of people in the house changed in the past two years? Please select one option.
     response_type: single_choice
     options:
       - code: "YES"
@@ -335,54 +335,24 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: If YES, collect before/after composition and date in HH_COMP_23 to HH_COMP_25.
+      human: If YES, ask HH_COMP_15.
       rules: []
     notes: Composition means the people usually living in the household (e.g., adults, children, regular occupants).
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 6
 
-  - id: HH_COMP_23
+  - id: HH_COMP_15
     section: About your house or flat
-    question_text: Describe the household composition before the change.
+    question_text: Describe the change in household numbers (before, after, and when the change happened).
     response_type: free_text
     options: []
     allow_other: false
     required: false
     skip_logic:
-      human: Ask when HH_COMP_22 is YES.
+      human: Ask when HH_COMP_14 is YES.
       rules: []
-    notes: Capture adults/children counts and any other relevant household member details.
-    purpose: TODO - define analytic purpose.
-    source: Scaled Demand Flexibility Pilots
-    provenance_page: 6
-
-  - id: HH_COMP_24
-    section: About your house or flat
-    question_text: Describe the household composition after the change.
-    response_type: free_text
-    options: []
-    allow_other: false
-    required: false
-    skip_logic:
-      human: Ask when HH_COMP_22 is YES.
-      rules: []
-    notes: Capture adults/children counts and any other relevant household member details.
-    purpose: TODO - define analytic purpose.
-    source: Scaled Demand Flexibility Pilots
-    provenance_page: 6
-
-  - id: HH_COMP_25
-    section: About your house or flat
-    question_text: Date of household composition change.
-    response_type: free_text
-    options: []
-    allow_other: false
-    required: false
-    skip_logic:
-      human: Ask when HH_COMP_22 is YES.
-      rules: []
-    notes: Prefer YYYY-MM-DD where known.
+    notes: Capture household numbers before and after the change, plus approximate timing (date or period).
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 6

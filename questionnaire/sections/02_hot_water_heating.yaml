@@ -2,7 +2,7 @@ section_id: HOT_WATER_HEATING
 section_title: Hot water, heating and cooling
 source: Scaled Demand Flexibility Pilots
 questions:
-  - id: HW_11
+  - id: HW_16
     section: About your house or flat
     question_text: What type of hot water system(s) do you have? Please select as many as apply.
     response_type: multi_choice
@@ -41,7 +41,7 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 4
 
-  - id: HEAT_12
+  - id: HEAT_17
     section: Heating
     question_text: How often do you usually heat your main living area in winter? Please select one option.
     response_type: single_choice
@@ -59,16 +59,16 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: If NEVER, go to Question 14.
+      human: If NEVER, go to Question 19.
       rules:
         - if_option_code: NEVER
-          goto_question_id: HEAT_14
+          goto_question_id: HEAT_19
     notes: Source clarifies "main living area" as the largest if multiple living areas exist.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 4
 
-  - id: HEAT_13
+  - id: HEAT_18
     section: Heating
     question_text: What appliance(s) do you use to heat your main living area? Please select all that apply.
     response_type: multi_choice
@@ -102,14 +102,14 @@ questions:
     allow_other: true
     required: false
     skip_logic:
-      human: Asked when Question 12 is not NEVER.
+      human: Asked when Question 17 is not NEVER.
       rules: []
-    notes: Skip condition inferred from Question 12 instruction.
+    notes: Skip condition inferred from Question 17 instruction.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 4
 
-  - id: HEAT_14
+  - id: HEAT_19
     section: Heating
     question_text: How often do you usually heat your bedroom in winter? Please select one option.
     response_type: single_choice
@@ -127,16 +127,16 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: If NEVER, go to Question 16.
+      human: If NEVER, go to Question 21.
       rules:
         - if_option_code: NEVER
-          goto_question_id: HEAT_16
+          goto_question_id: HEAT_21
     notes: None.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 4
 
-  - id: HEAT_15
+  - id: HEAT_20
     section: Heating
     question_text: What appliance(s) do you use to heat your bedroom? Please select all that apply.
     response_type: multi_choice
@@ -170,14 +170,14 @@ questions:
     allow_other: true
     required: false
     skip_logic:
-      human: Asked when Question 14 is not NEVER.
+      human: Asked when Question 19 is not NEVER.
       rules: []
-    notes: Skip condition inferred from Question 14 instruction.
+    notes: Skip condition inferred from Question 19 instruction.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 5
 
-  - id: HEAT_16
+  - id: HEAT_21
     section: Heating
     question_text: Are any other appliances used to heat any other rooms or areas of the home in winter? Please select as many as apply.
     response_type: multi_choice
@@ -218,7 +218,7 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 5
 
-  - id: HEAT_17
+  - id: HEAT_22
     section: Heating
     question_text: Do you use or do any of these things to help keep warm in your home in Winter? Please select all that apply.
     response_type: multi_choice
@@ -259,7 +259,7 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 5
 
-  - id: COOL_18
+  - id: COOL_23
     section: Cooling
     question_text: Do you ever use a heat pump or air conditioner for cooling in summer? Please select one option.
     response_type: single_choice

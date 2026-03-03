@@ -2,7 +2,7 @@ section_id: OTHER_APPLIANCES
 section_title: Other appliances
 source: Scaled Demand Flexibility Pilots
 questions:
-  - id: OA_26
+  - id: OA_24
     section: Other appliances
     question_text: Do you ever use an air conditioner? Please select one option.
     response_type: single_choice
@@ -27,7 +27,7 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
-  - id: OA_27
+  - id: OA_25
     section: Other appliances
     question_text: Do you ever use a dishwasher? Please select one option.
     response_type: single_choice
@@ -52,7 +52,7 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
-  - id: OA_28
+  - id: OA_26
     section: Other appliances
     question_text: Which of these additional refrigeration appliances do you have? Please select all that apply.
     response_type: multi_choice
@@ -81,7 +81,7 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
-  - id: OA_29
+  - id: OA_27
     section: Other appliances
     question_text: How often is a dehumidifier used? Please select one option.
     response_type: single_choice
