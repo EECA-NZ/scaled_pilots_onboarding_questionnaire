@@ -259,27 +259,25 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 5
 
-  - id: COOL_23
+  - id: OA_30
     section: Cooling
-    question_text: Do you ever use a heat pump or air conditioner for cooling in summer? Please select one option.
-    response_type: single_choice
+    question_text: Which of these do you ever use at this property? Please select all that apply.
+    response_type: multi_choice
     options:
-      - code: YES_OFTEN
-        label: Yes - often
-      - code: YES_SOMETIMES
-        label: Yes - sometimes
-      - code: YES_RARELY
-        label: Yes - rarely
-      - code: NO_NEVER
-        label: No never
-      - code: NOT_APPLICABLE
-        label: Not applicable - no heat pump/air conditioner
-    allow_other: false
+      - code: AIR_CONDITIONING
+        label: Air conditioning (including heat pump cooling)
+      - code: DEHUMIDIFIER
+        label: Dehumidifier
+      - code: MECHANICAL_VENTILATION_HRV_DVS
+        label: Mechanical ventilation system (e.g., HRV/DVS)
+      - code: NONE
+        label: None of these
+    allow_other: true
     required: false
     skip_logic:
       human: None specified.
       rules: []
-    notes: Confirm whether wording should be normalized to No - never in a future content pass.
+    notes: Consolidated indicator for whether these appliance/system types are ever used.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
-    provenance_page: 6
+    provenance_page: 7

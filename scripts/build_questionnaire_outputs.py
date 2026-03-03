@@ -84,14 +84,6 @@ def infer_instruction(question_text: str, response_type: str) -> tuple[str, str]
     return text, ""
 
 
-def infer_question_number(question: dict, fallback_number: int) -> int:
-    qid = str(question.get("id", ""))
-    match = re.search(r"(\d+)$", qid)
-    if match:
-        return int(match.group(1))
-    return fallback_number
-
-
 def format_skip_note(skip_logic: dict) -> str:
     if not isinstance(skip_logic, dict):
         return ""
@@ -240,7 +232,8 @@ def build_review(sections):
             parts.append(f"<p class='section-intro'>{h(section_intro)}</p>")
 
         for q in section.get("questions", []):
-            q_num = infer_question_number(q, question_counter)
+            # Display question numbers strictly by appearance order in the review page.
+            q_num = question_counter
             question_counter += 1
 
             qid = str(q.get("id", f"Q{q_num}"))

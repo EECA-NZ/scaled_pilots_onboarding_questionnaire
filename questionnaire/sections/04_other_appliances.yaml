@@ -2,32 +2,148 @@ section_id: OTHER_APPLIANCES
 section_title: Other appliances
 source: Scaled Demand Flexibility Pilots
 questions:
-  - id: OA_24
+  - id: OA_24A
     section: Other appliances
-    question_text: Do you ever use an air conditioner? Please select one option.
+    question_text: Do you have a clothes dryer at this property? Please select one option.
     response_type: single_choice
     options:
-      - code: EVERY_DAY
-        label: Every day
-      - code: MOST_DAYS
-        label: Most days
-      - code: SOME_DAYS
-        label: Some days
-      - code: RARELY
-        label: Rarely
-      - code: NEVER
-        label: Never
+      - code: YES_VENTED_TUMBLE_ELECTRIC
+        label: Yes - vented/tumble dryer (electric)
+      - code: YES_CONDENSER_ELECTRIC
+        label: Yes - condenser dryer (electric)
+      - code: YES_HEAT_PUMP_DRYER
+        label: Yes - heat pump dryer
+      - code: "NO"
+        label: "No"
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If any YES option is selected, ask OA_24B. If NO or UNSURE, skip to OA_24C.
+      rules:
+        - if_option_code: YES_VENTED_TUMBLE_ELECTRIC
+          goto_question_id: OA_24B
+        - if_option_code: YES_CONDENSER_ELECTRIC
+          goto_question_id: OA_24B
+        - if_option_code: YES_HEAT_PUMP_DRYER
+          goto_question_id: OA_24B
+        - if_option_code: "NO"
+          goto_question_id: OA_24C
+        - if_option_code: UNSURE
+          goto_question_id: OA_24C
+    notes: Dryer type captures core technology for load-shifting suitability.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: OA_24B
+    section: Other appliances
+    question_text: How often is the dryer used in a typical week? Please select one option.
+    response_type: single_choice
+    options:
+      - code: DAILY_OR_ALMOST_DAILY
+        label: Daily or almost daily
+      - code: THREE_TO_FIVE_PER_WEEK
+        label: 3-5 times per week
+      - code: ONE_TO_TWO_PER_WEEK
+        label: 1-2 times per week
+      - code: LESS_THAN_WEEKLY
+        label: Less than weekly
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when OA_24A is any YES option.
+      rules: []
+    notes: Optional follow-up only for households with a dryer.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: OA_24C
+    section: Other appliances
+    question_text: What type of clothes washing machine is used at this property? Please select one option.
+    response_type: single_choice
+    options:
+      - code: FRONT_LOADER
+        label: Front loader
+      - code: TOP_LOADER
+        label: Top loader
+      - code: NO_WASHING_MACHINE
+        label: No washing machine at this property
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If FRONT_LOADER or TOP_LOADER, ask OA_24D. If NO_WASHING_MACHINE or UNSURE, skip to OA_28.
+      rules:
+        - if_option_code: FRONT_LOADER
+          goto_question_id: OA_24D
+        - if_option_code: TOP_LOADER
+          goto_question_id: OA_24D
+        - if_option_code: NO_WASHING_MACHINE
+          goto_question_id: OA_28
+        - if_option_code: UNSURE
+          goto_question_id: OA_28
+    notes: Washer type can materially affect electricity and hot-water demand profile.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: OA_24D
+    section: Other appliances
+    question_text: How often are washing loads run in a typical week? Please select one option.
+    response_type: single_choice
+    options:
+      - code: DAILY_OR_ALMOST_DAILY
+        label: Daily or almost daily
+      - code: THREE_TO_FIVE_LOADS_PER_WEEK
+        label: 3-5 loads per week
+      - code: ONE_TO_TWO_LOADS_PER_WEEK
+        label: 1-2 loads per week
+      - code: LESS_THAN_WEEKLY
+        label: Less than weekly
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when OA_24C is FRONT_LOADER or TOP_LOADER.
+      rules: []
+    notes: Follow-up to capture usage intensity for households with a washing machine.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: OA_27
+    section: Other appliances
+    question_text: What type of cooktop do you mainly use? Please select one option.
+    response_type: single_choice
+    options:
+      - code: ELECTRIC_INDUCTION
+        label: Electric induction
+      - code: ELECTRIC_COIL_OR_CERAMIC
+        label: Electric (coil or ceramic)
+      - code: PIPED_GAS
+        label: Piped gas
+      - code: BOTTLED_GAS_LPG
+        label: Bottled gas (LPG)
+      - code: OTHER_OR_UNSURE
+        label: Other / Unsure
     allow_other: false
     required: false
     skip_logic:
       human: None specified.
       rules: []
-    notes: Frequency response replaces make/model capture.
+    notes: Primary cooktop fuel/type supports household end-use load interpretation.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
-  - id: OA_25
+  - id: OA_28
     section: Other appliances
     question_text: Do you ever use a dishwasher? Please select one option.
     response_type: single_choice
@@ -52,7 +168,7 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
-  - id: OA_26
+  - id: OA_29
     section: Other appliances
     question_text: Which of these additional refrigeration appliances do you have? Please select all that apply.
     response_type: multi_choice
@@ -77,33 +193,6 @@ questions:
       human: None specified.
       rules: []
     notes: Treat NONE as mutually exclusive in collection UI.
-    purpose: TODO - define analytic purpose.
-    source: Scaled Demand Flexibility Pilots
-    provenance_page: 7
-
-  - id: OA_27
-    section: Other appliances
-    question_text: How often is a dehumidifier used? Please select one option.
-    response_type: single_choice
-    options:
-      - code: DAILY
-        label: Daily
-      - code: WEEKLY
-        label: Weekly
-      - code: MONTHLY
-        label: Monthly
-      - code: RARELY
-        label: Rarely
-      - code: NEVER
-        label: Never
-      - code: SEASONAL
-        label: Seasonal
-    allow_other: false
-    required: false
-    skip_logic:
-      human: None specified.
-      rules: []
-    notes: Frequency can reflect typical use across the last 12 months.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7

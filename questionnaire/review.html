@@ -55,7 +55,7 @@ body.show-codes .option-code { display: inline; }
 <li><a href='#1-about-your-house-or-flat'>About your house or flat</a></li>
 <li><a href='#2-hot-water-heating-and-cooling'>Hot water, heating and cooling</a></li>
 <li><a href='#3-other-appliances'>Other appliances</a></li>
-<li><a href='#4-solar-pv-battery-and-ev'>Solar PV, battery and EV</a></li>
+<li><a href='#4-solar-pv-battery-and-vehicle-charging'>Solar PV, battery and Vehicle charging</a></li>
 </ol></nav>
 <section class='section' id='1-about-your-house-or-flat'>
 <h2>About your house or flat</h2>
@@ -204,109 +204,201 @@ body.show-codes .option-code { display: inline; }
 </article>
 <article class='question'>
 <p class='q-label'>Q23.</p>
-<p class='q-text'>Do you ever use a heat pump or air conditioner for cooling in summer?</p>
-<p class='instruction'>Please select one option.</p>
-<ul class='options'><li><label for='COOL_23_1' class='option-row'><input id='COOL_23_1' name='COOL_23_choice' type='radio'><span class='option-label'>Yes - often</span><span class='option-code' data-code>[YES_OFTEN]</span></label></li><li><label for='COOL_23_2' class='option-row'><input id='COOL_23_2' name='COOL_23_choice' type='radio'><span class='option-label'>Yes - sometimes</span><span class='option-code' data-code>[YES_SOMETIMES]</span></label></li><li><label for='COOL_23_3' class='option-row'><input id='COOL_23_3' name='COOL_23_choice' type='radio'><span class='option-label'>Yes - rarely</span><span class='option-code' data-code>[YES_RARELY]</span></label></li><li><label for='COOL_23_4' class='option-row'><input id='COOL_23_4' name='COOL_23_choice' type='radio'><span class='option-label'>No never</span><span class='option-code' data-code>[NO_NEVER]</span></label></li><li><label for='COOL_23_5' class='option-row'><input id='COOL_23_5' name='COOL_23_choice' type='radio'><span class='option-label'>Not applicable - no heat pump/air conditioner</span><span class='option-code' data-code>[NOT_APPLICABLE]</span></label></li></ul>
+<p class='q-text'>Which of these do you ever use at this property?</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='OA_30_1' class='option-row'><input id='OA_30_1' name='OA_30_choice' type='checkbox'><span class='option-label'>Air conditioning (including heat pump cooling)</span><span class='option-code' data-code>[AIR_CONDITIONING]</span></label></li><li><label for='OA_30_2' class='option-row'><input id='OA_30_2' name='OA_30_choice' type='checkbox'><span class='option-label'>Dehumidifier</span><span class='option-code' data-code>[DEHUMIDIFIER]</span></label></li><li><label for='OA_30_3' class='option-row'><input id='OA_30_3' name='OA_30_choice' type='checkbox'><span class='option-label'>Mechanical ventilation system (e.g., HRV/DVS)</span><span class='option-code' data-code>[MECHANICAL_VENTILATION_HRV_DVS]</span></label></li><li><label for='OA_30_4' class='option-row'><input id='OA_30_4' name='OA_30_choice' type='checkbox'><span class='option-label'>None of these</span><span class='option-code' data-code>[NONE]</span></label></li></ul>
 </article>
 </section>
 <section class='section' id='3-other-appliances'>
 <h2>Other appliances</h2>
 <article class='question'>
 <p class='q-label'>Q24.</p>
-<p class='q-text'>Do you ever use an air conditioner?</p>
+<p class='q-text'>Do you have a clothes dryer at this property?</p>
 <p class='instruction'>Please select one option.</p>
-<ul class='options'><li><label for='OA_24_1' class='option-row'><input id='OA_24_1' name='OA_24_choice' type='radio'><span class='option-label'>Every day</span><span class='option-code' data-code>[EVERY_DAY]</span></label></li><li><label for='OA_24_2' class='option-row'><input id='OA_24_2' name='OA_24_choice' type='radio'><span class='option-label'>Most days</span><span class='option-code' data-code>[MOST_DAYS]</span></label></li><li><label for='OA_24_3' class='option-row'><input id='OA_24_3' name='OA_24_choice' type='radio'><span class='option-label'>Some days</span><span class='option-code' data-code>[SOME_DAYS]</span></label></li><li><label for='OA_24_4' class='option-row'><input id='OA_24_4' name='OA_24_choice' type='radio'><span class='option-label'>Rarely</span><span class='option-code' data-code>[RARELY]</span></label></li><li><label for='OA_24_5' class='option-row'><input id='OA_24_5' name='OA_24_choice' type='radio'><span class='option-label'>Never</span><span class='option-code' data-code>[NEVER]</span></label></li></ul>
+<ul class='options'><li><label for='OA_24A_1' class='option-row'><input id='OA_24A_1' name='OA_24A_choice' type='radio'><span class='option-label'>Yes - vented/tumble dryer (electric)</span><span class='option-code' data-code>[YES_VENTED_TUMBLE_ELECTRIC]</span></label></li><li><label for='OA_24A_2' class='option-row'><input id='OA_24A_2' name='OA_24A_choice' type='radio'><span class='option-label'>Yes - condenser dryer (electric)</span><span class='option-code' data-code>[YES_CONDENSER_ELECTRIC]</span></label></li><li><label for='OA_24A_3' class='option-row'><input id='OA_24A_3' name='OA_24A_choice' type='radio'><span class='option-label'>Yes - heat pump dryer</span><span class='option-code' data-code>[YES_HEAT_PUMP_DRYER]</span></label></li><li><label for='OA_24A_4' class='option-row'><input id='OA_24A_4' name='OA_24A_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li><li><label for='OA_24A_5' class='option-row'><input id='OA_24A_5' name='OA_24A_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>If any YES option is selected, ask OA_24B. If NO or UNSURE, skip to OA_24C.</p>
 </article>
 <article class='question'>
 <p class='q-label'>Q25.</p>
-<p class='q-text'>Do you ever use a dishwasher?</p>
+<p class='q-text'>How often is the dryer used in a typical week?</p>
 <p class='instruction'>Please select one option.</p>
-<ul class='options'><li><label for='OA_25_1' class='option-row'><input id='OA_25_1' name='OA_25_choice' type='radio'><span class='option-label'>Every day</span><span class='option-code' data-code>[EVERY_DAY]</span></label></li><li><label for='OA_25_2' class='option-row'><input id='OA_25_2' name='OA_25_choice' type='radio'><span class='option-label'>Most days</span><span class='option-code' data-code>[MOST_DAYS]</span></label></li><li><label for='OA_25_3' class='option-row'><input id='OA_25_3' name='OA_25_choice' type='radio'><span class='option-label'>Some days</span><span class='option-code' data-code>[SOME_DAYS]</span></label></li><li><label for='OA_25_4' class='option-row'><input id='OA_25_4' name='OA_25_choice' type='radio'><span class='option-label'>Rarely</span><span class='option-code' data-code>[RARELY]</span></label></li><li><label for='OA_25_5' class='option-row'><input id='OA_25_5' name='OA_25_choice' type='radio'><span class='option-label'>Never</span><span class='option-code' data-code>[NEVER]</span></label></li></ul>
+<ul class='options'><li><label for='OA_24B_1' class='option-row'><input id='OA_24B_1' name='OA_24B_choice' type='radio'><span class='option-label'>Daily or almost daily</span><span class='option-code' data-code>[DAILY_OR_ALMOST_DAILY]</span></label></li><li><label for='OA_24B_2' class='option-row'><input id='OA_24B_2' name='OA_24B_choice' type='radio'><span class='option-label'>3-5 times per week</span><span class='option-code' data-code>[THREE_TO_FIVE_PER_WEEK]</span></label></li><li><label for='OA_24B_3' class='option-row'><input id='OA_24B_3' name='OA_24B_choice' type='radio'><span class='option-label'>1-2 times per week</span><span class='option-code' data-code>[ONE_TO_TWO_PER_WEEK]</span></label></li><li><label for='OA_24B_4' class='option-row'><input id='OA_24B_4' name='OA_24B_choice' type='radio'><span class='option-label'>Less than weekly</span><span class='option-code' data-code>[LESS_THAN_WEEKLY]</span></label></li><li><label for='OA_24B_5' class='option-row'><input id='OA_24B_5' name='OA_24B_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Ask when OA_24A is any YES option.</p>
 </article>
 <article class='question'>
 <p class='q-label'>Q26.</p>
-<p class='q-text'>Which of these additional refrigeration appliances do you have?</p>
-<p class='instruction'>Please select all that apply.</p>
-<ul class='options'><li><label for='OA_26_1' class='option-row'><input id='OA_26_1' name='OA_26_choice' type='checkbox'><span class='option-label'>Second fridge</span><span class='option-code' data-code>[SECOND_FRIDGE]</span></label></li><li><label for='OA_26_2' class='option-row'><input id='OA_26_2' name='OA_26_choice' type='checkbox'><span class='option-label'>Chest freezer</span><span class='option-code' data-code>[CHEST_FREEZER]</span></label></li><li><label for='OA_26_3' class='option-row'><input id='OA_26_3' name='OA_26_choice' type='checkbox'><span class='option-label'>Upright freezer</span><span class='option-code' data-code>[UPRIGHT_FREEZER]</span></label></li><li><label for='OA_26_4' class='option-row'><input id='OA_26_4' name='OA_26_choice' type='checkbox'><span class='option-label'>Bar fridge</span><span class='option-code' data-code>[BAR_FRIDGE]</span></label></li><li><label for='OA_26_5' class='option-row'><input id='OA_26_5' name='OA_26_choice' type='checkbox'><span class='option-label'>Wine fridge</span><span class='option-code' data-code>[WINE_FRIDGE]</span></label></li><li><label for='OA_26_6' class='option-row'><input id='OA_26_6' name='OA_26_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='OA_26_7' class='option-row'><input id='OA_26_7' name='OA_26_choice' type='checkbox'><span class='option-label'>None of these</span><span class='option-code' data-code>[NONE]</span></label></li></ul>
+<p class='q-text'>What type of clothes washing machine is used at this property?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='OA_24C_1' class='option-row'><input id='OA_24C_1' name='OA_24C_choice' type='radio'><span class='option-label'>Front loader</span><span class='option-code' data-code>[FRONT_LOADER]</span></label></li><li><label for='OA_24C_2' class='option-row'><input id='OA_24C_2' name='OA_24C_choice' type='radio'><span class='option-label'>Top loader</span><span class='option-code' data-code>[TOP_LOADER]</span></label></li><li><label for='OA_24C_3' class='option-row'><input id='OA_24C_3' name='OA_24C_choice' type='radio'><span class='option-label'>No washing machine at this property</span><span class='option-code' data-code>[NO_WASHING_MACHINE]</span></label></li><li><label for='OA_24C_4' class='option-row'><input id='OA_24C_4' name='OA_24C_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>If FRONT_LOADER or TOP_LOADER, ask OA_24D. If NO_WASHING_MACHINE or UNSURE, skip to OA_28.</p>
 </article>
 <article class='question'>
 <p class='q-label'>Q27.</p>
-<p class='q-text'>How often is a dehumidifier used?</p>
+<p class='q-text'>How often are washing loads run in a typical week?</p>
 <p class='instruction'>Please select one option.</p>
-<ul class='options'><li><label for='OA_27_1' class='option-row'><input id='OA_27_1' name='OA_27_choice' type='radio'><span class='option-label'>Daily</span><span class='option-code' data-code>[DAILY]</span></label></li><li><label for='OA_27_2' class='option-row'><input id='OA_27_2' name='OA_27_choice' type='radio'><span class='option-label'>Weekly</span><span class='option-code' data-code>[WEEKLY]</span></label></li><li><label for='OA_27_3' class='option-row'><input id='OA_27_3' name='OA_27_choice' type='radio'><span class='option-label'>Monthly</span><span class='option-code' data-code>[MONTHLY]</span></label></li><li><label for='OA_27_4' class='option-row'><input id='OA_27_4' name='OA_27_choice' type='radio'><span class='option-label'>Rarely</span><span class='option-code' data-code>[RARELY]</span></label></li><li><label for='OA_27_5' class='option-row'><input id='OA_27_5' name='OA_27_choice' type='radio'><span class='option-label'>Never</span><span class='option-code' data-code>[NEVER]</span></label></li><li><label for='OA_27_6' class='option-row'><input id='OA_27_6' name='OA_27_choice' type='radio'><span class='option-label'>Seasonal</span><span class='option-code' data-code>[SEASONAL]</span></label></li></ul>
+<ul class='options'><li><label for='OA_24D_1' class='option-row'><input id='OA_24D_1' name='OA_24D_choice' type='radio'><span class='option-label'>Daily or almost daily</span><span class='option-code' data-code>[DAILY_OR_ALMOST_DAILY]</span></label></li><li><label for='OA_24D_2' class='option-row'><input id='OA_24D_2' name='OA_24D_choice' type='radio'><span class='option-label'>3-5 loads per week</span><span class='option-code' data-code>[THREE_TO_FIVE_LOADS_PER_WEEK]</span></label></li><li><label for='OA_24D_3' class='option-row'><input id='OA_24D_3' name='OA_24D_choice' type='radio'><span class='option-label'>1-2 loads per week</span><span class='option-code' data-code>[ONE_TO_TWO_LOADS_PER_WEEK]</span></label></li><li><label for='OA_24D_4' class='option-row'><input id='OA_24D_4' name='OA_24D_choice' type='radio'><span class='option-label'>Less than weekly</span><span class='option-code' data-code>[LESS_THAN_WEEKLY]</span></label></li><li><label for='OA_24D_5' class='option-row'><input id='OA_24D_5' name='OA_24D_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Ask when OA_24C is FRONT_LOADER or TOP_LOADER.</p>
 </article>
-</section>
-<section class='section' id='4-solar-pv-battery-and-ev'>
-<h2>Solar PV, battery and EV</h2>
 <article class='question'>
 <p class='q-label'>Q28.</p>
-<p class='q-text'>Which of the following energy technologies are installed at this property? Select all that apply.</p>
-<p class='instruction'>Please select all that apply.</p>
-<ul class='options'><li><label for='SOLAR_28_1' class='option-row'><input id='SOLAR_28_1' name='SOLAR_28_choice' type='checkbox'><span class='option-label'>Solar PV</span><span class='option-code' data-code>[SOLAR_PV]</span></label></li><li><label for='SOLAR_28_2' class='option-row'><input id='SOLAR_28_2' name='SOLAR_28_choice' type='checkbox'><span class='option-label'>Solar hot water (thermal)</span><span class='option-code' data-code>[SOLAR_HOT_WATER_THERMAL]</span></label></li><li><label for='SOLAR_28_3' class='option-row'><input id='SOLAR_28_3' name='SOLAR_28_choice' type='checkbox'><span class='option-label'>Battery storage</span><span class='option-code' data-code>[BATTERY_STORAGE]</span></label></li><li><label for='SOLAR_28_4' class='option-row'><input id='SOLAR_28_4' name='SOLAR_28_choice' type='checkbox'><span class='option-label'>EV charger (controlled/smart)</span><span class='option-code' data-code>[EV_CHARGER_SMART]</span></label></li><li><label for='SOLAR_28_5' class='option-row'><input id='SOLAR_28_5' name='SOLAR_28_choice' type='checkbox'><span class='option-label'>Controlled hot water diverter linked to PV</span><span class='option-code' data-code>[CONTROLLED_HOT_WATER_DIVERTER_LINKED_TO_PV]</span></label></li><li><label for='SOLAR_28_6' class='option-row'><input id='SOLAR_28_6' name='SOLAR_28_choice' type='checkbox'><span class='option-label'>Other controlled load linked to PV</span><span class='option-code' data-code>[OTHER_CONTROLLED_LOAD_LINKED_TO_PV]</span></label></li><li><label for='SOLAR_28_7' class='option-row'><input id='SOLAR_28_7' name='SOLAR_28_choice' type='checkbox'><span class='option-label'>None of the above</span><span class='option-code' data-code>[NONE_OF_ABOVE]</span></label></li></ul>
-<p class='skip-note'>If SOLAR_PV is selected, ask SOLAR_29 to SOLAR_31. If BATTERY_STORAGE is selected, ask BATT_32 to BATT_34. Ask SOLAR_35 when any installed technology is selected (excluding NONE_OF_ABOVE).</p>
+<p class='q-text'>What type of cooktop do you mainly use?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='OA_27_1' class='option-row'><input id='OA_27_1' name='OA_27_choice' type='radio'><span class='option-label'>Electric induction</span><span class='option-code' data-code>[ELECTRIC_INDUCTION]</span></label></li><li><label for='OA_27_2' class='option-row'><input id='OA_27_2' name='OA_27_choice' type='radio'><span class='option-label'>Electric (coil or ceramic)</span><span class='option-code' data-code>[ELECTRIC_COIL_OR_CERAMIC]</span></label></li><li><label for='OA_27_3' class='option-row'><input id='OA_27_3' name='OA_27_choice' type='radio'><span class='option-label'>Piped gas</span><span class='option-code' data-code>[PIPED_GAS]</span></label></li><li><label for='OA_27_4' class='option-row'><input id='OA_27_4' name='OA_27_choice' type='radio'><span class='option-label'>Bottled gas (LPG)</span><span class='option-code' data-code>[BOTTLED_GAS_LPG]</span></label></li><li><label for='OA_27_5' class='option-row'><input id='OA_27_5' name='OA_27_choice' type='radio'><span class='option-label'>Other / Unsure</span><span class='option-code' data-code>[OTHER_OR_UNSURE]</span></label></li></ul>
 </article>
 <article class='question'>
 <p class='q-label'>Q29.</p>
-<p class='q-text'>Inverter make/model.</p>
-<p class='instruction'>Write your response in the space provided.</p>
-<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
-<p class='skip-note'>Ask when SOLAR_PV is selected in SOLAR_28.</p>
+<p class='q-text'>Do you ever use a dishwasher?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='OA_28_1' class='option-row'><input id='OA_28_1' name='OA_28_choice' type='radio'><span class='option-label'>Every day</span><span class='option-code' data-code>[EVERY_DAY]</span></label></li><li><label for='OA_28_2' class='option-row'><input id='OA_28_2' name='OA_28_choice' type='radio'><span class='option-label'>Most days</span><span class='option-code' data-code>[MOST_DAYS]</span></label></li><li><label for='OA_28_3' class='option-row'><input id='OA_28_3' name='OA_28_choice' type='radio'><span class='option-label'>Some days</span><span class='option-code' data-code>[SOME_DAYS]</span></label></li><li><label for='OA_28_4' class='option-row'><input id='OA_28_4' name='OA_28_choice' type='radio'><span class='option-label'>Rarely</span><span class='option-code' data-code>[RARELY]</span></label></li><li><label for='OA_28_5' class='option-row'><input id='OA_28_5' name='OA_28_choice' type='radio'><span class='option-label'>Never</span><span class='option-code' data-code>[NEVER]</span></label></li></ul>
 </article>
 <article class='question'>
 <p class='q-label'>Q30.</p>
-<p class='q-text'>System capacity and export limit (kW).</p>
-<p class='instruction'>Enter a numeric response.</p>
-<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody><tr><td>Inverter capacity (kW) <span class='option-code' data-code>[INVERTER_CAPACITY_KW]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 1'></td></tr><tr><td>Total panel capacity (kW) <span class='option-code' data-code>[TOTAL_PANEL_CAPACITY_KW]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 2'></td></tr><tr><td>Export limit (kW) <span class='option-code' data-code>[EXPORT_LIMIT_KW]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 3'></td></tr></tbody></table>
-<p class='skip-note'>Ask when SOLAR_PV is selected in SOLAR_28.</p>
+<p class='q-text'>Which of these additional refrigeration appliances do you have?</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='OA_29_1' class='option-row'><input id='OA_29_1' name='OA_29_choice' type='checkbox'><span class='option-label'>Second fridge</span><span class='option-code' data-code>[SECOND_FRIDGE]</span></label></li><li><label for='OA_29_2' class='option-row'><input id='OA_29_2' name='OA_29_choice' type='checkbox'><span class='option-label'>Chest freezer</span><span class='option-code' data-code>[CHEST_FREEZER]</span></label></li><li><label for='OA_29_3' class='option-row'><input id='OA_29_3' name='OA_29_choice' type='checkbox'><span class='option-label'>Upright freezer</span><span class='option-code' data-code>[UPRIGHT_FREEZER]</span></label></li><li><label for='OA_29_4' class='option-row'><input id='OA_29_4' name='OA_29_choice' type='checkbox'><span class='option-label'>Bar fridge</span><span class='option-code' data-code>[BAR_FRIDGE]</span></label></li><li><label for='OA_29_5' class='option-row'><input id='OA_29_5' name='OA_29_choice' type='checkbox'><span class='option-label'>Wine fridge</span><span class='option-code' data-code>[WINE_FRIDGE]</span></label></li><li><label for='OA_29_6' class='option-row'><input id='OA_29_6' name='OA_29_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='OA_29_7' class='option-row'><input id='OA_29_7' name='OA_29_choice' type='checkbox'><span class='option-label'>None of these</span><span class='option-code' data-code>[NONE]</span></label></li></ul>
 </article>
+</section>
+<section class='section' id='4-solar-pv-battery-and-vehicle-charging'>
+<h2>Solar PV, battery and Vehicle charging</h2>
 <article class='question'>
 <p class='q-label'>Q31.</p>
-<p class='q-text'>Year installed (date or year).</p>
-<p class='instruction'>Write your response in the space provided.</p>
-<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
-<p class='skip-note'>Ask when SOLAR_PV is selected in SOLAR_28.</p>
+<p class='q-text'>Which of the following energy technologies are installed at this property? Select all that apply.</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='SOLAR_31_1' class='option-row'><input id='SOLAR_31_1' name='SOLAR_31_choice' type='checkbox'><span class='option-label'>Solar PV</span><span class='option-code' data-code>[SOLAR_PV]</span></label></li><li><label for='SOLAR_31_2' class='option-row'><input id='SOLAR_31_2' name='SOLAR_31_choice' type='checkbox'><span class='option-label'>Solar hot water (thermal)</span><span class='option-code' data-code>[SOLAR_HOT_WATER_THERMAL]</span></label></li><li><label for='SOLAR_31_3' class='option-row'><input id='SOLAR_31_3' name='SOLAR_31_choice' type='checkbox'><span class='option-label'>Battery storage</span><span class='option-code' data-code>[BATTERY_STORAGE]</span></label></li><li><label for='SOLAR_31_4' class='option-row'><input id='SOLAR_31_4' name='SOLAR_31_choice' type='checkbox'><span class='option-label'>EV charger (controlled/smart)</span><span class='option-code' data-code>[EV_CHARGER_SMART]</span></label></li><li><label for='SOLAR_31_5' class='option-row'><input id='SOLAR_31_5' name='SOLAR_31_choice' type='checkbox'><span class='option-label'>Controlled hot water diverter linked to PV</span><span class='option-code' data-code>[CONTROLLED_HOT_WATER_DIVERTER_LINKED_TO_PV]</span></label></li><li><label for='SOLAR_31_6' class='option-row'><input id='SOLAR_31_6' name='SOLAR_31_choice' type='checkbox'><span class='option-label'>Other controlled load linked to PV</span><span class='option-code' data-code>[OTHER_CONTROLLED_LOAD_LINKED_TO_PV]</span></label></li><li><label for='SOLAR_31_7' class='option-row'><input id='SOLAR_31_7' name='SOLAR_31_choice' type='checkbox'><span class='option-label'>None of the above</span><span class='option-code' data-code>[NONE_OF_ABOVE]</span></label></li></ul>
+<p class='skip-note'>If SOLAR_PV is selected, ask SOLAR_32 to SOLAR_34. If BATTERY_STORAGE is selected, ask BATT_35 to BATT_37. Ask SOLAR_38 when any installed technology is selected (excluding NONE_OF_ABOVE).</p>
 </article>
 <article class='question'>
 <p class='q-label'>Q32.</p>
-<p class='q-text'>Battery make/model.</p>
+<p class='q-text'>Inverter make/model.</p>
 <p class='instruction'>Write your response in the space provided.</p>
 <textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
-<p class='skip-note'>Ask when BATTERY_STORAGE is selected in SOLAR_28.</p>
+<p class='skip-note'>Ask when SOLAR_PV is selected in SOLAR_31.</p>
 </article>
 <article class='question'>
 <p class='q-label'>Q33.</p>
-<p class='q-text'>Battery operating mode.</p>
-<p class='instruction'>Please select one option.</p>
-<ul class='options'><li><label for='BATT_33_1' class='option-row'><input id='BATT_33_1' name='BATT_33_choice' type='radio'><span class='option-label'>Self-consumption only</span><span class='option-code' data-code>[SELF_CONSUMPTION_ONLY]</span></label></li><li><label for='BATT_33_2' class='option-row'><input id='BATT_33_2' name='BATT_33_choice' type='radio'><span class='option-label'>Time-of-use / arbitrage</span><span class='option-code' data-code>[TIME_OF_USE_ARBITRAGE]</span></label></li><li><label for='BATT_33_3' class='option-row'><input id='BATT_33_3' name='BATT_33_choice' type='radio'><span class='option-label'>Virtual power plant (VPP)</span><span class='option-code' data-code>[VIRTUAL_POWER_PLANT_VPP]</span></label></li><li><label for='BATT_33_4' class='option-row'><input id='BATT_33_4' name='BATT_33_choice' type='radio'><span class='option-label'>Grid backup only</span><span class='option-code' data-code>[GRID_BACKUP_ONLY]</span></label></li><li><label for='BATT_33_5' class='option-row'><input id='BATT_33_5' name='BATT_33_choice' type='radio'><span class='option-label'>Unknown</span><span class='option-code' data-code>[UNKNOWN]</span></label></li></ul>
-<p class='skip-note'>Ask when BATTERY_STORAGE is selected in SOLAR_28.</p>
+<p class='q-text'>System size and export limit (kW).</p>
+<p class='instruction'>Enter a numeric response.</p>
+<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody><tr><td>Total panel capacity (kW) <span class='option-code' data-code>[TOTAL_PANEL_CAPACITY_KW]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 1'></td></tr><tr><td>Inverter capacity (kW) <span class='option-code' data-code>[INVERTER_CAPACITY_KW]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 2'></td></tr><tr><td>Export limit (kW) <span class='option-code' data-code>[EXPORT_LIMIT_KW]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 3'></td></tr></tbody></table>
+<p class='skip-note'>Ask when SOLAR_PV is selected in SOLAR_31.</p>
 </article>
 <article class='question'>
 <p class='q-label'>Q34.</p>
-<p class='q-text'>Battery size.</p>
-<p class='instruction'>Enter a numeric response.</p>
-<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody><tr><td>Usable capacity (kWh) <span class='option-code' data-code>[USABLE_CAPACITY_KWH]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 1'></td></tr></tbody></table>
-<p class='skip-note'>Ask when BATTERY_STORAGE is selected in SOLAR_28.</p>
+<p class='q-text'>Year installed (date or year).</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+<p class='skip-note'>Ask when SOLAR_PV is selected in SOLAR_31.</p>
 </article>
 <article class='question'>
 <p class='q-label'>Q35.</p>
-<p class='q-text'>Which loads are controlled or automated as part of your energy system?</p>
-<p class='instruction'>Please select all that apply.</p>
-<ul class='options'><li><label for='SOLAR_35_1' class='option-row'><input id='SOLAR_35_1' name='SOLAR_35_choice' type='checkbox'><span class='option-label'>Hot water</span><span class='option-code' data-code>[HOT_WATER]</span></label></li><li><label for='SOLAR_35_2' class='option-row'><input id='SOLAR_35_2' name='SOLAR_35_choice' type='checkbox'><span class='option-label'>Space heating/cooling</span><span class='option-code' data-code>[SPACE_HEATING_COOLING]</span></label></li><li><label for='SOLAR_35_3' class='option-row'><input id='SOLAR_35_3' name='SOLAR_35_choice' type='checkbox'><span class='option-label'>EV charging</span><span class='option-code' data-code>[EV_CHARGING]</span></label></li><li><label for='SOLAR_35_4' class='option-row'><input id='SOLAR_35_4' name='SOLAR_35_choice' type='checkbox'><span class='option-label'>Dishwasher</span><span class='option-code' data-code>[DISHWASHER]</span></label></li><li><label for='SOLAR_35_5' class='option-row'><input id='SOLAR_35_5' name='SOLAR_35_choice' type='checkbox'><span class='option-label'>Washing machine</span><span class='option-code' data-code>[WASHING_MACHINE]</span></label></li><li><label for='SOLAR_35_6' class='option-row'><input id='SOLAR_35_6' name='SOLAR_35_choice' type='checkbox'><span class='option-label'>Pool or spa</span><span class='option-code' data-code>[POOL_OR_SPA]</span></label></li><li><label for='SOLAR_35_7' class='option-row'><input id='SOLAR_35_7' name='SOLAR_35_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='SOLAR_35_8' class='option-row'><input id='SOLAR_35_8' name='SOLAR_35_choice' type='checkbox'><span class='option-label'>None of these</span><span class='option-code' data-code>[NONE]</span></label></li></ul>
-<p class='skip-note'>Ask when any installed technology is selected in SOLAR_28 (excluding NONE_OF_ABOVE).</p>
+<p class='q-text'>Battery make/model.</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+<p class='skip-note'>Ask when BATTERY_STORAGE is selected in SOLAR_31.</p>
 </article>
 <article class='question'>
 <p class='q-label'>Q36.</p>
-<p class='q-text'>Have any of the appliances or energy technologies discussed in this survey changed in the past two years?</p>
+<p class='q-text'>Battery operating mode.</p>
 <p class='instruction'>Please select one option.</p>
-<ul class='options'><li><label for='APPL_36_1' class='option-row'><input id='APPL_36_1' name='APPL_36_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='APPL_36_2' class='option-row'><input id='APPL_36_2' name='APPL_36_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li></ul>
-<p class='skip-note'>If YES, ask APPL_37.</p>
+<ul class='options'><li><label for='BATT_36_1' class='option-row'><input id='BATT_36_1' name='BATT_36_choice' type='radio'><span class='option-label'>Self-consumption only</span><span class='option-code' data-code>[SELF_CONSUMPTION_ONLY]</span></label></li><li><label for='BATT_36_2' class='option-row'><input id='BATT_36_2' name='BATT_36_choice' type='radio'><span class='option-label'>Time-of-use / arbitrage</span><span class='option-code' data-code>[TIME_OF_USE_ARBITRAGE]</span></label></li><li><label for='BATT_36_3' class='option-row'><input id='BATT_36_3' name='BATT_36_choice' type='radio'><span class='option-label'>Virtual power plant (VPP)</span><span class='option-code' data-code>[VIRTUAL_POWER_PLANT_VPP]</span></label></li><li><label for='BATT_36_4' class='option-row'><input id='BATT_36_4' name='BATT_36_choice' type='radio'><span class='option-label'>Grid backup only</span><span class='option-code' data-code>[GRID_BACKUP_ONLY]</span></label></li><li><label for='BATT_36_5' class='option-row'><input id='BATT_36_5' name='BATT_36_choice' type='radio'><span class='option-label'>Unknown</span><span class='option-code' data-code>[UNKNOWN]</span></label></li></ul>
+<p class='skip-note'>Ask when BATTERY_STORAGE is selected in SOLAR_31.</p>
 </article>
 <article class='question'>
 <p class='q-label'>Q37.</p>
+<p class='q-text'>Battery size.</p>
+<p class='instruction'>Enter a numeric response.</p>
+<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody><tr><td>Usable capacity (kWh) <span class='option-code' data-code>[USABLE_CAPACITY_KWH]</span></td><td><input type='number' inputmode='numeric' class='numeric-input' aria-label='Numeric response 1'></td></tr></tbody></table>
+<p class='skip-note'>Ask when BATTERY_STORAGE is selected in SOLAR_31.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q38.</p>
+<p class='q-text'>Which loads are controlled or automated as part of your energy system?</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='SOLAR_38_1' class='option-row'><input id='SOLAR_38_1' name='SOLAR_38_choice' type='checkbox'><span class='option-label'>Hot water</span><span class='option-code' data-code>[HOT_WATER]</span></label></li><li><label for='SOLAR_38_2' class='option-row'><input id='SOLAR_38_2' name='SOLAR_38_choice' type='checkbox'><span class='option-label'>Space heating/cooling</span><span class='option-code' data-code>[SPACE_HEATING_COOLING]</span></label></li><li><label for='SOLAR_38_3' class='option-row'><input id='SOLAR_38_3' name='SOLAR_38_choice' type='checkbox'><span class='option-label'>EV charging</span><span class='option-code' data-code>[EV_CHARGING]</span></label></li><li><label for='SOLAR_38_4' class='option-row'><input id='SOLAR_38_4' name='SOLAR_38_choice' type='checkbox'><span class='option-label'>Dishwasher</span><span class='option-code' data-code>[DISHWASHER]</span></label></li><li><label for='SOLAR_38_5' class='option-row'><input id='SOLAR_38_5' name='SOLAR_38_choice' type='checkbox'><span class='option-label'>Washing machine</span><span class='option-code' data-code>[WASHING_MACHINE]</span></label></li><li><label for='SOLAR_38_6' class='option-row'><input id='SOLAR_38_6' name='SOLAR_38_choice' type='checkbox'><span class='option-label'>Pool or spa</span><span class='option-code' data-code>[POOL_OR_SPA]</span></label></li><li><label for='SOLAR_38_7' class='option-row'><input id='SOLAR_38_7' name='SOLAR_38_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='SOLAR_38_8' class='option-row'><input id='SOLAR_38_8' name='SOLAR_38_choice' type='checkbox'><span class='option-label'>None of these</span><span class='option-code' data-code>[NONE]</span></label></li></ul>
+<p class='skip-note'>Ask when any installed technology is selected in SOLAR_31 (excluding NONE_OF_ABOVE).</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q39.</p>
+<p class='q-text'>How many vehicles are usually kept at this property?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='VEH_01_1' class='option-row'><input id='VEH_01_1' name='VEH_01_choice' type='radio'><span class='option-label'>0</span><span class='option-code' data-code>[ZERO]</span></label></li><li><label for='VEH_01_2' class='option-row'><input id='VEH_01_2' name='VEH_01_choice' type='radio'><span class='option-label'>1</span><span class='option-code' data-code>[ONE]</span></label></li><li><label for='VEH_01_3' class='option-row'><input id='VEH_01_3' name='VEH_01_choice' type='radio'><span class='option-label'>2</span><span class='option-code' data-code>[TWO]</span></label></li><li><label for='VEH_01_4' class='option-row'><input id='VEH_01_4' name='VEH_01_choice' type='radio'><span class='option-label'>3 or more</span><span class='option-code' data-code>[THREE_PLUS]</span></label></li><li><label for='VEH_01_5' class='option-row'><input id='VEH_01_5' name='VEH_01_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Context only.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q40.</p>
+<p class='q-text'>What is the primary vehicle type at this property?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='VEH_02_1' class='option-row'><input id='VEH_02_1' name='VEH_02_choice' type='radio'><span class='option-label'>Petrol</span><span class='option-code' data-code>[PETROL]</span></label></li><li><label for='VEH_02_2' class='option-row'><input id='VEH_02_2' name='VEH_02_choice' type='radio'><span class='option-label'>Diesel</span><span class='option-code' data-code>[DIESEL]</span></label></li><li><label for='VEH_02_3' class='option-row'><input id='VEH_02_3' name='VEH_02_choice' type='radio'><span class='option-label'>Hybrid</span><span class='option-code' data-code>[HYBRID]</span></label></li><li><label for='VEH_02_4' class='option-row'><input id='VEH_02_4' name='VEH_02_choice' type='radio'><span class='option-label'>Plug-in hybrid</span><span class='option-code' data-code>[PLUG_IN_HYBRID]</span></label></li><li><label for='VEH_02_5' class='option-row'><input id='VEH_02_5' name='VEH_02_choice' type='radio'><span class='option-label'>Electric</span><span class='option-code' data-code>[ELECTRIC]</span></label></li><li><label for='VEH_02_6' class='option-row'><input id='VEH_02_6' name='VEH_02_choice' type='radio'><span class='option-label'>No vehicle</span><span class='option-code' data-code>[NO_VEHICLE]</span></label></li><li><label for='VEH_02_7' class='option-row'><input id='VEH_02_7' name='VEH_02_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>If PLUG_IN_HYBRID or ELECTRIC, ask VEH_06. If NO_VEHICLE, skip VEH_03 and VEH_04.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q41.</p>
+<p class='q-text'>What size is the primary vehicle?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='VEH_03_1' class='option-row'><input id='VEH_03_1' name='VEH_03_choice' type='radio'><span class='option-label'>Small</span><span class='option-code' data-code>[SMALL]</span></label></li><li><label for='VEH_03_2' class='option-row'><input id='VEH_03_2' name='VEH_03_choice' type='radio'><span class='option-label'>Medium</span><span class='option-code' data-code>[MEDIUM]</span></label></li><li><label for='VEH_03_3' class='option-row'><input id='VEH_03_3' name='VEH_03_choice' type='radio'><span class='option-label'>Large</span><span class='option-code' data-code>[LARGE]</span></label></li><li><label for='VEH_03_4' class='option-row'><input id='VEH_03_4' name='VEH_03_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Ask when VEH_02 is not NO_VEHICLE.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q42.</p>
+<p class='q-text'>Roughly how many kilometres does the primary vehicle travel per week?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='VEH_04_1' class='option-row'><input id='VEH_04_1' name='VEH_04_choice' type='radio'><span class='option-label'>50 or less</span><span class='option-code' data-code>[KM_50_OR_LESS]</span></label></li><li><label for='VEH_04_2' class='option-row'><input id='VEH_04_2' name='VEH_04_choice' type='radio'><span class='option-label'>100</span><span class='option-code' data-code>[KM_100]</span></label></li><li><label for='VEH_04_3' class='option-row'><input id='VEH_04_3' name='VEH_04_choice' type='radio'><span class='option-label'>200</span><span class='option-code' data-code>[KM_200]</span></label></li><li><label for='VEH_04_4' class='option-row'><input id='VEH_04_4' name='VEH_04_choice' type='radio'><span class='option-label'>300</span><span class='option-code' data-code>[KM_300]</span></label></li><li><label for='VEH_04_5' class='option-row'><input id='VEH_04_5' name='VEH_04_choice' type='radio'><span class='option-label'>400 or more</span><span class='option-code' data-code>[KM_400_OR_MORE]</span></label></li><li><label for='VEH_04_6' class='option-row'><input id='VEH_04_6' name='VEH_04_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Ask when VEH_02 is not NO_VEHICLE.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q43.</p>
+<p class='q-text'>Is there off-street parking suitable for charging?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='VEH_05_1' class='option-row'><input id='VEH_05_1' name='VEH_05_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='VEH_05_2' class='option-row'><input id='VEH_05_2' name='VEH_05_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li><li><label for='VEH_05_3' class='option-row'><input id='VEH_05_3' name='VEH_05_choice' type='radio'><span class='option-label'>Sometimes</span><span class='option-code' data-code>[SOMETIMES]</span></label></li><li><label for='VEH_05_4' class='option-row'><input id='VEH_05_4' name='VEH_05_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Pattern enrichment only.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q44.</p>
+<p class='q-text'>Where is the vehicle usually charged?</p>
+<p class='instruction'>Please select all that apply.</p>
+<ul class='options'><li><label for='VEH_06_1' class='option-row'><input id='VEH_06_1' name='VEH_06_choice' type='checkbox'><span class='option-label'>Home</span><span class='option-code' data-code>[HOME]</span></label></li><li><label for='VEH_06_2' class='option-row'><input id='VEH_06_2' name='VEH_06_choice' type='checkbox'><span class='option-label'>Work</span><span class='option-code' data-code>[WORK]</span></label></li><li><label for='VEH_06_3' class='option-row'><input id='VEH_06_3' name='VEH_06_choice' type='checkbox'><span class='option-label'>Public fast charging</span><span class='option-code' data-code>[PUBLIC_FAST]</span></label></li><li><label for='VEH_06_4' class='option-row'><input id='VEH_06_4' name='VEH_06_choice' type='checkbox'><span class='option-label'>Public slow charging</span><span class='option-code' data-code>[PUBLIC_SLOW]</span></label></li><li><label for='VEH_06_5' class='option-row'><input id='VEH_06_5' name='VEH_06_choice' type='checkbox'><span class='option-label'>Other</span><span class='option-code' data-code>[OTHER]</span></label></li><li><label for='VEH_06_6' class='option-row'><input id='VEH_06_6' name='VEH_06_choice' type='checkbox'><span class='option-label'>Not applicable (primary vehicle is not electric or plug-in hybrid)</span><span class='option-code' data-code>[NOT_APPLICABLE_NOT_EV_PHEV]</span></label></li><li><label for='VEH_06_7' class='option-row'><input id='VEH_06_7' name='VEH_06_choice' type='checkbox'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Ask for households with a vehicle. Use NOT_APPLICABLE_NOT_EV_PHEV when the primary vehicle is not electric or plug-in hybrid.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q45.</p>
+<p class='q-text'>What type of charging setup is used at home?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='VEH_08_1' class='option-row'><input id='VEH_08_1' name='VEH_08_choice' type='radio'><span class='option-label'>Wall charger</span><span class='option-code' data-code>[WALL_CHARGER]</span></label></li><li><label for='VEH_08_2' class='option-row'><input id='VEH_08_2' name='VEH_08_choice' type='radio'><span class='option-label'>Standard plug</span><span class='option-code' data-code>[STANDARD_PLUG]</span></label></li><li><label for='VEH_08_3' class='option-row'><input id='VEH_08_3' name='VEH_08_choice' type='radio'><span class='option-label'>Not applicable (no home charging)</span><span class='option-code' data-code>[NOT_APPLICABLE_NO_HOME_CHARGING]</span></label></li><li><label for='VEH_08_4' class='option-row'><input id='VEH_08_4' name='VEH_08_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Ask for all households with a vehicle. Use NOT_APPLICABLE_NO_HOME_CHARGING when home charging is not used.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q46.</p>
+<p class='q-text'>What is the most likely replacement vehicle type in the next 1-3 years?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='VEH_07_1' class='option-row'><input id='VEH_07_1' name='VEH_07_choice' type='radio'><span class='option-label'>Petrol</span><span class='option-code' data-code>[PETROL]</span></label></li><li><label for='VEH_07_2' class='option-row'><input id='VEH_07_2' name='VEH_07_choice' type='radio'><span class='option-label'>Diesel</span><span class='option-code' data-code>[DIESEL]</span></label></li><li><label for='VEH_07_3' class='option-row'><input id='VEH_07_3' name='VEH_07_choice' type='radio'><span class='option-label'>Hybrid</span><span class='option-code' data-code>[HYBRID]</span></label></li><li><label for='VEH_07_4' class='option-row'><input id='VEH_07_4' name='VEH_07_choice' type='radio'><span class='option-label'>Plug-in hybrid</span><span class='option-code' data-code>[PLUG_IN_HYBRID]</span></label></li><li><label for='VEH_07_5' class='option-row'><input id='VEH_07_5' name='VEH_07_choice' type='radio'><span class='option-label'>Electric</span><span class='option-code' data-code>[ELECTRIC]</span></label></li><li><label for='VEH_07_6' class='option-row'><input id='VEH_07_6' name='VEH_07_choice' type='radio'><span class='option-label'>Not planning to replace</span><span class='option-code' data-code>[NOT_PLANNING]</span></label></li><li><label for='VEH_07_7' class='option-row'><input id='VEH_07_7' name='VEH_07_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>Ask all respondents.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q47.</p>
+<p class='q-text'>For properties with multiple vehicles, does another regularly used vehicle have a meaningfully different type, size, or weekly distance profile?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='VEH_09_1' class='option-row'><input id='VEH_09_1' name='VEH_09_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='VEH_09_2' class='option-row'><input id='VEH_09_2' name='VEH_09_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li><li><label for='VEH_09_3' class='option-row'><input id='VEH_09_3' name='VEH_09_choice' type='radio'><span class='option-label'>Not applicable (one or no vehicle)</span><span class='option-code' data-code>[NOT_APPLICABLE_ONE_OR_NO_VEHICLE]</span></label></li><li><label for='VEH_09_4' class='option-row'><input id='VEH_09_4' name='VEH_09_choice' type='radio'><span class='option-label'>Unsure</span><span class='option-code' data-code>[UNSURE]</span></label></li></ul>
+<p class='skip-note'>If YES, ask VEH_10. Otherwise skip to APPL_39.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q48.</p>
+<p class='q-text'>Describe the additional vehicle profile (type, size, and approximate km per week).</p>
+<p class='instruction'>Write your response in the space provided.</p>
+<textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
+<p class='skip-note'>Ask when VEH_09 is YES.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q49.</p>
+<p class='q-text'>Have any of the appliances or energy technologies discussed in this survey changed in the past two years?</p>
+<p class='instruction'>Please select one option.</p>
+<ul class='options'><li><label for='APPL_39_1' class='option-row'><input id='APPL_39_1' name='APPL_39_choice' type='radio'><span class='option-label'>Yes</span><span class='option-code' data-code>[YES]</span></label></li><li><label for='APPL_39_2' class='option-row'><input id='APPL_39_2' name='APPL_39_choice' type='radio'><span class='option-label'>No</span><span class='option-code' data-code>[NO]</span></label></li></ul>
+<p class='skip-note'>If YES, ask APPL_40.</p>
+</article>
+<article class='question'>
+<p class='q-label'>Q50.</p>
 <p class='q-text'>Describe the appliance or energy-technology changes (before, after, and when the change happened).</p>
 <p class='instruction'>Write your response in the space provided.</p>
 <textarea class='free-text-area' rows='4' aria-label='Free text response'></textarea>
-<p class='skip-note'>Ask when APPL_36 is YES.</p>
+<p class='skip-note'>Ask when APPL_39 is YES.</p>
 </article>
 </section>
 </main>

@@ -7,6 +7,7 @@
 - Added household composition change questions (`HH_COMP_22` to `HH_COMP_25`).
 - Added new sections and questions: `Other appliances` (`OA_26` to `OA_32`), `Connection details` (`CONN_33` placeholder), and `Solar and battery` (`SOLAR_34` to `SOLAR_40`, `BATT_38` to `BATT_39`).
 - Regenerated `questionnaire/codebook.csv` and `questionnaire/review.html` from YAML after structural changes.
+- Added vehicle profiling block in `Solar PV, battery and Vehicle charging`: `VEH_01` to `VEH_08` covering vehicle count/type/size/km band, charging context, charging location/home setup, and replacement intent.
 
 ## 2026-03-02 - v0.1 baseline questionnaire setup
 - Established the initial YAML-based canonical questionnaire structure.
