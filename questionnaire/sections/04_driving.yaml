@@ -1,0 +1,217 @@
+section_id: DRIVING
+section_title: Driving
+source: Scaled Demand Flexibility Pilots
+questions:
+  - id: VEH_01
+    section: Driving
+    question_text: How many vehicles are usually kept at this property? Please select one option.
+    response_type: single_choice
+    options:
+      - code: ZERO
+        label: "0"
+      - code: ONE
+        label: "1"
+      - code: TWO
+        label: "2"
+      - code: THREE_PLUS
+        label: 3 or more
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Context only.
+      rules: []
+    notes: Context-only indicator of vehicle count; not directly mapped to DrivingAnswers fields.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: VEH_02
+    section: Driving
+    question_text: What is the primary vehicle type at this property? Please select one option.
+    response_type: single_choice
+    options:
+      - code: PETROL
+        label: Petrol
+      - code: DIESEL
+        label: Diesel
+      - code: HYBRID
+        label: Hybrid
+      - code: PLUG_IN_HYBRID
+        label: Plug-in hybrid
+      - code: ELECTRIC
+        label: Electric
+      - code: NO_VEHICLE
+        label: No vehicle
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If PLUG_IN_HYBRID or ELECTRIC, ask VEH_06. If NO_VEHICLE, skip VEH_03 and VEH_04.
+      rules:
+        - if_option_code: PLUG_IN_HYBRID
+          goto_question_id: VEH_06
+        - if_option_code: ELECTRIC
+          goto_question_id: VEH_06
+        - if_option_code: NO_VEHICLE
+          goto_question_id: VEH_07
+    notes: Set vehicle_type to null when NO_VEHICLE is selected.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: VEH_03
+    section: Driving
+    question_text: What size is the primary vehicle? Please select one option.
+    response_type: single_choice
+    options:
+      - code: SMALL
+        label: Small
+      - code: MEDIUM
+        label: Medium
+      - code: LARGE
+        label: Large
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when VEH_02 is not NO_VEHICLE.
+      rules: []
+    notes: Vehicle-size band for the primary vehicle only.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: VEH_04
+    section: Driving
+    question_text: Roughly how many kilometres does the primary vehicle travel per week? Please select one option.
+    response_type: single_choice
+    options:
+      - code: KM_50_OR_LESS
+        label: "50 or less"
+      - code: KM_100
+        label: "100"
+      - code: KM_200
+        label: "200"
+      - code: KM_300
+        label: "300"
+      - code: KM_400_OR_MORE
+        label: "400 or more"
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when VEH_02 is not NO_VEHICLE.
+      rules: []
+    notes: Weekly kilometres are captured as discrete reporting bands.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: VEH_05
+    section: Driving
+    question_text: Is there off-street parking suitable for charging? Please select one option.
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+      - code: SOMETIMES
+        label: Sometimes
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Pattern enrichment only.
+      rules: []
+    notes: Used to enrich charging feasibility patterns.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: VEH_06
+    section: Driving
+    question_text: Where is the vehicle usually charged? Please select all that apply.
+    response_type: multi_choice
+    options:
+      - code: HOME
+        label: Home
+      - code: WORK
+        label: Work
+      - code: PUBLIC_FAST
+        label: Public fast charging
+      - code: PUBLIC_SLOW
+        label: Public slow charging
+      - code: OTHER
+        label: Other
+      - code: NOT_APPLICABLE_NOT_EV_PHEV
+        label: Not applicable (primary vehicle is not electric or plug-in hybrid)
+      - code: UNSURE
+        label: Unsure
+    allow_other: true
+    required: false
+    skip_logic:
+      human: Ask for households with a vehicle. Use NOT_APPLICABLE_NOT_EV_PHEV when the primary vehicle is not electric or plug-in hybrid.
+      rules: []
+    notes: Charging-location profile for electric-driving capability, including an explicit not-applicable response.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: VEH_08
+    section: Driving
+    question_text: What type of charging setup is used at home? Please select one option.
+    response_type: single_choice
+    options:
+      - code: WALL_CHARGER
+        label: Wall charger
+      - code: STANDARD_PLUG
+        label: Standard plug
+      - code: NOT_APPLICABLE_NO_HOME_CHARGING
+        label: Not applicable (no home charging)
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask for all households with a vehicle. Use NOT_APPLICABLE_NO_HOME_CHARGING when home charging is not used.
+      rules: []
+    notes: Home-charging hardware profile with explicit not-applicable option.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: VEH_07
+    section: Driving
+    question_text: What is the most likely replacement vehicle type in the next 1-3 years? Please select one option.
+    response_type: single_choice
+    options:
+      - code: PETROL
+        label: Petrol
+      - code: DIESEL
+        label: Diesel
+      - code: HYBRID
+        label: Hybrid
+      - code: PLUG_IN_HYBRID
+        label: Plug-in hybrid
+      - code: ELECTRIC
+        label: Electric
+      - code: NOT_PLANNING
+        label: Not planning to replace
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask all respondents.
+      rules: []
+    notes: Forward-looking vehicle transition intent.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
