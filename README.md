@@ -30,5 +30,6 @@ Features:
 ## GitHub Actions
 
 - `validate-questionnaire.yml`: runs validation/build checks on pull requests
-- `deploy-pages.yml`: on push to any branch, deploys a combined Pages site with `/` built from `main` and `/dev/` built from `dev` or the pushed non-`main` branch
-
+- `deploy-pages.yml`: on push to any branch, publishes both:
+  - `/` from `main`
+  - `/dev/` from the pushed non-main branch (or `dev` when pushing `main`)
