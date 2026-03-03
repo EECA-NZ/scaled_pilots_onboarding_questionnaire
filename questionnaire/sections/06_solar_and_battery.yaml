@@ -1,9 +1,9 @@
 section_id: SOLAR_BATTERY
-section_title: Solar and battery
+section_title: Solar PV, battery and EV
 source: Scaled Demand Flexibility Pilots
 questions:
   - id: SOLAR_34
-    section: Solar and battery
+    section: Solar PV, battery and EV
     question_text: Is solar installed? Please select one option.
     response_type: single_choice
     options:
@@ -22,7 +22,7 @@ questions:
     provenance_page: 9
 
   - id: SOLAR_35
-    section: Solar and battery
+    section: Solar PV, battery and EV
     question_text: Solar inverter make/model.
     response_type: free_text
     options: []
@@ -37,7 +37,7 @@ questions:
     provenance_page: 9
 
   - id: SOLAR_36
-    section: Solar and battery
+    section: Solar PV, battery and EV
     question_text: Inverter size.
     response_type: numeric
     options:
@@ -54,8 +54,8 @@ questions:
     provenance_page: 9
 
   - id: SOLAR_37
-    section: Solar and battery
-    question_text: Max amount energy panels can generate.
+    section: Solar PV, battery and EV
+    question_text: Panel capacity (kW).
     response_type: numeric
     options:
       - code: MAX_PANEL_GENERATION_KW
@@ -71,7 +71,7 @@ questions:
     provenance_page: 9
 
   - id: BATT_38
-    section: Solar and battery
+    section: Solar PV, battery and EV
     question_text: Is a battery installed? Please select one option.
     response_type: single_choice
     options:
@@ -90,7 +90,7 @@ questions:
     provenance_page: 9
 
   - id: BATT_39
-    section: Solar and battery
+    section: Solar PV, battery and EV
     question_text: Battery operating mode. Please select one option.
     response_type: single_choice
     options:
@@ -111,7 +111,7 @@ questions:
     provenance_page: 9
 
   - id: SOLAR_40
-    section: Solar and battery
+    section: Solar PV, battery and EV
     question_text: Is controlled load attached to PV (for example, a hot water diverter)? Please select one option.
     response_type: single_choice
     options:

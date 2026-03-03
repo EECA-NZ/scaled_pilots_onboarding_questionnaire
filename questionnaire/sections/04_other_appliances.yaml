@@ -4,45 +4,79 @@ source: Scaled Demand Flexibility Pilots
 questions:
   - id: OA_26
     section: Other appliances
-    question_text: Air conditioner make/model.
-    response_type: free_text
-    options: []
+    question_text: Do you ever use an air conditioner? Please select one option.
+    response_type: single_choice
+    options:
+      - code: EVERY_DAY
+        label: Every day
+      - code: MOST_DAYS
+        label: Most days
+      - code: SOME_DAYS
+        label: Some days
+      - code: RARELY
+        label: Rarely
+      - code: NEVER
+        label: Never
     allow_other: false
     required: false
     skip_logic:
       human: None specified.
       rules: []
-    notes: Include brand and model identifier where available.
+    notes: Frequency response replaces make/model capture.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
   - id: OA_27
     section: Other appliances
-    question_text: Dishwasher make/model.
-    response_type: free_text
-    options: []
+    question_text: Do you ever use a dishwasher? Please select one option.
+    response_type: single_choice
+    options:
+      - code: EVERY_DAY
+        label: Every day
+      - code: MOST_DAYS
+        label: Most days
+      - code: SOME_DAYS
+        label: Some days
+      - code: RARELY
+        label: Rarely
+      - code: NEVER
+        label: Never
     allow_other: false
     required: false
     skip_logic:
       human: None specified.
       rules: []
-    notes: Include brand and model identifier where available.
+    notes: Frequency response replaces make/model capture.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
   - id: OA_28
     section: Other appliances
-    question_text: Second fridge/freezer make/model.
-    response_type: free_text
-    options: []
-    allow_other: false
+    question_text: Which of these additional refrigeration appliances do you have? Please select all that apply.
+    response_type: multi_choice
+    options:
+      - code: SECOND_FRIDGE
+        label: Second fridge
+      - code: CHEST_FREEZER
+        label: Chest freezer
+      - code: UPRIGHT_FREEZER
+        label: Upright freezer
+      - code: BAR_FRIDGE
+        label: Bar fridge
+      - code: WINE_FRIDGE
+        label: Wine fridge
+      - code: OTHER
+        label: Other
+      - code: NONE
+        label: None of these
+    allow_other: true
     required: false
     skip_logic:
       human: None specified.
       rules: []
-    notes: Record additional refrigeration unit if present.
+    notes: Treat NONE as mutually exclusive in collection UI.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
@@ -70,51 +104,6 @@ questions:
       human: None specified.
       rules: []
     notes: Frequency can reflect typical use across the last 12 months.
-    purpose: TODO - define analytic purpose.
-    source: Scaled Demand Flexibility Pilots
-    provenance_page: 7
-
-  - id: OA_30
-    section: Other appliances
-    question_text: Added appliances.
-    response_type: free_text
-    options: []
-    allow_other: false
-    required: false
-    skip_logic:
-      human: None specified.
-      rules: []
-    notes: List any large electrical appliances added since onboarding.
-    purpose: TODO - define analytic purpose.
-    source: Scaled Demand Flexibility Pilots
-    provenance_page: 7
-
-  - id: OA_31
-    section: Other appliances
-    question_text: Removed appliances.
-    response_type: free_text
-    options: []
-    allow_other: false
-    required: false
-    skip_logic:
-      human: None specified.
-      rules: []
-    notes: List any large electrical appliances removed since onboarding.
-    purpose: TODO - define analytic purpose.
-    source: Scaled Demand Flexibility Pilots
-    provenance_page: 7
-
-  - id: OA_32
-    section: Other appliances
-    question_text: Dates of appliance additions/removals.
-    response_type: free_text
-    options: []
-    allow_other: false
-    required: false
-    skip_logic:
-      human: None specified.
-      rules: []
-    notes: Prefer YYYY-MM-DD where known; include which date corresponds to each appliance event.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7

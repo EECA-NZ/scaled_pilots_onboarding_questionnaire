@@ -213,10 +213,6 @@ questions:
         label: A spa pool/hot tub
       - code: SAUNA
         label: A sauna
-      - code: ELECTRIC_VEHICLE_CHARGED_AT_HOME
-        label: An electric vehicle (which is charged at the home at some time)
-      - code: SOLAR_PV
-        label: Solar panels (PV)
       - code: NONE
         label: None of these
     allow_other: false
