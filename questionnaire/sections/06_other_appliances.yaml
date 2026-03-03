@@ -2,7 +2,7 @@ section_id: OTHER_APPLIANCES
 section_title: Other appliances
 source: Scaled Demand Flexibility Pilots
 questions:
-  - id: OA_24A
+  - id: OA_59
     section: Other appliances
     question_text: Do you have a clothes dryer at this property? Please select one option.
     response_type: single_choice
@@ -20,24 +20,24 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: If any YES option is selected, ask OA_24B. If NO or UNSURE, skip to OA_24C.
+      human: If any YES option is selected, ask OA_60. If NO or UNSURE, skip to OA_61.
       rules:
         - if_option_code: YES_VENTED_TUMBLE_ELECTRIC
-          goto_question_id: OA_24B
+          goto_question_id: OA_60
         - if_option_code: YES_CONDENSER_ELECTRIC
-          goto_question_id: OA_24B
+          goto_question_id: OA_60
         - if_option_code: YES_HEAT_PUMP_DRYER
-          goto_question_id: OA_24B
+          goto_question_id: OA_60
         - if_option_code: "NO"
-          goto_question_id: OA_24C
+          goto_question_id: OA_61
         - if_option_code: UNSURE
-          goto_question_id: OA_24C
+          goto_question_id: OA_61
     notes: Dryer type captures core technology for load-shifting suitability.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
-  - id: OA_24B
+  - id: OA_60
     section: Other appliances
     question_text: How often is the dryer used in a typical week? Please select one option.
     response_type: single_choice
@@ -55,70 +55,14 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: Ask when OA_24A is any YES option.
+      human: Ask when OA_59 is any YES option.
       rules: []
     notes: Optional follow-up only for households with a dryer.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
-  - id: OA_24C
-    section: Other appliances
-    question_text: What type of clothes washing machine is used at this property? Please select one option.
-    response_type: single_choice
-    options:
-      - code: FRONT_LOADER
-        label: Front loader
-      - code: TOP_LOADER
-        label: Top loader
-      - code: NO_WASHING_MACHINE
-        label: No washing machine at this property
-      - code: UNSURE
-        label: Unsure
-    allow_other: false
-    required: false
-    skip_logic:
-      human: If FRONT_LOADER or TOP_LOADER, ask OA_24D. If NO_WASHING_MACHINE or UNSURE, skip to OA_28.
-      rules:
-        - if_option_code: FRONT_LOADER
-          goto_question_id: OA_24D
-        - if_option_code: TOP_LOADER
-          goto_question_id: OA_24D
-        - if_option_code: NO_WASHING_MACHINE
-          goto_question_id: OA_28
-        - if_option_code: UNSURE
-          goto_question_id: OA_28
-    notes: Washer type can materially affect electricity and hot-water demand profile.
-    purpose: TODO - define analytic purpose.
-    source: Scaled Demand Flexibility Pilots
-    provenance_page: 7
-
-  - id: OA_24D
-    section: Other appliances
-    question_text: How often are washing loads run in a typical week? Please select one option.
-    response_type: single_choice
-    options:
-      - code: DAILY_OR_ALMOST_DAILY
-        label: Daily or almost daily
-      - code: THREE_TO_FIVE_LOADS_PER_WEEK
-        label: 3-5 loads per week
-      - code: ONE_TO_TWO_LOADS_PER_WEEK
-        label: 1-2 loads per week
-      - code: LESS_THAN_WEEKLY
-        label: Less than weekly
-      - code: UNSURE
-        label: Unsure
-    allow_other: false
-    required: false
-    skip_logic:
-      human: Ask when OA_24C is FRONT_LOADER or TOP_LOADER.
-      rules: []
-    notes: Follow-up to capture usage intensity for households with a washing machine.
-    purpose: TODO - define analytic purpose.
-    source: Scaled Demand Flexibility Pilots
-    provenance_page: 7
-
-  - id: OA_27
+  - id: OA_61
     section: Other appliances
     question_text: What type of cooktop do you mainly use? Please select one option.
     response_type: single_choice
@@ -143,32 +87,7 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
-  - id: OA_28
-    section: Other appliances
-    question_text: Do you ever use a dishwasher? Please select one option.
-    response_type: single_choice
-    options:
-      - code: EVERY_DAY
-        label: Every day
-      - code: MOST_DAYS
-        label: Most days
-      - code: SOME_DAYS
-        label: Some days
-      - code: RARELY
-        label: Rarely
-      - code: NEVER
-        label: Never
-    allow_other: false
-    required: false
-    skip_logic:
-      human: None specified.
-      rules: []
-    notes: Frequency response replaces make/model capture.
-    purpose: TODO - define analytic purpose.
-    source: Scaled Demand Flexibility Pilots
-    provenance_page: 7
-
-  - id: OA_29
+  - id: OA_62
     section: Other appliances
     question_text: Which of these additional refrigeration appliances do you have? Please select all that apply.
     response_type: multi_choice
@@ -197,7 +116,7 @@ questions:
     source: Scaled Demand Flexibility Pilots
     provenance_page: 7
 
-  - id: APPL_39
+  - id: OA_63
     section: Other appliances
     question_text: Have any of the appliances or energy technologies discussed in this survey changed in the past two years? Please select one option.
     response_type: single_choice
@@ -209,14 +128,14 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: If YES, ask APPL_40.
+      human: If YES, ask OA_64.
       rules: []
     notes: Includes changes such as additions, removals, or replacements of systems like PV, EV charging, hot water, heating/cooling, or major appliances.
     purpose: TODO - define analytic purpose.
     source: Scaled Demand Flexibility Pilots
     provenance_page: 9
 
-  - id: APPL_40
+  - id: OA_64
     section: Other appliances
     question_text: Describe the appliance or energy-technology changes (before, after, and when the change happened).
     response_type: free_text
@@ -224,7 +143,7 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: Ask when APPL_39 is YES.
+      human: Ask when OA_63 is YES.
       rules: []
     notes: Capture what changed, what the previous setup was, what the current setup is, and approximate timing.
     purpose: TODO - define analytic purpose.

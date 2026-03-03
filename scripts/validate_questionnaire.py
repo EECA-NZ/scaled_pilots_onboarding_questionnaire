@@ -112,6 +112,7 @@ def main() -> int:
     response_types = set(schema.get("properties", {}).get("response_type", {}).get("enum", []))
 
     all_errors: list[str] = []
+    all_warnings: list[str] = []
     seen_question_ids: set[str] = set()
 
     files = sorted(sections_dir.glob("*.yaml"))
@@ -133,12 +134,16 @@ def main() -> int:
                 if qid in seen_question_ids:
                     all_errors.append(f"{path.name}: duplicate question id '{qid}' across sections")
                 seen_question_ids.add(qid)
-
     if all_errors:
         print("Validation failed:")
         for err in all_errors:
             print(f"- {err}")
         return 1
+
+    if all_warnings:
+        print("Validation warnings:")
+        for warning in all_warnings:
+            print(f"- {warning}")
 
     print(f"Validation passed: {len(seen_question_ids)} questions checked across {len(files)} files.")
     return 0
