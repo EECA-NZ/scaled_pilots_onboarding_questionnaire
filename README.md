@@ -33,3 +33,8 @@ Features:
 - `deploy-pages.yml`: on push to any branch, publishes both:
   - `/` from `main`
   - `/dev/` from the pushed non-main branch (or `dev` when pushing `main`)
+
+## References
+
+https://www.branz.co.nz/healthy-homes-research/heep2-energy-use-living-conditions-in-nz-homes/information-for-researchers/
+https://d39d3mj7qio96p.cloudfront.net/media/documents/HEEP2-Full-HouseholderSurvey_-_paper_copy.pdf
