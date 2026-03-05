@@ -6,6 +6,15 @@
 
 Collaboratively editable questionnaire for **Scaled Demand Flexibility Pilots**.
 
+Organizes and synthesizes questionnaire questions taken from recent projects with overlapping concerns:
+* HEEP2 (Light)
+* Heat Pump Water Heater pilot questionnaire and system data
+* Warmer Kiwi Homes evaluation research
+
+The goal of this repository is to provide a disposable platform that can help us develop a visible prototype onboarding questionnaire for the Demand Flexibility Scaled Pilots.
+
+It is expected that the number of questions will change as the necessary conversations take place.
+
 ## Repository structure
 
 - `questionnaire/sections/` - canonical YAML question files
@@ -36,5 +45,6 @@ Features:
 
 ## References
 
-https://www.branz.co.nz/healthy-homes-research/heep2-energy-use-living-conditions-in-nz-homes/information-for-researchers/
-https://d39d3mj7qio96p.cloudfront.net/media/documents/HEEP2-Full-HouseholderSurvey_-_paper_copy.pdf
+- HEEP2-Light-Survey_Dec 2023.pdf
+- https://www.branz.co.nz/healthy-homes-research/heep2-energy-use-living-conditions-in-nz-homes/information-for-researchers/
+- https://d39d3mj7qio96p.cloudfront.net/media/documents/HEEP2-Full-HouseholderSurvey_-_paper_copy.pdf
