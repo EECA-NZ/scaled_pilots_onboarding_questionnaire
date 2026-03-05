@@ -10,6 +10,7 @@ Organizes and synthesizes questionnaire questions taken from recent projects wit
 * HEEP2 (Light)
 * Heat Pump Water Heater pilot questionnaire and system data
 * Warmer Kiwi Homes evaluation research
+* Home energy savings calculator model
 
 The goal of this repository is to provide a disposable platform that can help us develop a visible prototype onboarding questionnaire for the Demand Flexibility Scaled Pilots.
 
