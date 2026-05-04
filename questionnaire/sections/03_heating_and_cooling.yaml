@@ -1,0 +1,408 @@
+section_id: HEATING_COOLING
+section_title: Heating and cooling
+source: Scaled Demand Flexibility Pilots
+questions:
+  - id: HEAT_30
+    section: Heating
+    question_text: How often do you usually heat the following areas in winter? For each area, select one option that best fits. Please select all that apply.
+    response_type: multi_choice
+    options:
+      - code: MAIN_LIVING_AREA_EVERY_DAY
+        label: Every day
+      - code: MAIN_LIVING_AREA_MOST_DAYS
+        label: Most days
+      - code: MAIN_LIVING_AREA_SOME_DAYS
+        label: Some days
+      - code: MAIN_LIVING_AREA_HARDLY_EVER
+        label: Hardly ever
+      - code: MAIN_LIVING_AREA_NEVER
+        label: Never
+      - code: BEDROOM_EVERY_DAY
+        label: Every day
+      - code: BEDROOM_MOST_DAYS
+        label: Most days
+      - code: BEDROOM_SOME_DAYS
+        label: Some days
+      - code: BEDROOM_HARDLY_EVER
+        label: Hardly ever
+      - code: BEDROOM_NEVER
+        label: Never
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Complete one response per area.
+      rules: []
+    notes: Encoded as area-frequency combinations to keep this as a single matrix question.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 4
+
+  - id: HEAT_31
+    section: Heating
+    question_text: What appliance(s) do you use to heat the following areas of your home in winter? Select all that apply for each area.
+    response_type: multi_choice
+    options:
+      - code: MAIN_LIVING_AREA_HEAT_PUMP
+        label: Heat pump
+      - code: MAIN_LIVING_AREA_ENCLOSED_WOOD_BURNER
+        label: Enclosed wood burner
+      - code: MAIN_LIVING_AREA_PELLET_BURNER
+        label: Pellet burner
+      - code: MAIN_LIVING_AREA_OPEN_FIRE
+        label: Open fire
+      - code: MAIN_LIVING_AREA_FIXED_ELECTRIC_HEATER
+        label: Fixed electric heater
+      - code: MAIN_LIVING_AREA_FIXED_GAS_HEATER
+        label: Fixed gas heater
+      - code: MAIN_LIVING_AREA_PORTABLE_ELECTRIC_HEATER
+        label: Portable electric heater
+      - code: MAIN_LIVING_AREA_PORTABLE_GAS_HEATER
+        label: Portable gas heater
+      - code: MAIN_LIVING_AREA_CENTRAL_HEATING
+        label: Central heating
+      - code: MAIN_LIVING_AREA_DUCTED_HEAT_PUMP
+        label: Ducted heat pump
+      - code: MAIN_LIVING_AREA_UNDERFLOOR_HEATING
+        label: Underfloor heating
+      - code: MAIN_LIVING_AREA_OTHER
+        label: Other
+      - code: MAIN_LIVING_AREA_UNSURE
+        label: Unsure
+      - code: BEDROOM_HEAT_PUMP
+        label: Heat pump
+      - code: BEDROOM_ENCLOSED_WOOD_BURNER
+        label: Enclosed wood burner
+      - code: BEDROOM_PELLET_BURNER
+        label: Pellet burner
+      - code: BEDROOM_OPEN_FIRE
+        label: Open fire
+      - code: BEDROOM_FIXED_ELECTRIC_HEATER
+        label: Fixed electric heater
+      - code: BEDROOM_FIXED_GAS_HEATER
+        label: Fixed gas heater
+      - code: BEDROOM_PORTABLE_ELECTRIC_HEATER
+        label: Portable electric heater
+      - code: BEDROOM_PORTABLE_GAS_HEATER
+        label: Portable gas heater
+      - code: BEDROOM_CENTRAL_HEATING
+        label: Central heating
+      - code: BEDROOM_DUCTED_HEAT_PUMP
+        label: Ducted heat pump
+      - code: BEDROOM_UNDERFLOOR_HEATING
+        label: Underfloor heating
+      - code: BEDROOM_OTHER
+        label: Other
+      - code: BEDROOM_UNSURE
+        label: Unsure
+      - code: OTHER_ROOMS_AREAS_HEAT_PUMP
+        label: Heat pump
+      - code: OTHER_ROOMS_AREAS_ENCLOSED_WOOD_BURNER
+        label: Enclosed wood burner
+      - code: OTHER_ROOMS_AREAS_PELLET_BURNER
+        label: Pellet burner
+      - code: OTHER_ROOMS_AREAS_OPEN_FIRE
+        label: Open fire
+      - code: OTHER_ROOMS_AREAS_FIXED_ELECTRIC_HEATER
+        label: Fixed electric heater
+      - code: OTHER_ROOMS_AREAS_FIXED_GAS_HEATER
+        label: Fixed gas heater
+      - code: OTHER_ROOMS_AREAS_PORTABLE_ELECTRIC_HEATER
+        label: Portable electric heater
+      - code: OTHER_ROOMS_AREAS_PORTABLE_GAS_HEATER
+        label: Portable gas heater
+      - code: OTHER_ROOMS_AREAS_CENTRAL_HEATING
+        label: Central heating
+      - code: OTHER_ROOMS_AREAS_DUCTED_HEAT_PUMP
+        label: Ducted heat pump
+      - code: OTHER_ROOMS_AREAS_UNDERFLOOR_HEATING
+        label: Underfloor heating
+      - code: OTHER_ROOMS_AREAS_OTHER
+        label: Other
+      - code: OTHER_ROOMS_AREAS_UNSURE
+        label: Unsure
+    allow_other: true
+    required: false
+    skip_logic:
+      human: Complete all applicable cells for each area.
+      rules: []
+    notes: Encoded as area-appliance combinations to keep this as a single matrix question.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 4
+
+  - id: HEAT_32
+    section: Heating
+    question_text: Do you use or do any of these things to help keep warm in your home in Winter? Please select all that apply.
+    response_type: multi_choice
+    options:
+      - code: ELECTRIC_HEATED_BLANKETS
+        label: Electric/heated blanket(s)
+      - code: HOT_WATER_BOTTLES
+        label: Hot water bottle(s)
+      - code: EXTRA_BLANKETS_DUVET
+        label: Extra blanket(s)/ winter duvet
+      - code: EXTRA_LAYERS
+        label: Extra layers (clothes/slippers)
+      - code: CLOSE_CURTAINS
+        label: Close curtains
+      - code: DRAFT_STOPPERS
+        label: Use draft stoppers
+      - code: BUBBLE_WRAP_WINDOW_INSULATION
+        label: Bubble wrap/ insulation on windows
+      - code: HOT_SHOWER_BATH
+        label: Have a hot shower/ bath
+      - code: GO_TO_BED_EARLIER
+        label: Go to bed earlier
+      - code: SLEEP_IN_ONE_ROOM
+        label: Sleep in one room
+      - code: CLOSE_OFF_ROOMS
+        label: Close off/ don't use some rooms
+      - code: OTHER
+        label: Other
+      - code: NONE
+        label: None of these things
+    allow_other: true
+    required: false
+    skip_logic:
+      human: None specified in source survey.
+      rules: []
+    notes: TODO - Source does not state whether "None of these things" is mutually exclusive; treat as exclusive in data collection UI.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 5
+
+  - id: HEAT_33
+    section: Cooling
+    question_text: Which of these do you ever use at this property? Please select all that apply.
+    response_type: multi_choice
+    options:
+      - code: AIR_CONDITIONING
+        label: Air conditioning (including heat pump cooling)
+      - code: DEHUMIDIFIER
+        label: Dehumidifier
+      - code: MECHANICAL_VENTILATION_HRV_DVS
+        label: Mechanical ventilation system (e.g., HRV/DVS)
+      - code: NONE
+        label: None of these
+    allow_other: true
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Consolidated indicator for whether these appliance/system types are ever used.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: HEAT_34
+    section: Cooling
+    question_text: In winter, why do you usually use the dehumidifier? Please select all that apply.
+    response_type: multi_choice
+    options:
+      - code: DRYING_CLOTHES
+        label: For drying clothes
+      - code: REDUCE_DAMPNESS
+        label: To reduce indoor dampness
+      - code: OTHER
+        label: Other
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when HEAT_33 includes DEHUMIDIFIER. If OTHER is selected, ask HEAT_35.
+      rules:
+        - if_option_code: OTHER
+          goto_question_id: HEAT_35
+    notes: Follow-up to HEAT_33 dehumidifier usage; requires cross-question gating in collection UI.
+    purpose: TODO - define analytic purpose.
+    source: Demand Flexibility extension
+    provenance_page: 10
+
+  - id: HEAT_35
+    section: Cooling
+    question_text: Other reason (please specify).
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when HEAT_34 includes OTHER.
+      rules: []
+    notes: Free-text detail for dehumidifier use motivation.
+    purpose: TODO - define analytic purpose.
+    source: Demand Flexibility extension
+    provenance_page: 10
+
+  - id: HEAT_36
+    section: Demand flexibility
+    question_text: Which times of a typical weekday is someone normally at home? (Select all that apply.)
+    response_type: multi_choice
+    options:
+      - code: ALL_OR_MOST_OF_THE_TIME
+        label: All or most of the time
+      - code: MORNING_6_9
+        label: 6am to 9am
+      - code: MID_MORNING_9_12
+        label: 9am to 12pm
+      - code: LUNCH_12_2
+        label: 12pm to 2pm
+      - code: AFTERNOON_2_5
+        label: 2pm to 5pm
+      - code: EVENING_5_ONWARDS
+        label: Evenings (5pm onwards)
+      - code: HIGHLY_VARIABLE
+        label: Highly variable
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: If ALL_OR_MOST_OF_THE_TIME is selected, do not select time-band options. If HIGHLY_VARIABLE is selected, do not select time-band options. TODO - enforce mutually exclusive combinations at collection-time validation.
+    purpose: TODO - define analytic purpose.
+    source: Demand Flexibility extension
+    provenance_page: 10
+
+  - id: HEAT_37
+    section: Demand flexibility
+    question_text: Do you use appliances at particular times of day because of pricing (e.g., hour of power, turning hot water off, charging overnight)?
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If YES, ask HEAT_38. If NO/UNSURE, skip to HEAT_39.
+      rules:
+        - if_option_code: "NO"
+          goto_question_id: HEAT_39
+        - if_option_code: UNSURE
+          goto_question_id: HEAT_39
+    notes: Captures intentional time-shifting behaviour linked to tariffs or incentives.
+    purpose: TODO - define analytic purpose.
+    source: Demand Flexibility extension
+    provenance_page: 10
+
+  - id: HEAT_38
+    section: Demand flexibility
+    question_text: If yes, which appliances or actions, and what times?
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when HEAT_37 is YES.
+      rules: []
+    notes: Free-text detail to identify specific flexible loads and time windows.
+    purpose: TODO - define analytic purpose.
+    source: Demand Flexibility extension
+    provenance_page: 10
+
+  - id: HEAT_39
+    section: Demand flexibility
+    question_text: Do you ever choose not to heat (or heat less) because of the cost of heating?
+    response_type: single_choice
+    options:
+      - code: NEVER
+        label: Never
+      - code: RARELY
+        label: Rarely
+      - code: SOMETIMES
+        label: Sometimes
+      - code: OFTEN
+        label: Often
+      - code: ALWAYS
+        label: Always
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Heating affordability indicator for comfort-load constraints.
+    purpose: TODO - define analytic purpose.
+    source: Demand Flexibility extension
+    provenance_page: 10
+
+  - id: HEAT_40
+    section: Home condition
+    question_text: Would you say your home is draughty?
+    response_type: single_choice
+    options:
+      - code: NEVER
+        label: Never
+      - code: SOMETIMES
+        label: Sometimes
+      - code: OFTEN
+        label: Often
+      - code: ALWAYS
+        label: Always
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Lightweight home-condition indicator.
+    purpose: TODO - define analytic purpose.
+    source: Demand Flexibility extension
+    provenance_page: 10
+
+  - id: HEAT_41
+    section: Home condition
+    question_text: In winter, how often do you observe condensation on windows?
+    response_type: single_choice
+    options:
+      - code: NEVER
+        label: Never
+      - code: SOMETIMES
+        label: Sometimes
+      - code: OFTEN
+        label: Often
+      - code: ALWAYS
+        label: Always
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Condensation frequency proxy for indoor humidity and envelope performance.
+    purpose: TODO - define analytic purpose.
+    source: Demand Flexibility extension
+    provenance_page: 10
+
+  - id: HEAT_42
+    section: Home condition
+    question_text: In winter, how often do you notice dampness, visible damp patches, or a musty/mouldy smell in living areas or bedrooms?
+    response_type: single_choice
+    options:
+      - code: NEVER
+        label: Never
+      - code: SOMETIMES
+        label: Sometimes
+      - code: OFTEN
+        label: Often
+      - code: ALWAYS
+        label: Always
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Broad dampness/mould proxy kept intentionally lightweight.
+    purpose: TODO - define analytic purpose.
+    source: Demand Flexibility extension
+    provenance_page: 10

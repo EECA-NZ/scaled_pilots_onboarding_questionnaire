@@ -44,15 +44,18 @@ def option_summary(options):
 def build_codebook(sections):
     with CODEBOOK_CSV.open("w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(["question_id", "question_text", "response_type", "options"])
+        writer.writerow(["question_number", "question_id", "question_text", "response_type", "options"])
+        question_number = 1
         for _, section in sections:
             for q in section.get("questions", []):
                 writer.writerow([
+                    question_number,
                     q.get("id", ""),
                     q.get("question_text", ""),
                     q.get("response_type", ""),
                     option_summary(q.get("options", [])),
                 ])
+                question_number += 1
 
 
 def h(text):
@@ -82,14 +85,6 @@ def infer_instruction(question_text: str, response_type: str) -> tuple[str, str]
     if response_type == "free_text":
         return text, "Write your response in the space provided."
     return text, ""
-
-
-def infer_question_number(question: dict, fallback_number: int) -> int:
-    qid = str(question.get("id", ""))
-    match = re.search(r"(\d+)$", qid)
-    if match:
-        return int(match.group(1))
-    return fallback_number
 
 
 def format_skip_note(skip_logic: dict) -> str:
@@ -138,6 +133,207 @@ def render_choice_options(options: list[dict], qid: str, input_type: str) -> str
     return "".join(lines)
 
 
+def render_grouped_multi_choice_options(options: list[dict], qid: str) -> str:
+    if not options:
+        return ""
+
+    groups = [
+        ("SHOWERS_", "Showers"),
+        ("BATHS_", "Baths"),
+        ("WASHING_DISHES_", "Washing dishes"),
+        ("LAUNDRY_", "Laundry"),
+    ]
+
+    lines: list[str] = []
+    global_idx = 0
+    for prefix, heading in groups:
+        group_opts = [opt for opt in options if str(opt.get("code", "")).startswith(prefix)]
+        if not group_opts:
+            continue
+        # One selection per activity row: use a radio group keyed by activity prefix.
+        group_name = h(f"{qid}_{prefix.rstrip('_')}_choice")
+        lines.append(f"<div class='option-group'><p class='option-group-title'>{h(heading)}</p><ul class='options'>")
+        for opt in group_opts:
+            global_idx += 1
+            code = h(opt.get("code", ""))
+            label = h(opt.get("label", ""))
+            input_id = h(f"{qid}_{global_idx}")
+            lines.append(
+                "<li>"
+                f"<label for='{input_id}' class='option-row'>"
+                f"<input id='{input_id}' name='{group_name}' type='radio'>"
+                f"<span class='option-label'>{label}</span>"
+                f"<span class='option-code' data-code>[{code}]</span>"
+                "</label>"
+                "</li>"
+            )
+        lines.append("</ul></div>")
+
+    if lines:
+        return "".join(lines)
+    return render_choice_options(options, qid, "checkbox")
+
+
+def render_single_select_matrix(
+    *,
+    qid: str,
+    row_defs: list[tuple[str, str]],
+    col_defs: list[tuple[str, str]],
+    code_lookup: dict[tuple[str, str], str],
+) -> str:
+    lines = ["<table class='matrix-grid'><thead><tr><th></th>"]
+    for _, col_label in col_defs:
+        lines.append(f"<th>{h(col_label)}</th>")
+    lines.append("</tr></thead><tbody>")
+
+    input_idx = 0
+    for row_key, row_label in row_defs:
+        lines.append(f"<tr><td class='matrix-row-label'>{h(row_label)}</td>")
+        for col_key, _ in col_defs:
+            input_idx += 1
+            cell_code = code_lookup.get((row_key, col_key), "")
+            input_id = h(f"{qid}_mx_{input_idx}")
+            input_name = h(f"{qid}_mx_{row_key}")
+            lines.append(
+                "<td class='matrix-cell'>"
+                f"<input id='{input_id}' name='{input_name}' type='radio' aria-label='{h(row_label)} - {h(col_key)}'>"
+                f"<span class='option-code' data-code>[{h(cell_code)}]</span>"
+                "</td>"
+            )
+        lines.append("</tr>")
+    lines.append("</tbody></table>")
+    return "".join(lines)
+
+
+def render_multi_select_matrix(
+    *,
+    qid: str,
+    row_defs: list[tuple[str, str]],
+    col_defs: list[tuple[str, str]],
+    code_lookup: dict[tuple[str, str], str],
+) -> str:
+    lines = ["<table class='matrix-grid'><thead><tr><th></th>"]
+    for _, col_label in col_defs:
+        lines.append(f"<th>{h(col_label)}</th>")
+    lines.append("</tr></thead><tbody>")
+
+    input_idx = 0
+    for row_key, row_label in row_defs:
+        lines.append(f"<tr><td class='matrix-row-label'>{h(row_label)}</td>")
+        for col_key, _ in col_defs:
+            input_idx += 1
+            cell_code = code_lookup.get((row_key, col_key), "")
+            input_id = h(f"{qid}_mx_{input_idx}")
+            input_name = h(f"{qid}_mx_{row_key}")
+            lines.append(
+                "<td class='matrix-cell'>"
+                f"<input id='{input_id}' name='{input_name}' type='checkbox' aria-label='{h(row_label)} - {h(col_key)}'>"
+                f"<span class='option-code' data-code>[{h(cell_code)}]</span>"
+                "</td>"
+            )
+        lines.append("</tr>")
+    lines.append("</tbody></table>")
+    return "".join(lines)
+
+
+def render_hot_water_activity_matrix(options: list[dict], qid: str) -> str:
+    if not options:
+        return ""
+
+    row_defs = [
+        ("SHOWERS", "Showers"),
+        ("BATHS", "Baths"),
+        ("WASHING_DISHES", "Washing dishes"),
+        ("LAUNDRY", "Laundry"),
+    ]
+    col_defs = [
+        ("MULTIPLE_TIMES_DAILY", "Multiple times daily"),
+        ("DAILY", "Daily"),
+        ("ONE_TO_TWO_PER_WEEK", "1-2 times per week"),
+        ("THREE_TO_FIVE_PER_WEEK", "3-5 times per week"),
+        ("WEEKLY", "Weekly"),
+        ("NEVER", "Seldom or Never"),
+    ]
+
+    option_codes = {str(opt.get("code", "")) for opt in options}
+    code_lookup: dict[tuple[str, str], str] = {}
+    for row_key, _ in row_defs:
+        for col_key, _ in col_defs:
+            code = f"{row_key}_{col_key}"
+            if code in option_codes:
+                code_lookup[(row_key, col_key)] = code
+
+    return render_single_select_matrix(
+        qid=qid,
+        row_defs=row_defs,
+        col_defs=col_defs,
+        code_lookup=code_lookup,
+    )
+
+
+def render_heating_frequency_matrix(options: list[dict], qid: str) -> str:
+    row_defs = [
+        ("MAIN_LIVING_AREA", "Main living area"),
+        ("BEDROOM", "Bedroom"),
+    ]
+    col_defs = [
+        ("EVERY_DAY", "Every day"),
+        ("MOST_DAYS", "Most days"),
+        ("SOME_DAYS", "Some days"),
+        ("HARDLY_EVER", "Hardly ever"),
+        ("NEVER", "Never"),
+    ]
+
+    option_codes = {str(opt.get("code", "")) for opt in options}
+    code_lookup: dict[tuple[str, str], str] = {}
+    for row_key, _ in row_defs:
+        for col_key, _ in col_defs:
+            code = f"{row_key}_{col_key}"
+            if code in option_codes:
+                code_lookup[(row_key, col_key)] = code
+
+    return render_single_select_matrix(qid=qid, row_defs=row_defs, col_defs=col_defs, code_lookup=code_lookup)
+
+
+def render_heating_appliances_matrix(options: list[dict], qid: str) -> str:
+    # Transposed layout for readability: appliances as rows, home areas as columns.
+    row_defs = [
+        ("HEAT_PUMP", "Heat pump"),
+        ("ENCLOSED_WOOD_BURNER", "Enclosed wood burner"),
+        ("PELLET_BURNER", "Pellet burner"),
+        ("OPEN_FIRE", "Open fire"),
+        ("FIXED_ELECTRIC_HEATER", "Fixed electric heater"),
+        ("FIXED_GAS_HEATER", "Fixed gas heater"),
+        ("PORTABLE_ELECTRIC_HEATER", "Portable electric heater"),
+        ("PORTABLE_GAS_HEATER", "Portable gas heater"),
+        ("CENTRAL_HEATING", "Central heating"),
+        ("DUCTED_HEAT_PUMP", "Ducted heat pump"),
+        ("UNDERFLOOR_HEATING", "Underfloor heating"),
+        ("OTHER", "Other"),
+        ("UNSURE", "Unsure"),
+    ]
+    col_defs = [
+        ("MAIN_LIVING_AREA", "Main living area"),
+        ("BEDROOM", "Bedroom"),
+        ("OTHER_ROOMS_AREAS", "Other rooms/areas"),
+    ]
+
+    option_codes = {str(opt.get("code", "")) for opt in options}
+    code_lookup: dict[tuple[str, str], str] = {}
+    for appliance_code, _ in row_defs:
+        for area_code, _ in col_defs:
+            code = f"{area_code}_{appliance_code}"
+            if code in option_codes:
+                code_lookup[(appliance_code, area_code)] = code
+
+    return render_multi_select_matrix(
+        qid=qid,
+        row_defs=row_defs,
+        col_defs=col_defs,
+        code_lookup=code_lookup,
+    )
+
+
 def render_numeric_answer_area(options: list[dict]) -> str:
     if options:
         rows = ["<table class='numeric-grid'><thead><tr><th>Item</th><th>Response</th></tr></thead><tbody>"]
@@ -172,7 +368,7 @@ def build_review(sections):
         "<head>",
         "<meta charset='utf-8'>",
         "<meta name='viewport' content='width=device-width, initial-scale=1'>",
-        "<title>HEEP2 Light Survey Instrument Review</title>",
+        "<title>Scaled Demand Flexibility Pilots Questionnaire Review</title>",
         "<style>",
         ":root { color-scheme: light; }",
         "body { font-family: Georgia, 'Times New Roman', Times, serif; background: #fff; color: #111; margin: 0; }",
@@ -189,7 +385,8 @@ def build_review(sections):
         ".section h2 { font: 700 1.25rem Arial, Helvetica, sans-serif; margin: 0 0 0.5rem; }",
         ".section-intro { margin: 0 0 0.8rem; color: #444; font: italic 0.95rem Georgia, 'Times New Roman', Times, serif; }",
         ".question { margin: 0.95rem 0 1.25rem; break-inside: avoid; page-break-inside: avoid; }",
-        ".q-label { font: 700 0.95rem Arial, Helvetica, sans-serif; margin: 0 0 0.3rem; }",
+        ".q-label { font: 700 0.95rem Arial, Helvetica, sans-serif; margin: 0 0 0.3rem; display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; }",
+        ".q-code { font-style: italic; font-weight: 400; text-align: right; white-space: nowrap; }",
         ".q-text { margin: 0 0 0.35rem; font-size: 1rem; }",
         ".instruction { margin: 0 0 0.45rem; font-size: 0.9rem; font-style: italic; color: #444; }",
         ".options { margin: 0.25rem 0 0.25rem 0; padding: 0; list-style: none; }",
@@ -199,6 +396,13 @@ def build_review(sections):
         ".option-label { flex: 1; }",
         ".option-code { font: 0.75rem 'Courier New', Courier, monospace; color: #888; margin-left: 0.45rem; display: none; }",
         "body.show-codes .option-code { display: inline; }",
+        ".option-group { margin: 0.25rem 0 0.45rem; }",
+        ".option-group-title { margin: 0.2rem 0 0.25rem; font: 700 0.9rem Arial, Helvetica, sans-serif; }",
+        ".matrix-grid { width: 100%; border-collapse: collapse; margin-top: 0.3rem; table-layout: fixed; }",
+        ".matrix-grid th, .matrix-grid td { border: 1px solid #cfcfcf; padding: 0.32rem 0.25rem; text-align: center; vertical-align: middle; }",
+        ".matrix-grid th:first-child { width: 30%; }",
+        ".matrix-row-label { text-align: left !important; font: 600 0.88rem Arial, Helvetica, sans-serif; }",
+        ".matrix-cell input { transform: translateY(1px); }",
         ".numeric-grid { width: 100%; border-collapse: collapse; margin-top: 0.3rem; }",
         ".numeric-grid th { text-align: left; font: 700 0.86rem Arial, Helvetica, sans-serif; border-bottom: 1px solid #888; padding: 0.22rem 0.25rem; }",
         ".numeric-grid td { padding: 0.32rem 0.25rem 0.28rem; border-bottom: 1px solid #ddd; vertical-align: middle; }",
@@ -217,8 +421,8 @@ def build_review(sections):
         "</head>",
         "<body>",
         "<main class='page'>",
-        "<h1>National Study of Household Energy Use</h1>",
-        "<p class='subtitle'>Householder survey instrument (ported from HEEP2 Light Survey Dec 2023)</p>",
+        "<h1>Scaled Demand Flexibility Pilots</h1>",
+        "<p class='subtitle'>Householder questionnaire review</p>",
         "<label class='code-toggle'><input id='show-codes-toggle' type='checkbox'> Show analysis codes</label>",
         "<nav class='contents' aria-label='Contents'><h2>Contents</h2><ol>",
     ]
@@ -229,7 +433,8 @@ def build_review(sections):
 
     parts.append("</ol></nav>")
 
-    question_counter = 1
+    display_question_number = 1
+
     for section_id, section in all_sections:
         title = str(section.get("section_title", "Untitled Section"))
         section_intro = str(section.get("instruction_text", "")).strip()
@@ -239,19 +444,46 @@ def build_review(sections):
         if section_intro:
             parts.append(f"<p class='section-intro'>{h(section_intro)}</p>")
 
-        for q in section.get("questions", []):
-            q_num = infer_question_number(q, question_counter)
-            question_counter += 1
+        section_questions = section.get("questions", [])
+        skip_ids: set[str] = set()
+        for q in section_questions:
+            qid = str(q.get("id", ""))
+            if qid in skip_ids:
+                continue
 
-            qid = str(q.get("id", f"Q{q_num}"))
+            q_num = display_question_number
             q_text = str(q.get("question_text", ""))
             response_type = str(q.get("response_type", ""))
             stem, instruction = infer_instruction(q_text, response_type)
             skip_note = format_skip_note(q.get("skip_logic", {}))
             options = q.get("options", [])
 
+            if qid == "HEAT_30":
+                parts.append("<article class='question'>")
+                parts.append(f"<p class='q-label'>Q{q_num}. <span class='q-code'>[{h(qid)}]</span></p>")
+                parts.append("<p class='q-text'>How often do you usually heat the following areas in winter?</p>")
+                parts.append("<p class='instruction'>Select one option per row.</p>")
+                parts.append(render_heating_frequency_matrix(options, qid))
+                if skip_note:
+                    parts.append(f"<p class='skip-note'>{h(skip_note)}</p>")
+                parts.append("</article>")
+                display_question_number += 1
+                continue
+
+            if qid == "HEAT_31":
+                parts.append("<article class='question'>")
+                parts.append(f"<p class='q-label'>Q{q_num}. <span class='q-code'>[{h(qid)}]</span></p>")
+                parts.append("<p class='q-text'>What appliance(s) do you use to heat the following areas of your home in winter?</p>")
+                parts.append("<p class='instruction'>Select all that apply in each area.</p>")
+                parts.append(render_heating_appliances_matrix(options, qid))
+                if skip_note:
+                    parts.append(f"<p class='skip-note'>{h(skip_note)}</p>")
+                parts.append("</article>")
+                display_question_number += 1
+                continue
+
             parts.append("<article class='question'>")
-            parts.append(f"<p class='q-label'>Q{q_num}.</p>")
+            parts.append(f"<p class='q-label'>Q{q_num}. <span class='q-code'>[{h(qid)}]</span></p>")
             parts.append(f"<p class='q-text'>{h(stem)}</p>")
             if instruction:
                 parts.append(f"<p class='instruction'>{h(instruction)}</p>")
@@ -259,7 +491,10 @@ def build_review(sections):
             if response_type == "single_choice":
                 parts.append(render_choice_options(options, qid, "radio"))
             elif response_type == "multi_choice":
-                parts.append(render_choice_options(options, qid, "checkbox"))
+                if qid == "HW_22":
+                    parts.append(render_hot_water_activity_matrix(options, qid))
+                else:
+                    parts.append(render_choice_options(options, qid, "checkbox"))
             elif response_type == "numeric":
                 parts.append(render_numeric_answer_area(options))
             elif response_type == "free_text":
@@ -269,6 +504,7 @@ def build_review(sections):
                 parts.append(f"<p class='skip-note'>{h(skip_note)}</p>")
 
             parts.append("</article>")
+            display_question_number += 1
 
         parts.append("</section>")
 

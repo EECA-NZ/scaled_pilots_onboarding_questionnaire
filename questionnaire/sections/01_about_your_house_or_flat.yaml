@@ -1,8 +1,8 @@
 section_id: ABOUT_HOME
 section_title: About your house or flat
-source: HEEP2 Light Survey Dec 2023
+source: Scaled Demand Flexibility Pilots
 questions:
-  - id: DWELL_01
+  - id: HOME_1
     section: About your house or flat
     question_text: Which of these best describes your home? Please select one option.
     response_type: single_choice
@@ -24,14 +24,14 @@ questions:
     allow_other: true
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: TODO - Source survey does not provide numeric/coded values; codes were assigned for analysis consistency.
+    notes: Source-neutral coding retained for analysis consistency.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 2
 
-  - id: DWELL_02
+  - id: HOME_2
     section: About your house or flat
     question_text: How many rooms are there in your house or flat? Please enter the number of each type of room present.
     response_type: numeric
@@ -61,29 +61,59 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
     notes: Numeric entries are expected for each room type listed.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 2
 
-  - id: DWELL_03
+  - id: HOME_3
     section: About your house or flat
-    question_text: When was your house or flat built? Please enter an approximate year/decade if you are unsure.
-    response_type: free_text
-    options: []
+    question_text: In which decade was your house or flat built? Please select one option.
+    response_type: single_choice
+    options:
+      - code: PRE_1900
+        label: Before 1900
+      - code: DECADE_1900S
+        label: 1900s
+      - code: DECADE_1910S
+        label: 1910s
+      - code: DECADE_1920S
+        label: 1920s
+      - code: DECADE_1930S
+        label: 1930s
+      - code: DECADE_1940S
+        label: 1940s
+      - code: DECADE_1950S
+        label: 1950s
+      - code: DECADE_1960S
+        label: 1960s
+      - code: DECADE_1970S
+        label: 1970s
+      - code: DECADE_1980S
+        label: 1980s
+      - code: DECADE_1990S
+        label: 1990s
+      - code: DECADE_2000S
+        label: 2000s
+      - code: DECADE_2010S
+        label: 2010s
+      - code: DECADE_2020S
+        label: 2020s
+      - code: UNSURE
+        label: Unsure
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: TODO - Could be modeled as numeric year + uncertainty flag in later versions.
+    notes: Decade-based capture to improve consistency while preserving uncertainty handling.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 2
 
-  - id: DWELL_04
+  - id: HOME_4
     section: About your house or flat
     question_text: What is the approximate floor area of your house or flat? Please select one option.
     response_type: single_choice
@@ -103,14 +133,14 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: Floor area units are represented as written in the source (m2).
+    notes: Floor area units are represented as square meters (m2).
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 2
 
-  - id: DWELL_05
+  - id: HOME_5
     section: About your house or flat
     question_text: Does your house or flat have insulation in the roof space? Please select one option.
     response_type: single_choice
@@ -126,14 +156,14 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: '"Not applicable" condition retained exactly from source wording.'
+    notes: Includes a not-applicable option for homes without direct roof access.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
-  - id: DWELL_06
+  - id: HOME_6
     section: About your house or flat
     question_text: Does your house or flat have insulation in the subfloor? Please select one option.
     response_type: single_choice
@@ -151,14 +181,14 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
     notes: None.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
-  - id: DWELL_07
+  - id: HOME_7
     section: About your house or flat
     question_text: Are the walls of your house or flat insulated? Please select one option.
     response_type: single_choice
@@ -172,14 +202,14 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
     notes: None.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
-  - id: DWELL_08
+  - id: HOME_8
     section: About your house or flat
     question_text: Are the windows single- or double-glazed? Please select one option.
     response_type: single_choice
@@ -195,14 +225,14 @@ questions:
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
     notes: None.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
-  - id: DWELL_09
+  - id: HOME_9
     section: About your house or flat
     question_text: Do you have any of the following? Please select as many as apply.
     response_type: multi_choice
@@ -213,23 +243,19 @@ questions:
         label: A spa pool/hot tub
       - code: SAUNA
         label: A sauna
-      - code: ELECTRIC_VEHICLE_CHARGED_AT_HOME
-        label: An electric vehicle (which is charged at the home at some time)
-      - code: SOLAR_PV
-        label: Solar panels (PV)
       - code: NONE
         label: None of these
     allow_other: false
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: TODO - Source does not state whether "None of these" is mutually exclusive; treat as exclusive in data collection UI.
+    notes: Treat NONE as mutually exclusive in collection UI.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
 
-  - id: DWELL_10
+  - id: HOME_10
     section: About your house or flat
     question_text: Which types of energy are used in your home? Please select as many as apply.
     response_type: multi_choice
@@ -251,9 +277,112 @@ questions:
     allow_other: true
     required: false
     skip_logic:
-      human: None specified in source survey.
+      human: None specified.
       rules: []
-    notes: "Includes source instruction context: consider heating, cooking, and hot water sources; BBQ bottle gas not required."
+    notes: Consider all major household energy sources.
     purpose: TODO - define analytic purpose.
-    source: HEEP2 Light Survey Dec 2023
+    source: Scaled Demand Flexibility Pilots
     provenance_page: 3
+
+  - id: HOME_11
+    section: About your house or flat
+    question_text: Do you own or rent the house or flat where you live? Please select one option.
+    response_type: single_choice
+    options:
+      - code: OWN
+        label: Own
+      - code: RENT
+        label: Rent
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Question HOME_12 applies only to renters.
+      rules:
+        - if_option_code: RENT
+          goto_question_id: HOME_12
+    notes: Skip logic retained for renters.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HOME_12
+    section: About your house or flat
+    question_text: "If you rent your home: Who owns this dwelling? Please select one option."
+    response_type: single_choice
+    options:
+      - code: PRIVATE_PERSON
+        label: Private person
+      - code: PRIVATE_TRUST
+        label: Private trust
+      - code: LOCAL_AUTHORITY_COUNCIL
+        label: Local authority or council
+      - code: KAINGA_ORA
+        label: Kāinga Ora (Housing New Zealand)
+      - code: OTHER_STATE_OWNED_ENTITY
+        label: Other state-owned corporation, state-owned enterprise or government department
+      - code: BUSINESS_OR_ORGANISATION
+        label: Business or other organisation
+      - code: OTHER
+        label: Other
+    allow_other: true
+    required: false
+    skip_logic:
+      human: Asked when HOME_11 is RENT.
+      rules: []
+    notes: Skip condition inferred from question lead-in.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HOME_13
+    section: About your house or flat
+    question_text: How many people are usually resident in your house or flat? Please enter a number for adults and children usually resident.
+    response_type: numeric
+    options:
+      - code: ADULTS_18_PLUS
+        label: Adults (aged 18 or over)
+      - code: CHILDREN_UNDER_18
+        label: Children (aged under 18)
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Numeric entries are expected for both adults and children.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HOME_14
+    section: About your house or flat
+    question_text: Has the number of people in the house changed in the past two years? Please select one option.
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If YES, ask HOME_15.
+      rules: []
+    notes: Composition means the people usually living in the household (e.g., adults, children, regular occupants).
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6
+
+  - id: HOME_15
+    section: About your house or flat
+    question_text: Describe the change in household numbers (before, after, and when the change happened).
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when HOME_14 is YES.
+      rules: []
+    notes: Capture household numbers before and after the change, plus approximate timing (date or period).
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 6

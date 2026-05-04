@@ -1,0 +1,353 @@
+section_id: HOT_WATER
+section_title: Hot water
+source: Scaled Demand Flexibility Pilots
+questions:
+  - id: HW_16
+    section: About your house or flat
+    question_text: What type of hot water system(s) do you have? Please select as many as apply.
+    response_type: multi_choice
+    options:
+      - code: CYLINDER_ELECTRIC
+        label: Cylinder - electric
+      - code: CYLINDER_HEAT_PUMP
+        label: Cylinder - heat pump
+      - code: CYLINDER_NATURAL_GAS
+        label: Cylinder - natural gas
+      - code: CYLINDER_LPG
+        label: Cylinder - LPG
+      - code: INSTANT_ELECTRIC
+        label: Instantaneous - electric
+      - code: INSTANT_NATURAL_GAS
+        label: Instantaneous - natural gas
+      - code: INSTANT_LPG
+        label: Instantaneous - LPG
+      - code: WETBACK
+        label: Wetback
+      - code: SOLAR_WATER_HEATING
+        label: Solar water heating
+      - code: OTHER
+        label: Other
+      - code: UNSURE
+        label: Unsure
+    allow_other: true
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Assumes all participating households have a hot water system.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 4
+
+  - id: HW_17
+    section: Hot water details
+    question_text: What is the hot water tank volume (litres), if there is a tank?
+    response_type: numeric
+    options:
+      - code: TANK_VOLUME_L
+        label: Hot water tank volume (L)
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when a hot water tank exists; leave blank if unknown or not applicable.
+      rules: []
+    notes: Numeric litres field; blank allowed where there is no tank or size is unknown.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_18
+    section: Hot water details
+    question_text: Hot water system make/model (if known).
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Optional. Encourage label details from cylinder or heat-pump unit where available.
+      rules: []
+    notes: Optional make/model field to support system-level segmentation.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_19
+    section: Hot water details
+    question_text: If you have a hot water heat pump, is it split or integral? Please select one option.
+    response_type: single_choice
+    options:
+      - code: SPLIT
+        label: Split (separate tank and heat pump unit)
+      - code: INTEGRAL
+        label: Integral (all-in-one)
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when HW_16 includes CYLINDER_HEAT_PUMP.
+      rules: []
+    notes: Applies only to households with hot water heat pumps.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_20
+    section: Hot water details
+    question_text: Is the main hot water system installed indoors or outdoors? Please select one option.
+    response_type: single_choice
+    options:
+      - code: INDOORS
+        label: Indoors
+      - code: OUTDOORS
+        label: Outdoors
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask for households with a hot water system.
+      rules: []
+    notes: Installation location can influence thermal losses and maintenance profile.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_21
+    section: Hot water details
+    question_text: Approximately how old is your current water heating system? Please select one option.
+    response_type: single_choice
+    options:
+      - code: LT_2Y
+        label: Less than 2 years
+      - code: TWO_TO_FIVE_Y
+        label: 2-5 years
+      - code: SIX_TO_TEN_Y
+        label: 6-10 years
+      - code: ELEVEN_TO_FIFTEEN_Y
+        label: 11-15 years
+      - code: SIXTEEN_PLUS_Y
+        label: 16+ years
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Banded age estimate for replacement-risk and retrofit profiling.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_22
+    section: Hot water usage behaviour
+    question_text: How often do you use hot water for the following activities? For each activity, select the one option that best fits. Please select all that apply.
+    response_type: multi_choice
+    options:
+      - code: SHOWERS_MULTIPLE_TIMES_DAILY
+        label: Multiple times daily
+      - code: SHOWERS_DAILY
+        label: Daily
+      - code: SHOWERS_ONE_TO_TWO_PER_WEEK
+        label: 1-2 times per week
+      - code: SHOWERS_THREE_TO_FIVE_PER_WEEK
+        label: 3-5 times per week
+      - code: SHOWERS_WEEKLY
+        label: Weekly
+      - code: SHOWERS_NEVER
+        label: Seldom or Never
+      - code: BATHS_MULTIPLE_TIMES_DAILY
+        label: Multiple times daily
+      - code: BATHS_DAILY
+        label: Daily
+      - code: BATHS_ONE_TO_TWO_PER_WEEK
+        label: 1-2 times per week
+      - code: BATHS_THREE_TO_FIVE_PER_WEEK
+        label: 3-5 times per week
+      - code: BATHS_WEEKLY
+        label: Weekly
+      - code: BATHS_NEVER
+        label: Seldom or Never
+      - code: WASHING_DISHES_MULTIPLE_TIMES_DAILY
+        label: Multiple times daily
+      - code: WASHING_DISHES_DAILY
+        label: Daily
+      - code: WASHING_DISHES_ONE_TO_TWO_PER_WEEK
+        label: 1-2 times per week
+      - code: WASHING_DISHES_THREE_TO_FIVE_PER_WEEK
+        label: 3-5 times per week
+      - code: WASHING_DISHES_WEEKLY
+        label: Weekly
+      - code: WASHING_DISHES_NEVER
+        label: Seldom or Never
+      - code: LAUNDRY_MULTIPLE_TIMES_DAILY
+        label: Multiple times daily
+      - code: LAUNDRY_DAILY
+        label: Daily
+      - code: LAUNDRY_ONE_TO_TWO_PER_WEEK
+        label: 1-2 times per week
+      - code: LAUNDRY_THREE_TO_FIVE_PER_WEEK
+        label: 3-5 times per week
+      - code: LAUNDRY_WEEKLY
+        label: Weekly
+      - code: LAUNDRY_NEVER
+        label: Seldom or Never
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Select one option per activity. If unsure, choose the best estimate. TODO - add non-blocking response-time check for multiple selections within a single activity.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_23
+    section: Hot water usage behaviour
+    question_text: Are there any other large uses of hot water not specified above? Please specify what, and how often it is used.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Captures additional high-use behaviours not covered by standard activities.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_24
+    section: Hot water usage behaviour
+    question_text: How long is your typical shower? Please select one option.
+    response_type: single_choice
+    options:
+      - code: LT_5_MIN
+        label: Less than 5 minutes
+      - code: FIVE_TO_TEN_MIN
+        label: 5-10 minutes
+      - code: GT_10_MIN
+        label: More than 10 minutes
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Shower-duration proxy for daily hot-water demand.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_25
+    section: Hot water usage behaviour
+    question_text: What type of clothes washing machine is used at this property? Please select one option.
+    response_type: single_choice
+    options:
+      - code: FRONT_LOADER
+        label: Front loader
+      - code: TOP_LOADER
+        label: Top loader
+      - code: NO_WASHING_MACHINE
+        label: No washing machine at this property
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Washer type can materially affect electricity and hot-water demand profile.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 7
+
+  - id: HW_26
+    section: Hot water usage behaviour
+    question_text: When washing dishes, do you? Please select one option.
+    response_type: single_choice
+    options:
+      - code: SINK
+        label: Use sink
+      - code: DISHWASHER
+        label: Use dishwasher
+      - code: BOTH
+        label: Both
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Distinguishes manual vs appliance-based hot-water dishwashing demand.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_27
+    section: Hot water usage behaviour
+    question_text: How much effort, if any, do you give to monitoring and minimising your hot water use? Please select one option.
+    response_type: single_choice
+    options:
+      - code: NONE_AT_ALL
+        label: None at all
+      - code: NOT_VERY_MUCH
+        label: Not very much
+      - code: A_FAIR_AMOUNT
+        label: A fair amount
+      - code: A_LOT
+        label: A lot
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: None specified.
+      rules: []
+    notes: Self-reported conservation engagement for hot-water use.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_28
+    section: Hot water usage behaviour
+    question_text: Do you expect your hot water use to change in the next 12 months? Please select one option.
+    response_type: single_choice
+    options:
+      - code: "YES"
+        label: "Yes"
+      - code: "NO"
+        label: "No"
+      - code: UNSURE
+        label: Unsure
+    allow_other: false
+    required: false
+    skip_logic:
+      human: If YES, ask HW_29. If NO/UNSURE, skip to HEAT_30.
+      rules:
+        - if_option_code: "NO"
+          goto_question_id: HEAT_30
+        - if_option_code: UNSURE
+          goto_question_id: HEAT_30
+    notes: Captures expected near-term change in hot-water demand.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10
+
+  - id: HW_29
+    section: Hot water usage behaviour
+    question_text: If yes, please specify why.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when HW_28 is YES.
+      rules: []
+    notes: Reason-for-change context for projected demand shifts.
+    purpose: TODO - define analytic purpose.
+    source: HPWH pilot extension
+    provenance_page: 10

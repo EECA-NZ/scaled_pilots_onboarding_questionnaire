@@ -23,25 +23,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Resolve dev ref
-        run: |
-          if [ "${GITHUB_REF_NAME}" = "main" ]; then
-            echo "DEV_REF=dev" >> "$GITHUB_ENV"
-          else
-            echo "DEV_REF=${GITHUB_REF_NAME}" >> "$GITHUB_ENV"
-          fi
-
-      - name: Checkout main
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main
-          path: main_src
-
-      - name: Checkout dev source
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ env.DEV_REF }}
-          path: dev_src
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -53,30 +38,51 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pyyaml
 
-      - name: Validate and build main
+      - name: Build main/dev variants
         run: |
-          cd main_src
-          python scripts/validate_questionnaire.py
-          python scripts/build_questionnaire_outputs.py
+          set -euo pipefail
+          git fetch --no-tags origin "+refs/heads/*:refs/remotes/origin/*"
 
-      - name: Validate and build dev
-        run: |
-          cd dev_src
-          python scripts/validate_questionnaire.py
-          python scripts/build_questionnaire_outputs.py
+          build_ref() {
+            local ref="$1"
+            local outdir="$2"
+            local wt_dir
+            wt_dir="$(mktemp -d)"
+            git worktree add --detach "$wt_dir" "$ref"
+            (
+              cd "$wt_dir"
+              python scripts/validate_questionnaire.py
+              python scripts/build_questionnaire_outputs.py
+              mkdir -p "$GITHUB_WORKSPACE/_site/${outdir}"
+              cp questionnaire/review.html "$GITHUB_WORKSPACE/_site/${outdir}/index.html"
+              cp questionnaire/codebook.csv "$GITHUB_WORKSPACE/_site/${outdir}/codebook.csv"
+            )
+            git worktree remove --force "$wt_dir"
+          }
 
-      - name: Prepare Pages artifact
-        run: |
-          mkdir -p _site/dev
-          cp main_src/questionnaire/review.html _site/index.html
-          cp main_src/questionnaire/codebook.csv _site/codebook.csv
-          cp dev_src/questionnaire/review.html _site/dev/index.html
-          cp dev_src/questionnaire/codebook.csv _site/dev/codebook.csv
+          mkdir -p _site
 
-      - name: Add dev banner
-        run: |
-          DEV_SHA="$(git -C dev_src rev-parse --short HEAD)"
-          echo "DEV_SHA=${DEV_SHA}" >> "$GITHUB_ENV"
+          # Main version is published at the Pages root.
+          build_ref "origin/main" "."
+
+          # Dev version comes from pushed branch when not main; otherwise from dev branch.
+          DEV_SOURCE="${GITHUB_REF_NAME}"
+          if [ "$DEV_SOURCE" = "main" ]; then
+            DEV_SOURCE="dev"
+          fi
+
+          if git show-ref --verify --quiet "refs/remotes/origin/${DEV_SOURCE}"; then
+            DEV_GIT_REF="origin/${DEV_SOURCE}"
+            DEV_REF="${DEV_SOURCE}"
+          else
+            DEV_GIT_REF="origin/main"
+            DEV_REF="main"
+          fi
+
+          build_ref "$DEV_GIT_REF" "dev"
+
+          DEV_SHA="$(git rev-parse --short "$DEV_GIT_REF")"
+          export DEV_REF DEV_SHA
           python - <<'PY'
           from pathlib import Path
           import html
@@ -106,9 +112,6 @@ jobs:
 
           path.write_text(content, encoding="utf-8")
           PY
-        env:
-          DEV_REF: ${{ env.DEV_REF }}
-          DEV_SHA: ${{ env.DEV_SHA }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

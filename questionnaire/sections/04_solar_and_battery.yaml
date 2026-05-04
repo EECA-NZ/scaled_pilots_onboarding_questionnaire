@@ -1,0 +1,183 @@
+section_id: SOLAR_BATTERY
+section_title: Solar PV and battery
+source: Scaled Demand Flexibility Pilots
+questions:
+  - id: SOLAR_43
+    section: Solar PV and battery
+    question_text: Which of the following energy technologies are installed at this property? Select all that apply.
+    response_type: multi_choice
+    options:
+      - code: SOLAR_PV
+        label: Solar PV
+      - code: SOLAR_HOT_WATER_THERMAL
+        label: Solar hot water (thermal)
+      - code: BATTERY_STORAGE
+        label: Battery storage
+      - code: EV_CHARGER_SMART
+        label: EV charger (controlled/smart)
+      - code: CONTROLLED_HOT_WATER_DIVERTER_LINKED_TO_PV
+        label: Controlled hot water diverter linked to PV
+      - code: OTHER_CONTROLLED_LOAD_LINKED_TO_PV
+        label: Other controlled load linked to PV
+      - code: NONE_OF_ABOVE
+        label: None of the above
+    allow_other: true
+    required: false
+    skip_logic:
+      human: If SOLAR_PV is selected, ask SOLAR_44 to SOLAR_46. If BATTERY_STORAGE is selected, ask SOLAR_47 to SOLAR_49. Ask SOLAR_50 when any installed technology is selected (excluding NONE_OF_ABOVE).
+      rules:
+        - if_option_code: SOLAR_PV
+          goto_question_id: SOLAR_44
+        - if_option_code: BATTERY_STORAGE
+          goto_question_id: SOLAR_47
+        - if_option_code: SOLAR_HOT_WATER_THERMAL
+          goto_question_id: SOLAR_50
+        - if_option_code: EV_CHARGER_SMART
+          goto_question_id: SOLAR_50
+        - if_option_code: CONTROLLED_HOT_WATER_DIVERTER_LINKED_TO_PV
+          goto_question_id: SOLAR_50
+        - if_option_code: OTHER_CONTROLLED_LOAD_LINKED_TO_PV
+          goto_question_id: SOLAR_50
+    notes: Treat NONE_OF_ABOVE as mutually exclusive in collection UI.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_44
+    section: Solar details
+    question_text: Inverter make/model.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when SOLAR_PV is selected in SOLAR_43.
+      rules: []
+    notes: Record manufacturer and model number where available.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_45
+    section: Solar details
+    question_text: System size and export limit (kW).
+    response_type: numeric
+    options:
+      - code: TOTAL_PANEL_CAPACITY_KW
+        label: Total panel capacity (kW)
+      - code: INVERTER_CAPACITY_KW
+        label: Inverter capacity (kW)
+      - code: EXPORT_LIMIT_KW
+        label: Export limit (kW)
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when SOLAR_PV is selected in SOLAR_43.
+      rules: []
+    notes: Capture inverter capacity, total panel capacity, and configured export limit in kW.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_46
+    section: Solar details
+    question_text: Year installed (date or year).
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when SOLAR_PV is selected in SOLAR_43.
+      rules: []
+    notes: Accept YYYY-MM-DD or YYYY where exact date is unavailable.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_47
+    section: Battery details
+    question_text: Battery make/model.
+    response_type: free_text
+    options: []
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when BATTERY_STORAGE is selected in SOLAR_43.
+      rules: []
+    notes: Record manufacturer and model number where available.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_48
+    section: Battery details
+    question_text: Battery operating mode. Please select one option.
+    response_type: single_choice
+    options:
+      - code: SELF_CONSUMPTION_ONLY
+        label: Self-consumption only
+      - code: TIME_OF_USE_ARBITRAGE
+        label: Time-of-use / arbitrage
+      - code: VIRTUAL_POWER_PLANT_VPP
+        label: Virtual power plant (VPP)
+      - code: GRID_BACKUP_ONLY
+        label: Grid backup only
+      - code: UNKNOWN
+        label: Unknown
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when BATTERY_STORAGE is selected in SOLAR_43.
+      rules: []
+    notes: Capture primary operational control mode used in normal operation.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_49
+    section: Battery details
+    question_text: Battery size.
+    response_type: numeric
+    options:
+      - code: USABLE_CAPACITY_KWH
+        label: Usable capacity (kWh)
+    allow_other: false
+    required: false
+    skip_logic:
+      human: Ask when BATTERY_STORAGE is selected in SOLAR_43.
+      rules: []
+    notes: Capture rated usable storage capacity rather than nominal total capacity where available.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
+
+  - id: SOLAR_50
+    section: Solar PV and battery
+    question_text: Which loads are controlled or automated as part of your energy system?
+    response_type: multi_choice
+    options:
+      - code: HOT_WATER
+        label: Hot water
+      - code: SPACE_HEATING_COOLING
+        label: Space heating/cooling
+      - code: EV_CHARGING
+        label: EV charging
+      - code: DISHWASHER
+        label: Dishwasher
+      - code: WASHING_MACHINE
+        label: Washing machine
+      - code: POOL_OR_SPA
+        label: Pool or spa
+      - code: OTHER
+        label: Other
+      - code: NONE
+        label: None of these
+    allow_other: true
+    required: false
+    skip_logic:
+      human: Ask when any installed technology is selected in SOLAR_43 (excluding NONE_OF_ABOVE).
+      rules: []
+    notes: Capture load-control scope across solar, battery and EV systems. Treat NONE as mutually exclusive in collection UI.
+    purpose: TODO - define analytic purpose.
+    source: Scaled Demand Flexibility Pilots
+    provenance_page: 9
